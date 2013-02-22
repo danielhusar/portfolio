@@ -2,27 +2,24 @@
 	/**
    * Global namespace
    *
-   * @namespace: APP
+   * @namespace: DH
    */
-  function AppNamespace() {
-		this.events = {};
-		this.settings = {};
-	}
-  window.APP = new AppNamespace();
+  function DanielHusar() {};
+  window.DH = new DanielHusar();
 	
 	_.mixin(_.str.exports());
 	
 	/**
-   * Defining named conditions to be used by APP.when, APP.whenSome and APP.whenAll
+   * Defining named conditions to be used by DH.when, DH.whenSome and DH.whenAll
    *
-   * @namespace APP
+   * @namespace DH
    */
-  APP.device = {
-    'desktop'  : function () { return APP.device.ie() || Modernizr.mq('only screen and (min-width: 1025px)'); },
-    'tablet'   : function () { return (! APP.device.desktop()) && Modernizr.mq('only screen and (min-width: 569px)'); },
-    'mobile'   : function () { return ! (APP.device.tablet() || APP.device.desktop()); },
+  DH.device = {
+    'desktop'  : function () { return DH.device.ie() || Modernizr.mq('only screen and (min-width: 1025px)'); },
+    'tablet'   : function () { return (! DH.device.desktop()) && Modernizr.mq('only screen and (min-width: 569px)'); },
+    'mobile'   : function () { return ! (DH.device.tablet() || DH.device.desktop()); },
     'ieMobile' : function () { return (/IEMobile/i).test(window.navigator.userAgent); },
-    'ie'       : function () { return !! ($.browser.msie && ! APP.device.ieMobile()); }
+    'ie'       : function () { return !! ($.browser.msie && ! DH.device.ieMobile()); }
   };
 	
 	/**
@@ -32,62 +29,46 @@
    * Sample Usage:
    *
    *   // Set up a namespace
-   *   namespace('APP');
+   *   namespace('DH');
    *
-   *   APP.isDevice('mobile', callback);                      // => V will run the callback  (just for the mobile)
-	 *   APP.isDevice('desktop', callback);                     // => V will run the callback  (just for the desktop)
-	 *   APP.isDevice('mobile,desktop', callback);              // => V will run the callback  (for the mobile and desktop)
+   *   DH.isDevice('mobile', callback);                      // => V will run the callback  (just for the mobile)
+	 *   DH.isDevice('desktop', callback);                     // => V will run the callback  (just for the desktop)
+	 *   DH.isDevice('mobile,desktop', callback);              // => V will run the callback  (for the mobile and desktop)
    *
    *
    * @param     {Anything}  conditions  If conditions is a string, named conditions would be used, otherwise, value would be casted to bool (described above)
    * @param     {Function}  callback    Callback to be triggered when conditions return true
-   * @return    {Object}                APP Object 
+   * @return    {Object}                DH Object 
    */
-  APP.isDevice = function (conditions, callback) {
+  DH.isDevice = function (conditions, callback) {
 		conditions = conditions.split(','); // create an array of device
 
 		var result     = _.some(conditions, function (condition) {
-			return !! (_.result(APP.device, condition) || false);
+			return !! (_.result(DH.device, condition) || false);
 		});
 
     if (result) {
       callback();
     }
 
-    return APP;
+    return DH;
   }
 	
-	
-	/**
-   * Executes some code only on given pages
-   *
-   * Sample Usage:
-   *
-   *   1. Given I am on 'home' page:
-   *
-   *     APP.isPage('home,contact', function (page) {
-   *       console.log('Code Executed Successfully on page "' + page + '"');
-   *     });
-   *     // => Code Executed Successfully on page "home" (Pages allowed: "home,vod")
-   *
-   * @param  {String}   pageName  Comma separated page names to execute callback on, if 'all' is provided, will always execute
-   * @param  {Function} callback  Callback to execute, takes one param (string) - page name
-   * @return {Object}             APP Object
+
+  /**
+   * Console log function, it logs only on production enviroment
+   * @return {void}
    */
-	APP.isPage = function (pageNames, callback) {
-    var pages;
-    var currentPage;
+	DH.log = function () {
+    var args;
+    var currentDateAndTime;
 
-    if (!_.isString(pageNames)) { pageNames = ''; }
-
-    pages       = pageNames.split(',');
-    currentPage = (window.location.pathname && window.location.pathname != '/') ? window.location.pathname : '/home';
-
-    if (_.contains(pages, currentPage)) {
-      callback();
+    if (DH.settings && DH.settings.environment && ! DH.settings.environment.isProduction) {
+      if (window.console && window.console.log && window.console.log.apply) {
+        args = Array.prototype.slice.call(arguments);
+        window.console.log.apply(window.console, args);
+      }
     }
-
-    return APP;
   };
 
 	
