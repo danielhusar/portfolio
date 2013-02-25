@@ -1011,6 +1011,54 @@ textarea {
 }
 body {
   background: transparent url('/img/wood.png') repeat;
+  overflow-x: hidden;
+}
+section {
+  margin: 20px;
+  position: relative;
+}
+section::before {
+  content: '';
+  border: 1px solid #fafafa;
+  background: #fafafa;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transform: rotate(1deg);
+  -webkit-transform: rotate(1deg);
+}
+section::after {
+  content: '';
+  border: 1px solid #fafafa;
+  background: #fafafa;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transform: rotate(-1deg);
+  -webkit-transform: rotate(-1deg);
+}
+section article {
+  z-index: 2;
+  border-bottom-right-radius: 170px 16px;
+  position: relative;
+  background: #fafafa;
+  border: 1px solid #fafafa;
+  padding: 20px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
 }
 header {
   background: black;
