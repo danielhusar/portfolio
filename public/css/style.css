@@ -1009,6 +1009,9 @@ textarea {
     page-break-after: avoid;
   }
 }
+body {
+  background: transparent url('/img/wood.png') repeat;
+}
 header {
   background: black;
 }
