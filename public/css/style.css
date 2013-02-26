@@ -1066,12 +1066,12 @@ section article h3 {
 nav ul {
   margin: 0;
   padding: 0;
-  position: fixed;
+  position: absolute;
   z-index: 3;
   font-family: 'Lobster', cursive;
   font-size: 1.4em;
   -webkit-backface-visibility: hidden;
-  -webkit-perspective: 0;
+  -webkit-perspective: 1000;
   -webkit-transform: translate3d(0, -290px, 0);
   -moz-transform: translate3d(0, -290px, 0);
   -ms-transform: translate3d(0, -290px, 0);
@@ -1085,7 +1085,7 @@ nav ul {
 }
 nav.active ul {
   -webkit-backface-visibility: hidden;
-  -webkit-perspective: 0;
+  -webkit-perspective: 1000;
   -webkit-transform: translate3d(0, -270px, 0);
   -moz-transform: translate3d(0, -270px, 0);
   -ms-transform: translate3d(0, -270px, 0);
