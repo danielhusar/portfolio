@@ -1,5 +1,6 @@
 (function (window, document, undefined) {
-
+  'use strict';
+  
 	/**
    * Global namespace
    *
@@ -7,22 +8,40 @@
    */
   _.mixin(_.str.exports());
 
-  window.DH = function() {
+  window.DanielHusar = function() {
     this.init();
   };
-  var self = DH.prototype;
+
+  //window.DH = new DanielHusar();
+
+  window.namespace = function(nested){
+
+    if(nested){
+      return DanielHusar.prototype[nested];
+    }else{
+      return DanielHusar.prototype;
+    }
+    
+  }
+
+
+
+  var DH = namespace();
+
+  DH.libraries = {};
+  DH.plugins = {};
 	
 	/**
    * Defining named conditions to be used by DH.when, DH.whenSome and DH.whenAll
    *
    * @namespace DH
    */
-  self.device = {
-    'desktop'  : function () { return self.device.ie() || Modernizr.mq('only screen and (min-width: 1025px)'); },
-    'tablet'   : function () { return (! self.device.desktop()) && Modernizr.mq('only screen and (min-width: 569px)'); },
-    'mobile'   : function () { return ! (self.device.tablet() || self.device.desktop()); },
+  DH.device = {
+    'desktop'  : function () { return DH.device.ie() || Modernizr.mq('only screen and (min-width: 1025px)'); },
+    'tablet'   : function () { return (! DH.device.desktop()) && Modernizr.mq('only screen and (min-width: 569px)'); },
+    'mobile'   : function () { return ! (DH.device.tablet() || DH.device.desktop()); },
     'ieMobile' : function () { return (/IEMobile/i).test(window.navigator.userAgent); },
-    'ie'       : function () { return !! ($.browser.msie && ! self.ieMobile()); }
+    'ie'       : function () { return !! ($.browser.msie && ! DH.ieMobile()); }
   };
 	
 	/**
@@ -43,11 +62,11 @@
    * @param     {Function}  callback    Callback to be triggered when conditions return true
    * @return    {Object}                this
    */
-  self.isDevice = function (conditions, callback) {
+  DH.isDevice = function (conditions, callback) {
 		conditions = conditions.split(','); // create an array of device
 
 		var result     = _.some(conditions, function (condition) {
-			return !! (_.result(self.device, condition) || false);
+			return !! (_.result(DH.device, condition) || false);
 		});
 
     if (result) {
@@ -62,11 +81,11 @@
    * Console log function, it logs only on production enviroment
    * @return {void}
    */
-	self.log = function () {
+	DH.log = function () {
     var args;
     var currentDateAndTime;
 
-    if (self.settings && self.settings.environment && ! self.settings.environment.isProduction) {
+    if (DH.settings && DH.settings.environment && ! DH.settings.environment.isProduction) {
       if (window.console && window.console.log && window.console.log.apply) {
         args = Array.prototype.slice.call(arguments);
         window.console.log.apply(window.console, args);

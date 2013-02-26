@@ -1,34 +1,35 @@
 (function (window, document, undefined) {
-
-	var self = DH.prototype;
+	'use strict';
+	
+	var DH = namespace();
 
   //all init triggers
-	self.init = function(device){
+	DH.init = function(device){
 		//all versions
-		self.settings.environment.device = self.events.getDevice();
+		DH.settings.environment.device = DH.events.getDevice();
 
 		//mobile init
-		self.isDevice('mobile', function () {
-		  self.log('mobile version');
-
+		DH.isDevice('mobile', function () {
+		  DH.log('mobile version');
+		  DH.libraries.nav.mobile();
 		});
 
 		//tablet init
-		self.isDevice('tablet', function () {
-		  self.log('tablet version');
+		DH.isDevice('tablet', function () {
+		  DH.log('tablet version');
 
 		});
 
 		//desktop init
-		self.isDevice('desktop', function () {
-		  self.log('desktop version');
+		DH.isDevice('desktop', function () {
+		  DH.log('desktop version');
 
 		});
 
   };
 
   //constructor
-  var efrafa = new DH();
+  var efrafa = new DanielHusar();
   window.efrafa = efrafa;
 
   

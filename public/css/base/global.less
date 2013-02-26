@@ -1,52 +1,53 @@
 body{
 	background: transparent url('/img/wood.png') repeat;
+	min-width: 320px;
 	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+	color: #333;
+	padding: 20px;
+	font-family: 'Droid Serif', 'Georgia';
+}
+body a{
+	color: #333;
+	text-decoration: none;
 }
 section{
-	margin: 20px;
+	margin-top: 40px;
 	position: relative;
 }	
-
-section::before{
-	content: '';
-	border: 1px solid #fafafa;
-	background: #fafafa;
-	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
-	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
-	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
-	z-index: 1;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 2px;
-	left: 2px;
-	transform: rotate(1deg);
-	-webkit-transform: rotate(1deg);
-}
+section::before,
 section::after{
 	content: '';
-	border: 1px solid #fafafa;
-	background: #fafafa;
-	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
-	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
-	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
 	z-index: 1;
 	width: 100%;
 	height: 100%;
 	position: absolute;
 	top: 2px;
 	left: 2px;
-	transform: rotate(-1deg);
-	-webkit-transform: rotate(-1deg);
+	border: 1px solid #fafafa;
+	background: #fafafa;
+	.box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset);
+	.rotation(1deg);
+}
+section::after{
+	.rotation(-1deg);    
 }
 section article{
 	z-index: 2;
-	border-bottom-right-radius: 170px 16px;
+	padding: 20px;
 	position: relative;
 	background: #fafafa;
 	border: 1px solid #fafafa;
-	padding: 20px;
-	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
-	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
-	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+	.border-radius(0, 170px 16px, 0, 0);
+	.box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset);
+	font-size: 1em;
+}
+section article h1{
+  font-size: 1.5em;
+}
+section article h2{
+  font-size: 1.3em;
+}
+section article h3{
+  font-size: 1.1em;
 }

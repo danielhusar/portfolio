@@ -1,8 +1,9 @@
  (function (window, document, undefined) {
+ 	'use strict';
+ 	
+  var DH = namespace();
 
-  var self =  DH.prototype;
-
-	self.events = {
+	DH.events = {
 
 		/**
 		 * Get the current device which iw viewing the page
@@ -10,13 +11,13 @@
 		 */
 		getDevice : function(){
 			var device = '';
-      self.isDevice('mobile', function () {
+      DH.isDevice('mobile', function () {
         device = 'mobile';
       });
-      self.isDevice('tablet', function () {
+      DH.isDevice('tablet', function () {
         device = 'tablet';
       });
-      self.isDevice('desktop', function () {
+      DH.isDevice('desktop', function () {
         device = 'desktop';
       });
       return device;
@@ -28,10 +29,10 @@
 		 * @return {void}
 		 */
 	 	windowResized : function() {
-	 		if (self.settings.environment.device !== self.events.getDevice()) {
-	 			self.log('device changed, rebinding all');
+	 		if (DH.settings.environment.device !== DH.events.getDevice()) {
+	 			DH.log('device changed, rebinding all');
 	 			$('*').unbind('.dh');  //unbind everything
-	 			self.init();
+	 			DH.init();
 	 		}
 	 	}
 
