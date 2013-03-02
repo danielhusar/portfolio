@@ -33,7 +33,7 @@ module.exports = function(app, express){
 		//less settings
 		config.less.force = true;
 		//packer settings
-		config.packer.reload = true;
+		//config.packer.reload = true;
 	});
 
 	//production enviroment

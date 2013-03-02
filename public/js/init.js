@@ -5,8 +5,10 @@
 
   //all init triggers
 	DH.init = function(device){
-		//all versions
 		DH.settings.environment.device = DH.events.getDevice();
+
+		//all versions
+		DH.libraries.nav.all();
 
 		//mobile init
 		DH.isDevice('mobile', function () {
@@ -17,7 +19,7 @@
 		//tablet init
 		DH.isDevice('tablet', function () {
 		  DH.log('tablet version');
-
+		  DH.libraries.nav.mobile();
 		});
 
 		//desktop init

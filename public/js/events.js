@@ -32,6 +32,7 @@
 	 		if (DH.settings.environment.device !== DH.events.getDevice()) {
 	 			DH.log('device changed, rebinding all');
 	 			$('*').unbind('.dh');  //unbind everything
+	 			$(document).unbind('.dh');  //unbind everything
 	 			DH.init();
 	 		}
 	 	}
