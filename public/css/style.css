@@ -1041,20 +1041,25 @@ body a {
   left: 0;
 }
 #main.my-works {
+  /*.transform(translate3d(-33.33%, 0, 0));*/
+
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
-  -webkit-transform: translate3d(-33.33%, 0, 0);
-  -moz-transform: translate3d(-33.33%, 0, 0);
-  -ms-transform: translate3d(-33.33%, 0, 0);
-  -o-transform: translate3d(-33.33%, 0, 0);
-  transform: translate3d(-33.33%, 0, 0);
-  /*.transform(translate(-33.33%, 0) rotateZ(90deg));*/
-
+  -webkit-transform: translate(-33.33%, 0) rotateZ(90deg);
+  -moz-transform: translate(-33.33%, 0) rotateZ(90deg);
+  -ms-transform: translate(-33.33%, 0) rotateZ(90deg);
+  -o-transform: translate(-33.33%, 0) rotateZ(90deg);
+  transform: translate(-33.33%, 0) rotateZ(90deg);
   -webkit-transform-style: preserve-3d;
 }
 section.my-works {
-  /*.transform(rotateZ(-90deg));*/
-
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: rotateZ(-90deg);
+  -moz-transform: rotateZ(-90deg);
+  -ms-transform: rotateZ(-90deg);
+  -o-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg);
 }
 .no-csstransforms3d #main.my-works {
   left: -100%;
