@@ -17,6 +17,7 @@
 			  		var navigateTo = ((e.keyCode === 37) ? config.seq[--key] : config.seq[++key]) || false;
 			  		if($('#main').hasClass(val) && navigateTo){
 			  			$("#main").removeClass(config.seq.join(' ')).addClass(navigateTo);
+			  			window.location.hash = "#" + navigateTo;
 			  			return false;
 			  		}
 			  	});
