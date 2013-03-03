@@ -91,7 +91,16 @@
         window.console.log.apply(window.console, args);
       }
     }
-  };
+  }
+
+  /**
+   * Return the prefixed version of the css statment
+   * @param  {string} method css method
+   * @return {string} prefixed method if exist, or the same method of preixed not avaiable
+   */
+  DH.prefix = function(method) {
+    //return (Modernizr.prefixed(method) ? (Modernizr.prefixed(method)).replace(/([A-Z])/g, function(str,m1){ return '-' + m1.toLowerCase(); }).replace(/^ms-/,'-ms-')) || method;
+  }
 
 	
 	/*

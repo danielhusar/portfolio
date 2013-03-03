@@ -1002,6 +1002,8 @@ body {
   font-family: 'Droid Serif', 'Georgia';
   width: 100%;
   height: 100%;
+  /*-webkit-overflow-scrolling: touch;*/
+
 }
 body a {
   color: #333;
@@ -1027,6 +1029,7 @@ body a {
   transition: transform 700ms ease;
   padding-bottom: 20px;
   position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 #main.about-me {
   -webkit-backface-visibility: hidden;
@@ -1077,13 +1080,17 @@ section.my-works {
   left: -200%;
 }
 section {
-  position: relative;
   width: 30.33%;
   margin: 40px 1.5% 0 1.5%;
   float: left;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
 }
-section::before,
-section::after {
+section article {
+  position: relative;
+}
+section article::before,
+section article::after {
   content: '';
   z-index: 1;
   width: 100%;
@@ -1102,14 +1109,14 @@ section::after {
   -o-transform: rotate(1deg);
   transform: rotate(1deg);
 }
-section::after {
+section article::after {
   -webkit-transform: rotate(-1deg);
   -moz-transform: rotate(-1deg);
   -ms-transform: rotate(-1deg);
   -o-transform: rotate(-1deg);
   transform: rotate(-1deg);
 }
-section article {
+section article > div {
   z-index: 2;
   padding: 20px;
   position: relative;
@@ -1150,11 +1157,11 @@ nav ul {
   font-size: 1.4em;
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
-  -webkit-transform: translate3d(10px, -230px, 0);
-  -moz-transform: translate3d(10px, -230px, 0);
-  -ms-transform: translate3d(10px, -230px, 0);
-  -o-transform: translate3d(10px, -230px, 0);
-  transform: translate3d(10px, -230px, 0);
+  -webkit-transform: translate3d(10px, -270px, 0);
+  -moz-transform: translate3d(10px, -270px, 0);
+  -ms-transform: translate3d(10px, -270px, 0);
+  -o-transform: translate3d(10px, -270px, 0);
+  transform: translate3d(10px, -270px, 0);
   -webkit-transition: -webkit-transform 500ms ease;
   -moz-transition: -moz-transform 500ms ease;
   -ms-transition: -o-transform 500ms ease;
@@ -1164,11 +1171,11 @@ nav ul {
 nav.active ul {
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
-  -webkit-transform: translate3d(15px, -200px, 0);
-  -moz-transform: translate3d(15px, -200px, 0);
-  -ms-transform: translate3d(15px, -200px, 0);
-  -o-transform: translate3d(15px, -200px, 0);
-  transform: translate3d(15px, -200px, 0);
+  -webkit-transform: translate3d(15px, -250px, 0);
+  -moz-transform: translate3d(15px, -250px, 0);
+  -ms-transform: translate3d(15px, -250px, 0);
+  -o-transform: translate3d(15px, -250px, 0);
+  transform: translate3d(15px, -250px, 0);
 }
 .no-csstransforms3d nav ul {
   top: -230px;
@@ -1189,12 +1196,7 @@ nav ul li {
   transition: all margin 500ms ease ease-out 0s;
 }
 nav ul li.about-me {
-  -webkit-transform: rotate(1deg);
-  -moz-transform: rotate(1deg);
-  -ms-transform: rotate(1deg);
-  -o-transform: rotate(1deg);
-  transform: rotate(1deg);
-  z-index: 5;
+  display: none;
 }
 nav ul li.my-works {
   -webkit-transform: rotate(3deg);
@@ -1206,7 +1208,7 @@ nav ul li.my-works {
   margin: 7px 0 0 14px;
 }
 nav.active ul li.my-works {
-  margin-top: 45px;
+  margin-top: 5px;
 }
 nav ul li.photos {
   -webkit-transform: rotate(-2deg);
@@ -1218,7 +1220,7 @@ nav ul li.photos {
   margin: 10px 0 0 24px;
 }
 nav.active ul li.photos {
-  margin-top: 90px;
+  margin-top: 50px;
 }
 nav ul li a {
   display: inline-block;
