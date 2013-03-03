@@ -9,6 +9,7 @@
 
 		//all versions
 		DH.libraries.nav.all();
+		DH.events.calculateDimensions();
 
 		//mobile init
 		DH.isDevice('mobile', function () {
