@@ -1000,8 +1000,6 @@ body {
   -webkit-font-smoothing: antialiased;
   color: #333;
   font-family: 'Droid Serif', 'Georgia';
-  width: 100%;
-  height: 100%;
   background: transparent url('/img/wood.png') repeat;
   /*-webkit-overflow-scrolling: touch;*/
 
@@ -1011,7 +1009,6 @@ body a {
   text-decoration: none;
 }
 #main {
-  width: 300%;
   min-height: 100%;
   overflow: hidden;
   background: transparent url('/img/wood.png') repeat;
@@ -1022,44 +1019,22 @@ body a {
   -ms-transform: translate3d(0, 0, 0);
   -o-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  -webkit-transition: -webkit-transform 700ms ease;
-  -moz-transition: -moz-transform 700ms ease;
-  -ms-transition: -o-transform 700ms ease;
-  -o-transition: -ms-transform 700ms ease;
-  transition: transform 700ms ease;
+  -webkit-transition: -webkit-transform 1200ms ease;
+  -moz-transition: -moz-transform 1200ms ease;
+  -ms-transition: -o-transform 1200ms ease;
+  -o-transition: -ms-transform 1200ms ease;
+  transition: transform 1200ms ease;
   padding-bottom: 20px;
   position: relative;
   -webkit-overflow-scrolling: touch;
-  padding-top: 1500px;
-  margin-top: -1500px;
-}
-#main.about-me {
-  -webkit-backface-visibility: hidden;
-  -webkit-perspective: 1000;
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-#main.my-works {
-  -webkit-backface-visibility: hidden;
-  -webkit-perspective: 1000;
-  -webkit-transform: translate3d(-2000px, 500px, 0) rotateZ(90deg);
-  -moz-transform: translate3d(-2000px, 500px, 0) rotateZ(90deg);
-  -ms-transform: translate3d(-2000px, 500px, 0) rotateZ(90deg);
-  -o-transform: translate3d(-2000px, 500px, 0) rotateZ(90deg);
-  transform: translate3d(-2000px, 500px, 0) rotateZ(90deg);
-  -webkit-transform-style: preserve-3d;
-}
-#main.photos {
-  -webkit-backface-visibility: hidden;
-  -webkit-perspective: 1000;
-  -webkit-transform: translate3d(-2000px, 0, 0) scale(0.5);
-  -moz-transform: translate3d(-2000px, 0, 0) scale(0.5);
-  -ms-transform: translate3d(-2000px, 0, 0) scale(0.5);
-  -o-transform: translate3d(-2000px, 0, 0) scale(0.5);
-  transform: translate3d(-2000px, 0, 0) scale(0.5);
+  -webkit-transform-origin: 0 0%;
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+  padding: 5000px 100px 0 50px;
+  margin: -5000px 0 0 -50px;
 }
 .no-csstransforms3d #main.about-me {
   left: 0;
@@ -1072,21 +1047,16 @@ body a {
 }
 section {
   position: absolute;
-}
-section.about-me {
-  -webkit-transform: translate3d(0, 0, 0);
-}
-section.my-works {
-  -webkit-backface-visibility: hidden;
-  -webkit-perspective: 1000;
-  -webkit-transform: translate(0, 0) translate3d(680px, 320px, 0) rotateZ(-90deg);
-  -moz-transform: translate(0, 0) translate3d(680px, 320px, 0) rotateZ(-90deg);
-  -ms-transform: translate(0, 0) translate3d(680px, 320px, 0) rotateZ(-90deg);
-  -o-transform: translate(0, 0) translate3d(680px, 320px, 0) rotateZ(-90deg);
-  transform: translate(0, 0) translate3d(680px, 320px, 0) rotateZ(-90deg);
-}
-section.photos {
-  -webkit-transform: translate3d(2075px, -670px, 0) scale(1.5);
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 section article {
   position: relative;

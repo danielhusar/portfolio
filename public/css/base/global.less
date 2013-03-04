@@ -11,8 +11,6 @@ body{
 	-webkit-font-smoothing: antialiased;
 	color: #333;
 	font-family: 'Droid Serif', 'Georgia';
-	width: 100%;
-	height: 100%;
 	background: transparent url('/img/wood.png') repeat;
 	/*-webkit-overflow-scrolling: touch;*/
 }
@@ -21,27 +19,18 @@ body a{
 	text-decoration: none;
 }
 #main{
-	width: 300%;
 	min-height: 100%;
 	overflow: hidden;
 	background: transparent url('/img/wood.png') repeat;
 	.transform(translate3d(0, 0, 0));
-	.transformTransition(700ms ease);
+	.transformTransition(1200ms ease);
 	padding-bottom: 20px;
 	position: relative;
 	-webkit-overflow-scrolling: touch;
-	padding-top: 1500px;
-	margin-top: -1500px;
-}
-#main.about-me{
-	.transform(translate3d(0, 0, 0));
-}
-#main.my-works{
-	.transform(translate3d(-2000px, 500px, 0) rotateZ(90deg));
-	-webkit-transform-style: preserve-3d;
-}
-#main.photos{
-	.transform(translate3d(-2000px, 0, 0) scale(0.5));
+	-webkit-transform-origin: 0 0%;
+	.transformOrigin(0% 0%);
+	padding: 5000px 100px 0 50px;
+	margin: -5000px 0 0 -50px;
 }
 
 .no-csstransforms3d #main.about-me{
@@ -57,15 +46,8 @@ body a{
 
 section{
 	position: absolute;
-}
-section.about-me{
-	-webkit-transform: translate3d(0, 0, 0);
-}
-section.my-works{
-	.transform(translate(0, 0) translate3d(680px, 320px, 0) rotateZ(-90deg));
-}
-section.photos{
-	-webkit-transform: translate3d(2075px, -670px, 0) scale(1.5);
+	.transformOrigin(0% 0%);   
+	.transformStyle(preserve-3d);    
 }
 section article{
 	position: relative;

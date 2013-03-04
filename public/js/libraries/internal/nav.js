@@ -19,6 +19,7 @@
 			  			$("#main").removeClass(config.seq.join(' ')).addClass(navigateTo);
 			  			$('nav').removeClass('active');
 			  			window.location.hash = "#" + navigateTo;
+			  			DH.events.calculateDimensions();
 			  			return false;
 			  		}
 			  	});
@@ -37,6 +38,7 @@
 				if($(this).closest('nav').hasClass('active')){
 					$("#main").removeClass(config.seq.join(' ')).addClass( $(this).attr('href').split("#")[1] );
 					$(this).closest('nav').removeClass('active');
+					DH.events.calculateDimensions();
 				}
 			});
 
