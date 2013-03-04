@@ -50,21 +50,23 @@
 	 				max = (($('body').height() > $('body').width()) ? $('body').height() : $('body').width()),
 	 				height = (($('#main section.about-me').height() > max) ? $('#main section.about-me').height() : max) + paddingTop;
 	 			 
-	 		$('#main').css({
+	 		/*$('#main').css({
 	 			'width'  : (width + 20) * 3 + heightOffset,
 	 			'height' : height
-	 		});
-	 		$('#main section').css('width', width );
+	 		});*/
+	 		//$('#main section').css('width', width );
 
 	 		/** 3d translations **/
 	 		$('#main.about-me').css(DH.prefix('transform'), 'translate(0, 0) translate3d(0, 0, 0)  rotateZ(0deg)');
-	 		$('#main section.about-me').css(DH.prefix('transform'), 'translate(0, 0) translate3d(0, 0, 0)  rotateZ(0deg)');
+	 		//$('#main section.about-me').css(DH.prefix('transform'), 'translate(0, 0) translate3d(0, 0, 0)  rotateZ(0deg)');
 
-	 		$('#main.my-works').css(DH.prefix('transform'), 'translate(0, 0) translate3d('+ (width + paddingTop) + 'px, '+ -(width - paddingTop + paddingLeft) +'px, 0) rotateZ(90deg)');
-	 		$('#main section.my-works').css(DH.prefix('transform'), 'translate(0, 0) translate3d('+ (width) +'px, '+ (width - paddingLeft) +'px, 0) rotateZ(-90deg)');
+	 		//$('#main.my-works').css(DH.prefix('transform'), 'translate(0, 0) translate3d('+ (width + paddingTop) + 'px, '+ -(width - paddingTop + paddingLeft) +'px, 0) rotateZ(90deg)');
+	 		$('#main.my-works').css(DH.prefix('transform'), 'translate(0, 0) translate3d(-33.33%, 0, 0)');
+	 		//$('#main section.my-works').css(DH.prefix('transform'), 'translate(0, 0) translate3d('+ (width) +'px, '+ (width - paddingLeft) +'px, 0) rotateZ(-90deg)');
 
-	 		$('#main.photos').css(DH.prefix('transform'), 'translate(0, 0) translate3d('+ -((width * 2) + heightOffset) +'px, 0, 0)');
-	 		$('#main section.photos').css(DH.prefix('transform'), 'translate(0, 0) translate3d('+ ((width * 2) + heightOffset) +'px, 0px, 0)');
+	 		//$('#main.photos').css(DH.prefix('transform'), 'translate(0, 0) translate3d('+ -((width * 2) + heightOffset) +'px, 0, 0)');
+	 		$('#main.photos').css(DH.prefix('transform'), 'translate(0, 0) translate3d(-66.66%, 0, 0)');
+	 		//$('#main section.photos').css(DH.prefix('transform'), 'translate(0, 0) translate3d('+ ((width * 2) + heightOffset) +'px, 0px, 0)');
 
 	 	}
 
