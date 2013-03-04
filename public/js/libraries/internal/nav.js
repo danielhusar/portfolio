@@ -3,27 +3,30 @@
 	
 	var DH  = namespace();
 
-	var config = {
-		seq : ['about-me', 'my-works', 'photos']
-	}
-
   //all init triggers
 	namespace('libraries').nav = {
 
 		all : function(){
+			var nav = DH.settings.environment.nav;
 			$(document).on('keydown.dh', function(e){
 			  if (e.keyCode === 37 || e.keyCode === 39) { 
-			  	$.each(config.seq, function(key, val){
-			  		var navigateTo = ((e.keyCode === 37) ? config.seq[--key] : config.seq[++key]) || false;
+			  	$.each(nav, function(key, val){
+			  		var navigateTo = ((e.keyCode === 37) ? nav[--key] : nav[++key]) || false;
 			  		if($('#main').hasClass(val) && navigateTo){
-			  			$("#main").removeClass(config.seq.join(' ')).addClass(navigateTo);
-			  			$('nav').removeClass('active');
-			  			window.location.hash = "#" + navigateTo;
-			  			DH.events.calculateDimensions();
+			  			DH.hash(navigateTo);
 			  			return false;
 			  		}
 			  	});
 			  }
+			});
+
+			$.addHashCallback(function(hash){
+				var nav = DH.settings.environment.nav;
+				if(_.contains(nav, hash)){
+					$("#main").removeClass(nav.join(' ')).addClass(hash);
+					$('nav').removeClass('active');
+					DH.events.calculateDimensions();
+				}
 			});
 		},
 
@@ -34,13 +37,13 @@
 				event.preventDefault();
 			});
 
+			
 			$('nav a').on('click.dh', function(event){
 				if($(this).closest('nav').hasClass('active')){
-					$("#main").removeClass(config.seq.join(' ')).addClass( $(this).attr('href').split("#")[1] );
-					$(this).closest('nav').removeClass('active');
-					DH.events.calculateDimensions();
+					DH.hash($(this).attr('href'));
 				}
 			});
+			
 
 		}
 

@@ -52,6 +52,11 @@
 		//add callbacks to the main arrays
 		addHashCallback: function(callback) {
 			callbacksArray.push(callback);
+		},
+
+		//add callbacks to the main arrays
+		removeHashCallbacks: function() {
+			callbacksArray = [];
 		}
 
 	});

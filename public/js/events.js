@@ -32,9 +32,10 @@
 	 		DH.events.calculateDimensions();
 	 		if (DH.settings.environment.device !== DH.events.getDevice()) {
 	 			DH.log('device changed, rebinding all');
-	 			$('*').unbind('.dh');  //unbind everything
+	 			$('*').unbind('.dh');  			//unbind everything
 	 			$(document).unbind('.dh');  //unbind everything
-	 			DH.init();
+	 			$.removeHashCallbacks();    //remove all callbacks
+	 			DH.init();									//init all again
 	 		}
 	 	},
 

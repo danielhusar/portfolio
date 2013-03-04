@@ -8,7 +8,7 @@
    */
   _.mixin(_.str.exports());
 
-  window.DanielHusar = function() {
+  window.DanielHusar = function(elem) {
     this.init();
   };
 
@@ -101,6 +101,16 @@
   DH.prefix = function(method) {
     method = Modernizr.prefixed(method) ? Modernizr.prefixed(method) : method;
     return method.replace(/([A-Z])/g, function(str,m1){ return '-' + m1.toLowerCase(); }).replace(/^ms-/,'-ms-');
+  };
+
+  /**
+   * Store hash inside window object
+   * @param  {string} hash to store
+   * @return {string} hash
+   */
+  DH.hash = function(hash) {
+    hash = _.contains(hash, "#") ? hash : "#" + hash;
+    return (window.location.hash = hash); 
   };
 
 

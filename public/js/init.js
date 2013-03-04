@@ -26,15 +26,15 @@
 		//desktop init
 		DH.isDevice('desktop', function () {
 		  DH.log('desktop version');
-
 		});
 
   };
 
   //constructor
-  var efrafa = new DanielHusar();
-  window.efrafa = efrafa;
+  var efrafa = window.efrafa = new DanielHusar();
 
+  //execute all hasChanges
+	$.hashChange();
   
   //document ready main call
   $(function () {
