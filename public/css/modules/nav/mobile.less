@@ -1,0 +1,78 @@
+nav ul{
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	z-index: 3;
+	font-family: 'Lobster', cursive;
+	font-size: 1.4em;
+	.transform(translate3d(10px, -230px, 0));
+	.transformTransition(500ms ease);
+}
+nav.active ul{
+	.transform(translate3d(15px, -200px, 0));
+}
+.no-csstransforms3d nav ul{
+	top: -230px;
+}
+.no-csstransforms3d nav.active ul{
+	top: -210px;
+}
+nav ul li{
+	position: absolute;
+	.transition(margin 500ms ease);
+}
+nav ul li.about-me{
+	.rotation(1deg);
+	z-index: 4;
+	margin: 7px 0 0 14px;
+	z-index: 3;
+}
+nav ul li.my-works{
+	.rotation(3deg);
+	z-index: 4;
+	margin: 7px 0 0 14px;
+	z-index: 2;
+}
+nav ul li.photos{
+	.rotation(-2deg);
+	z-index: 3;
+	margin: 10px 0 0 24px;
+	z-index: 1;
+}
+nav.active ul li.about-me{
+	margin-top: 1px;
+}
+nav.active ul li.my-works{
+	margin-top: 5px;
+}
+nav.active ul li.photos{
+	margin-top: 50px;
+}
+section.photos nav.active ul li.about-me{
+	margin-top: 5px;
+}
+section.photos nav.active ul li.my-works{
+	margin-top: 50px;
+}
+nav ul li a{
+	display: inline-block;
+	padding: 20px 20px 10px 20px;
+	background: #fafafa;
+	.box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset);
+	text-align: center;
+}
+nav ul li a img{
+	display: block;
+	margin-bottom: 10px;
+	width: 180px;
+	height: 180px;
+}
+section.about-me nav ul li.about-me{
+	display: none;
+}
+section.my-works nav ul li.my-works{
+	display: none;
+}
+section.photos nav ul li.photos{
+	display: none;
+}

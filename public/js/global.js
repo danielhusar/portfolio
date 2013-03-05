@@ -37,11 +37,9 @@
    * @namespace DH
    */
   DH.device = {
-    'desktop'  : function () { return DH.device.ie() || Modernizr.mq('only screen and (min-width: 1025px)'); },
+    'desktop'  : function () { return !Modernizr.mq('only all') || Modernizr.mq('only screen and (min-width: 1025px)'); },
     'tablet'   : function () { return (! DH.device.desktop()) && Modernizr.mq('only screen and (min-width: 569px)'); },
-    'mobile'   : function () { return ! (DH.device.tablet() || DH.device.desktop()); },
-    'ieMobile' : function () { return (/IEMobile/i).test(window.navigator.userAgent); },
-    'ie'       : function () { return !! ($.browser.msie && ! DH.ieMobile()); }
+    'mobile'   : function () { return ! (DH.device.tablet() || DH.device.desktop()); }
   };
 	
 	/**

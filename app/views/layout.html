@@ -8,7 +8,18 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width">
+	<meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1">
+  <meta name="robots" content="index, follow">
+
+  <!-- facebook meta tags -->
+  <meta property="og:title" content="Daniel Husar portfolio"/>
+  <meta property="og:image" content=""/>
+  <meta property="og:url" content="http://www.danielhusar.com" />
+  <meta property="og:site_name" content="Daniel Husar" />
+
+  <link rel="canonical" href="http://www.danielhusar.com">
+
 	<title>{% block title %}Daniel Husar{% endblock %}</title>
 	<link href='http://fonts.googleapis.com/css?family=Lobster|Droid+Serif' rel='stylesheet' type='text/css'>
 
@@ -30,9 +41,16 @@
 		{% block content %}{% endblock %}
 	</div>
 
-	
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="/js/libraries/external/jquery.1.8.3.min.js"><\/script>')</script>
+
+
+	<!--[if lt IE 9]>
+    <script src="//code.jquery.com/jquery-1.9.0.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/js/libraries/external/jquery.1.9.0.min.js"><\/script>')</script>
+	<![endif]-->
+	<!--[if gte IE 9]><!-->
+	  <script src="//code.jquery.com/jquery-2.0.0b1.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/js/libraries/external/jquery.2.0.0b1.min.js"><\/script>')</script>
+	<!--[endif]-->
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/1.0.0/lodash.min.js"></script>
 	<script>window._ || document.write('<script src="/js/libraries/external/lodash.1.0.0.min.js"><\/script>')</script>

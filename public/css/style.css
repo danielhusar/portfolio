@@ -1022,7 +1022,33 @@ body a {
   padding-bottom: 20px;
   position: relative;
   -webkit-overflow-scrolling: touch;
-  overflow: hidden;
+}
+#main.about-me {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate(0, 0) translate3d(0, 0, 0);
+  -moz-transform: translate(0, 0) translate3d(0, 0, 0);
+  -ms-transform: translate(0, 0) translate3d(0, 0, 0);
+  -o-transform: translate(0, 0) translate3d(0, 0, 0);
+  transform: translate(0, 0) translate3d(0, 0, 0);
+}
+#main.my-works {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate(0, 0) translate3d(-33.33%, 0, 0);
+  -moz-transform: translate(0, 0) translate3d(-33.33%, 0, 0);
+  -ms-transform: translate(0, 0) translate3d(-33.33%, 0, 0);
+  -o-transform: translate(0, 0) translate3d(-33.33%, 0, 0);
+  transform: translate(0, 0) translate3d(-33.33%, 0, 0);
+}
+#main.photos {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate(0, 0) translate3d(-66.66%, 0, 0);
+  -moz-transform: translate(0, 0) translate3d(-66.66%, 0, 0);
+  -ms-transform: translate(0, 0) translate3d(-66.66%, 0, 0);
+  -o-transform: translate(0, 0) translate3d(-66.66%, 0, 0);
+  transform: translate(0, 0) translate3d(-66.66%, 0, 0);
 }
 .no-csstransforms3d #main.about-me {
   left: 0;
@@ -1036,16 +1062,6 @@ body a {
 section {
   position: relative;
   float: left;
-  -webkit-transform-origin: 0% 0%;
-  -moz-transform-origin: 0% 0%;
-  -ms-transform-origin: 0% 0%;
-  -o-transform-origin: 0% 0%;
-  transform-origin: 0% 0%;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
   width: 33.33%;
 }
 section article {
@@ -1159,7 +1175,14 @@ nav ul li {
   transition: all margin 500ms ease ease-out 0s;
 }
 nav ul li.about-me {
-  display: none;
+  -webkit-transform: rotate(1deg);
+  -moz-transform: rotate(1deg);
+  -ms-transform: rotate(1deg);
+  -o-transform: rotate(1deg);
+  transform: rotate(1deg);
+  z-index: 4;
+  margin: 7px 0 0 14px;
+  z-index: 3;
 }
 nav ul li.my-works {
   -webkit-transform: rotate(3deg);
@@ -1169,9 +1192,7 @@ nav ul li.my-works {
   transform: rotate(3deg);
   z-index: 4;
   margin: 7px 0 0 14px;
-}
-nav.active ul li.my-works {
-  margin-top: 5px;
+  z-index: 2;
 }
 nav ul li.photos {
   -webkit-transform: rotate(-2deg);
@@ -1181,8 +1202,21 @@ nav ul li.photos {
   transform: rotate(-2deg);
   z-index: 3;
   margin: 10px 0 0 24px;
+  z-index: 1;
+}
+nav.active ul li.about-me {
+  margin-top: 1px;
+}
+nav.active ul li.my-works {
+  margin-top: 5px;
 }
 nav.active ul li.photos {
+  margin-top: 50px;
+}
+section.photos nav.active ul li.about-me {
+  margin-top: 5px;
+}
+section.photos nav.active ul li.my-works {
   margin-top: 50px;
 }
 nav ul li a {
@@ -1200,13 +1234,18 @@ nav ul li a img {
   width: 180px;
   height: 180px;
 }
+section.about-me nav ul li.about-me {
+  display: none;
+}
+section.my-works nav ul li.my-works {
+  display: none;
+}
+section.photos nav ul li.photos {
+  display: none;
+}
 @media only screen and (min-width: 569px) {
-  header {
-    background: blue;
-  }
+  
 }
 @media only screen and (min-width: 1025px) {
-  header {
-    background: green;
-  }
+  
 }
