@@ -1,14 +1,14 @@
-(function (window, document, undefined) {
-  'use strict';
+(function (window, document, $, _, undefined) {
+	'use strict';
 
-  var DH = namespace();
+	var DH = window.namespace();
 
-  DH.settings = {
-    environment : {
-      isProduction : false,
-      device 			 : 'mobile', 	// device, can be: desktop, tablet, mobile. The version is set up on init, but mobile is default.
-      nav    			 : ['about-me', 'my-works', 'photos']
-    }
-  };
+	DH.settings = {
+		environment : {
+			isProduction	: false,
+			devices				: 'mobile',	//device, can be: desktop, tablet, mobile. The version is set up on init, but mobile is default.
+			nav						: ['about-me', 'my-works', 'photos']
+		}
+	};
 
-})(this, this.document);
+})(this, this.document, this.jQuery, this._);

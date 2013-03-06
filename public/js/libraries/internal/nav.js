@@ -1,23 +1,23 @@
-(function (window, document, undefined) {
+(function (window, document, $, _, undefined) {
 	'use strict';
 	
-	var DH  = namespace();
+	var DH  = window.namespace();
 
-  //all init triggers
-	namespace('libraries').nav = {
+	//all init triggers
+	window.namespace('libraries').nav = {
 
 		all : function(){
 			var nav = DH.settings.environment.nav;
 			$(document).on('keydown.dh', function(e){
-			  if (e.keyCode === 37 || e.keyCode === 39) { 
-			  	$.each(nav, function(key, val){
-			  		var navigateTo = ((e.keyCode === 37) ? nav[--key] : nav[++key]) || false;
-			  		if($('#main').hasClass(val) && navigateTo){
-			  			DH.hash(navigateTo);
-			  			return false;
-			  		}
-			  	});
-			  }
+				if (e.keyCode === 37 || e.keyCode === 39) { 
+					$.each(nav, function(key, val){
+						var navigateTo = ((e.keyCode === 37) ? nav[--key] : nav[++key]) || false;
+						if($('#main').hasClass(val) && navigateTo){
+							DH.hash(navigateTo);
+							return false;
+						}
+					});
+				}
 			});
 
 			$.addHashCallback(function(hash){
@@ -47,6 +47,6 @@
 
 		}
 
-	}
+	};
 
-})(this, this.document);
+})(this, this.document, this.jQuery, this._);

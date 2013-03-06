@@ -4,8 +4,8 @@ module.exports = function(app, express){
   	  swig    	 = require('swig'),
 			helpers 	 = require('../app/helpers/helpers'),
 			path 			 = require('path'),
-			packer 		 = require('js-combiner')
 			config     = {};
+
 			
   config.swig = {
 		"root" 		 	: process.cwd() + "/app/views",
@@ -16,10 +16,13 @@ module.exports = function(app, express){
 		"src"				: process.cwd() + "/public"
 	};
 
-	config.packer = {
-		'files' : ['/app.js'],
-		'packedFolder' : ''
-	};
+
+
+
+
+
+
+
 
 
 	//development enviroment
@@ -32,8 +35,6 @@ module.exports = function(app, express){
 		config.swig.allowErrors = true;
 		//less settings
 		config.less.force = true;
-		//packer settings
-		//config.packer.reload = true;
 	});
 
 	//production enviroment
@@ -47,12 +48,7 @@ module.exports = function(app, express){
 		//less settings
 		config.less.compress = true;
 		config.less.optimization = 2;
-		//packer settings
-		config.packer.minify = true;
 	});
-
-	//pack files
-	packer(config.packer);
 
 	//settings
 	app.set('port', process.env.PORT || 3000);

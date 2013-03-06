@@ -1,9 +1,9 @@
-(function (window, document, undefined) {
+(function (window, document, $, _, undefined) {
 	'use strict';
 	
-	var DH = namespace();
+	var DH = window.namespace();
 
-  //all init triggers
+	//all init triggers
 	DH.init = function(device){
 		DH.settings.environment.device = DH.events.getDevice();
 
@@ -13,32 +13,32 @@
 
 		//mobile init
 		DH.isDevice('mobile', function () {
-		  DH.log('mobile version');
-		  DH.libraries.nav.mobile();
+			DH.log('mobile version');
+			DH.libraries.nav.mobile();
 		});
 
 		//tablet init
 		DH.isDevice('tablet', function () {
-		  DH.log('tablet version');
-		  DH.libraries.nav.mobile();
+			DH.log('tablet version');
+			DH.libraries.nav.mobile();
 		});
 
 		//desktop init
 		DH.isDevice('desktop', function () {
-		  DH.log('desktop version');
+			DH.log('desktop version');
 		});
 
-  };
+	};
 
-  //constructor
-  var efrafa = window.efrafa = new DanielHusar();
+	//constructor
+	var efrafa = window.efrafa = new window.DanielHusar();
 
-  //execute all hasChanges
+	//execute all hasChanges
 	$.hashChange();
-  
-  //document ready main call
-  $(function () {
-    $(window).bind('resize', _.debounce(efrafa.events.windowResized, 300));
-  });
+	
+	//document ready main call
+	$(function () {
+		$(window).bind('resize', _.debounce(efrafa.events.windowResized, 300));
+	});
 
-})(this, this.document);
+})(this, this.document, this.jQuery, this._);
