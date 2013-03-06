@@ -992,6 +992,12 @@ textarea {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
 html,
 body {
   /*min-width: 320px;*/
@@ -1247,5 +1253,15 @@ section.photos nav ul li.photos {
   
 }
 @media only screen and (min-width: 1025px) {
-  
+  section article {
+    width: 1000px;
+    margin: 40px auto;
+  }
+  img.big {
+    width: 70%;
+  }
+  img.small {
+    width: 29%;
+    margin-bottom: 10px;
+  }
 }
