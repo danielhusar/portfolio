@@ -34,7 +34,6 @@
 				DH.log('device changed, rebinding all');
 				$('*').unbind('.dh');				//unbind everything
 				$(document).unbind('.dh');	//unbind everything
-				$.removeHashCallbacks();		//remove all callbacks
 				DH.init();									//init all again
 			}
 		},
@@ -44,14 +43,7 @@
 		 * @return {void}
 		 */
 		calculateDimensions : function(){
-			/*
-			var width = document.body.clientWidth || $('body').width(),
-					paddingTop = Number($('#main').css('padding-top').replace('px', '')),
-					paddingLeft = Number($('#main').css('padding-left').replace('px', '')),
-					heightOffset = $('section.my-works').height(),
-					max = (($('body').height() > $('body').width()) ? $('body').height() : $('body').width()),
-					height = (($('#main section.about-me').height() > max) ? $('#main section.about-me').height() : max) + paddingTop;
-				 */
+			DH.settings.pageWidth = $('body').outerWidth();
 		}
 
 	};

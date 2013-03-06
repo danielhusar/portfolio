@@ -102,13 +102,17 @@
 	};
 
 	/**
-	 * Store hash inside window object
+	 * Store or return hash inside window object
 	 * @param  {string} hash to store
 	 * @return {string} hash
 	 */
 	DH.hash = function(hash) {
-		window.location.hash = _.contains(hash, "#") ? hash : "#" + hash;
-		return window.location.hash; 
+		if(hash){
+			window.location.hash = _.contains(hash, "#") ? hash : "#" + hash;
+			return hash; 
+		} else {
+			return window.location.hash.replace('#', '') || false;
+		}
 	};
 
 

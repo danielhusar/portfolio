@@ -1017,8 +1017,11 @@ body a {
   text-decoration: none;
 }
 #main {
-  height: 100%;
+  min-height: 100%;
   width: 300%;
+  min-width: 300%;
+  clear: both;
+  overflow: hidden;
   background: transparent url('/img/wood.png') repeat;
   -webkit-transition: -webkit-transform 1200ms ease;
   -moz-transition: -moz-transform 1200ms ease;
@@ -1253,8 +1256,14 @@ section.photos nav ul li.photos {
   
 }
 @media only screen and (min-width: 1025px) {
+  #main {
+    width: 6000px;
+  }
+  section {
+    width: 2000px;
+  }
   section article {
-    width: 1000px;
+    width: 800px;
     margin: 40px auto;
   }
   img.big {

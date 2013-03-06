@@ -6,6 +6,7 @@
 	'use strict';
 
 	var callbacksArray = new Array();
+	var timeout;
 
 	$.extend({
 		// main plugin function
@@ -21,6 +22,7 @@
 
 			//execute all callbacks
 			var executeAll = function(hash){
+				console.log(hash);
 				if(typeof callbacks === 'object'){
 					$.each(callbacks, function(i, callback){
 	    			callback(hash);
@@ -44,7 +46,7 @@
 	            executeAll(hash);
 	            lastHash = hash;
 	        }
-	        var t = setTimeout(watchHash, 100);
+	        timeout = setTimeout(watchHash, 100);
 	    })();
 
 		},
@@ -56,6 +58,7 @@
 
 		//add callbacks to the main arrays
 		removeHashCallbacks: function() {
+			window.clearTimeout(timeout);
 			callbacksArray = [];
 		}
 

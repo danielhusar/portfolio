@@ -7,6 +7,8 @@
 	DH.init = function(device){
 		DH.settings.environment.device = DH.events.getDevice();
 
+		$.removeHashCallbacks(); //remove all callbacks
+
 		//all versions
 		DH.libraries.nav.all();
 		DH.events.calculateDimensions();
@@ -26,19 +28,20 @@
 		//desktop init
 		DH.isDevice('desktop', function () {
 			DH.log('desktop version');
+			DH.libraries.nav.desktop();
 		});
+
+		//execute all hasChanges
+		$.hashChange();
 
 	};
 
 	//constructor
-	var efrafa = window.efrafa = new window.DanielHusar();
-
-	//execute all hasChanges
-	$.hashChange();
+	var daniel = window.daniel = new window.DanielHusar();
 	
 	//document ready main call
 	$(function () {
-		$(window).bind('resize', _.debounce(efrafa.events.windowResized, 300));
+		$(window).bind('resize', _.debounce(daniel.events.windowResized, 300));
 	});
 
 })(this, this.document, this.jQuery, this._);
