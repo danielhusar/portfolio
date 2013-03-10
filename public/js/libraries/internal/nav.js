@@ -58,8 +58,6 @@
 							index = nav.indexOf(hash),
 							position = -sectionWidth * index -indent;
 
-							console.log(position);
-
 					$("#main").removeClass(nav.join(' '))
 										.addClass(hash)
 										.css(DH.prefix('transform'), 'translate(0, 0) translate3d('+position+'px, 0, 0)');

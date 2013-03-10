@@ -22,7 +22,6 @@
 
 			//execute all callbacks
 			var executeAll = function(hash){
-				console.log(hash);
 				if(typeof callbacks === 'object'){
 					$.each(callbacks, function(i, callback){
 	    			callback(hash);

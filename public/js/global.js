@@ -97,8 +97,20 @@
 	 * @return {string} prefixed method if exist, or the same method of preixed not avaiable
 	 */
 	DH.prefix = function(method) {
-		method = Modernizr.prefixed(method) ? Modernizr.prefixed(method) : method;
-		return method.replace(/([A-Z])/g, function(str,m1){ return '-' + m1.toLowerCase(); }).replace(/^ms-/,'-ms-');
+		var transEndEventNames = {
+		    'WebkitTransition' : 'webkitTransitionEnd',
+		    'MozTransition'    : 'transitionend',
+		    'OTransition'      : 'otransitionend',
+		    'msTransition'     : 'MSTransitionEnd',
+		    'transition'       : 'transitionend'
+			};
+		if(method === 'transitionEnd'){
+			return transEndEventNames[Modernizr.prefixed('transition')];
+		}else {
+			method = Modernizr.prefixed(method) ? Modernizr.prefixed(method) : method;
+			return method.replace(/([A-Z])/g, function(str,m1){ return '-' + m1.toLowerCase(); }).replace(/^ms-/,'-ms-');
+		}
+		
 	};
 
 	/**
