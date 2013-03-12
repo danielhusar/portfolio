@@ -2,6 +2,7 @@ section{
 	position: relative;
 	float: left;
 	width: 33.33%; 
+	-webkit-overflow-scrolling: touch;
 }
 section article{
 	position: relative;
@@ -42,4 +43,48 @@ section article h2{
 }
 section article h3{
   font-size: 1.1em;
+}
+section article ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+section article ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+section.my-works article ul li{
+	margin-bottom: 10px;
+	position: relative;
+	overflow: hidden;
+}
+section.my-works article ul li img{
+	width: 100%;
+	height: auto;
+}
+section.my-works article ul li p{
+	position: absolute;
+	bottom: 0;
+	margin: 0;
+	padding: 1%;
+	z-index: 2;
+	color: white;
+	background-color: rgba(0,0,0,.7);
+	display: block;
+	width: 100%;
+	font-size: 0.8em;
+}
+.no-touch section.my-works article ul li p{
+	.transformTransition(500ms ease);
+	.transform(translate(0, 100%));
+}
+.no-touch section.my-works article ul li:hover p{
+	.transform(translate(0, 0));
+}
+.no-csstransforms.no-touch section.my-works article ul li p{
+	bottom: -100%;
+}
+.no-csstransforms.no-touch section.my-works article ul li:hover p{
+	bottom: 0;
 }
