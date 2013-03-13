@@ -35,7 +35,7 @@ module.exports = function(grunt) {
     //watch files
     watch: {
       files: ['<%= concat.app.src %>', '<%= concat.plugins.src %>'],
-      tasks: ['concat', 'uglify', 'jshint']
+      tasks: ['concat', 'uglify']
     }
   });
 
@@ -46,11 +46,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
 
   //Tasks  
-  grunt.registerTask('test', ['jshint']);
+  grunt.registerTask('jshint', ['jshint']);
   grunt.registerTask('default', ['concat', 'uglify', 'jshint', 'watch']);
   grunt.registerTask('development', ['concat', 'uglify', 'watch']);
   grunt.registerTask('production', ['concat', 'uglify']);
-  grunt.registerTask('pp', function(){console.dir('a')});
 
   return grunt;
 
