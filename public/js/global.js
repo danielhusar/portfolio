@@ -8,12 +8,10 @@
 	 */
 	_.mixin(_.str.exports());
 
-	var DanielHusar = window.DanielHusar = function(elem) {
-		this.init();
-	};
+	var DanielHusar = window.DanielHusar = function() {};
+	window.DH = new DanielHusar();
 
-	//window.DH = new DanielHusar();
-
+/*
 	var namespace = window.namespace = function(nested){
 
 		if(nested){
@@ -22,14 +20,35 @@
 			return DanielHusar.prototype;
 		}
 		
-	};
+	};*/
 
+	var namespace = window.namespace = function (namespace) {
+    var parent;
+    var currentNamespacePart;
+    var nestedNamespace;
+    var namespacesCount;
 
+    if (_.isString(namespace)) {
 
-	var DH = namespace();
+      parent          = window;
+      namespace       = namespace.split('.');
+      namespacesCount = namespace.length;
 
-	DH.libraries = {};
-	DH.plugins = {};
+      // create nested namespaces
+      for (var namespaceIndex = 0; namespaceIndex < namespacesCount; namespaceIndex++) {
+
+        currentNamespacePart = namespace[namespaceIndex];
+        nestedNamespace      = _.isObject(parent[currentNamespacePart]) ? parent[currentNamespacePart] : {}; // if nested namespace exists, don't overwrite it
+
+        parent[currentNamespacePart] = parent = nestedNamespace; // assigning from right to left
+
+      }
+
+      return eval('window.' + namespace.join('.'));
+
+    }
+
+  };
 	
 	/**
 	 * Defining named conditions to be used by DH.when, DH.whenSome and DH.whenAll

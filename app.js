@@ -10,6 +10,7 @@ var express  = require('express'),
 		app = express(),
 		config = require('./config/config')(app, express);
 
+//grunt task
 var grunt = require('grunt');
 require(process.cwd() + '/gruntfile.js')(grunt);
 grunt.task.run('development');

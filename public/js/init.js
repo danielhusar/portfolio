@@ -1,7 +1,7 @@
 (function (window, document, $, _, undefined) {
 	'use strict';
 	
-	var DH = window.namespace();
+	var DH = window.namespace('DH');
 
 	//all init triggers
 	DH.init = function(device){
@@ -37,11 +37,11 @@
 	};
 
 	//constructor
-	var daniel = window.daniel = new window.DanielHusar();
+	DH.init();
 	
 	//document ready main call
 	$(function () {
-		$(window).bind('resize', _.debounce(daniel.events.windowResized, 300));
+		$(window).bind('resize', _.debounce(DH.events.windowResized, 300));
 	});
 
 })(this, this.document, this.jQuery, this._);

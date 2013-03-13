@@ -1,7 +1,7 @@
 (function (window, document, $, _, undefined) {
 	'use strict';
 
-	var DH = window.namespace();
+	var DH = window.namespace('DH');
 
 	DH.settings = {
 		environment : {

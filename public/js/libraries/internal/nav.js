@@ -1,9 +1,9 @@
 (function (window, document, $, _, undefined) {
 	'use strict';
 	
-	var DH  = window.namespace();
+	var DH  = window.namespace('DH');
 
-	window.namespace('libraries').nav = {
+	window.namespace('DH.libraries').nav = {
 
 		all : function(){
 
