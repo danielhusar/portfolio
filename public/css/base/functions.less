@@ -142,6 +142,13 @@
   text-shadow: @horizontal @vertical @blur @color;
   filter: e(%("dropshadow(color=%d, offx=%d, offy=%d)", @color, @horizontal, @vertical)); // IE9 and down
 }
+.grayscale(@perc) { 
+	-webkit-filter: grayscale(@perc);
+	   -moz-filter: grayscale(@perc);
+	    -ms-filter: grayscale(@perc);
+	     -o-filter: grayscale(@perc);
+          filter: grayscale(@perc);
+}
 
 /*****************************************************************************/
 
