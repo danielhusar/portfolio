@@ -1,0 +1,36 @@
+section.about-me nav ul{
+	top: 20px;
+	left: 350px;
+	.transform(translate3d(0, 0, 0));
+	width: 250px;
+	height: 260px;
+}
+section.about-me nav ul:hover{
+	width: 700px;
+}
+section.about-me nav ul li{
+	.transformTransition(500ms ease);
+}
+section.about-me nav:hover ul li.my-works{
+	.transform(translate3d(230px, 0, 0) rotate(-5deg));
+}
+section.about-me nav:hover ul li.photos{
+	.transform(translate3d(460px, 0, 0) rotate(10deg));
+}
+.no-csstransforms3d.csstransforms section.about-me nav:hover ul li.my-works{
+	.transform(translate3d(230px, 0, 0) rotate(-5deg));
+}
+.no-csstransforms3d.csstransforms section.about-me nav:hover ul li.photos{
+	.transform(translate3d(460px, 0, 0) rotate(10deg));
+}
+.no-csstransforms3d.no-csstransforms section.about-me nav:hover ul li.my-works{
+	left: 230px;
+}
+.no-csstransforms3d.no-csstransforms section.about-me nav:hover ul li.photos{
+	left: 460px;
+}
+section.about-me nav ul li.about-me,
+section.about-me nav ul li.my-works,
+section.about-me nav ul li.photos{
+	display: block;
+}

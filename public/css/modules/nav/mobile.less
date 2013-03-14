@@ -7,7 +7,6 @@ nav ul{
 	font-size: 1.4em;
 	.transform(translate3d(10px, -230px, 0));
 	.transformTransition(500ms ease);
-	cursor: pointer;
 }
 nav.active ul{
 	.transform(translate3d(15px, -200px, 0));
@@ -21,6 +20,7 @@ nav.active ul{
 nav ul li{
 	position: absolute;
 	.transition(margin 500ms ease);
+	cursor: pointer;
 }
 nav ul li.about-me{
 	.rotation(1deg);
@@ -68,12 +68,8 @@ nav ul li a img{
 	width: 180px;
 	height: 180px;
 }
-section.about-me nav ul li.about-me{
-	display: none;
-}
-section.my-works nav ul li.my-works{
-	display: none;
-}
+section.about-me nav ul li.about-me,
+section.my-works nav ul li.my-works,
 section.photos nav ul li.photos{
 	display: none;
 }
