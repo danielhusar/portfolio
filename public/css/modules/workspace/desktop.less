@@ -12,3 +12,59 @@ aside.coffee{
 	top: 400px;
 	left: 0;
 }
+aside.coffee .social{
+	width: 70px;
+	height: 70px;
+	position: absolute;
+	background: transparent url('/img/social.png') no-repeat 0 0;
+	display: block;
+	overflow: hidden;
+}
+aside.coffee .social.linkedin{
+  top: 375px;
+	left: 39px;
+	.transformTransition(500ms ease);
+	.transform(rotate(30deg));
+}
+aside.coffee .social.linkedin:hover{
+	.transform(rotate(-5deg));
+}
+aside.coffee .social.facebook{
+  top: 240px;
+  left: 50px;
+  background-position: -65px 0;
+}
+aside.coffee .social.twitter{
+  top: 400px;
+  left: 120px;
+  background-position: -140px 0;
+}
+aside.coffee .social.lastfm{
+  top: 413px;
+	left: 165px;
+	background-position: -211px 0
+}
+aside.coffee .social.github{
+  top: 394px;
+	left: 412px;
+	background-position: -280px 0;
+}
+aside.coffee .social.github{
+  top: 394px;
+	left: 412px;
+	background-position: -280px 0;
+	.transformTransition(500ms ease);
+	.transform(translate3d(0, 0, 0));
+	z-index: 2;
+}
+aside.coffee .social.github:hover{
+	.transform(translate3d(-15px, 0, 0));
+}
+aside.book{
+	width: 550px;
+	height: 615px;
+	background: transparent url('/img/workspace/book.png') no-repeat;
+	top: 0;
+	right: 0;
+	margin-right: -220px;
+}
