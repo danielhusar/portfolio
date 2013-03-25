@@ -4,6 +4,6 @@
 **/
 module.exports = function(app, helpers){
 	app.get('/test', function(req, res){
-		helpers.template(res, 'index.html', {});
+		helpers.template(res, 'index.html');
 	});
 };

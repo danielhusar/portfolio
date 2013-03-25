@@ -10,11 +10,6 @@ var express  = require('express'),
 		app = express(),
 		config = require('./config/config')(app, express);
 
-//grunt task
-var grunt = require('grunt');
-require(process.cwd() + '/gruntfile.js')(grunt);
-grunt.task.run('development');
-
 //require all controllers with the models
 require("fs").readdirSync("./app/controllers").forEach(function(file) {
 	var model;

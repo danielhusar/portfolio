@@ -12,7 +12,7 @@
 module.exports = function(app, model, helpers){
 
 	app.get('/', function(req, res){
-		helpers.template(res, 'index.html', {});
+		helpers.template(res, 'index.html');
 	});
 
 };
