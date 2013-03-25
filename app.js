@@ -7,8 +7,9 @@
 var express  = require('express'),
   	http     = require('http'),
 		helpers  = require('./app/helpers/helpers'),
-		app = express(),
-		config = require('./config/config')(app, express);
+		app = express();
+		
+app = require('./config/config')(app, express);
 
 //require all controllers with the models
 require("fs").readdirSync("./app/controllers").forEach(function(file) {
@@ -22,7 +23,7 @@ require("fs").readdirSync("./app/controllers").forEach(function(file) {
 });
 
 //require static routes
-require('./config/routes')(app, helpers);
+app = require('./config/routes')(app);
 
 //start server
 var port = process.env.PORT || 3000;

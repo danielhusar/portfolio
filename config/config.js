@@ -17,14 +17,6 @@ module.exports = function(app, express){
 	};
 
 
-
-
-
-
-
-
-
-
 	//development enviroment
 	app.configure('development', function(){
 		//errors handling
@@ -64,6 +56,8 @@ module.exports = function(app, express){
 	app.use(app.router);
 	app.use(require('less-middleware')(config.less));
 	app.use(express.static(path.join(process.cwd(), 'public')));
+
+	return app;
 
 
 };
