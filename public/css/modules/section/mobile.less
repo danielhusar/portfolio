@@ -88,3 +88,52 @@ section.my-works article ul li p{
 .no-csstransforms.no-touch section.my-works article ul li:hover p{
 	bottom: 0;
 }
+
+section.photos article ul li{
+	position: relative;
+}
+section.photos article ul li a{
+	display: block;
+}
+
+section.photos article ul li a:before{
+	display: block;
+	position: absolute;
+	top: 65%;
+	left: -2%;
+	content: "";
+	background-color: transparent;
+	width: 80px;
+	height: 43px;
+	border-radius: 1%;
+	-webkit-transform: matrix(2.13,-0.23,0.33,1.68,0,0);
+	-moz-transform: matrix(2.13,-0.23,0.33,1.68,0,0);
+	transform: matrix(2.13,-0.23,0.33,1.68,0,0);
+	-webkit-transform-origin: center;
+	-moz-transform-origin: center;
+	transform-origin: center;
+	-webkit-box-shadow: 26px 8px 5px rgba(0, 0, 0, 0.5);
+	box-shadow: 26px 8px 5px rgba(0, 0, 0, 0.5);
+	z-index: -1;
+}
+
+section.photos article ul li a:after {
+	display: block;
+	position: absolute;
+	top: 59%;
+	left: 50%;
+	content: "";
+	background-color: transparent;
+	width: 80px;
+	height: 43px;
+	border-radius: 1%;
+	-webkit-transform: matrix(-2.17,-0.16,-0.22,1.71,0,0);
+	-moz-transform: matrix(-2.17,-0.16,-0.22,1.71,0,0);
+	transform: matrix(-2.17,-0.16,-0.22,1.71,0,0);
+	-webkit-transform-origin: center;
+	-moz-transform-origin: center;
+	transform-origin: center;
+	-webkit-box-shadow: 13px 13px 5px rgba(0, 0, 0, 0.5);
+	box-shadow: 13px 13px 5px rgba(0, 0, 0, 0.5);
+	z-index: -1;
+}
