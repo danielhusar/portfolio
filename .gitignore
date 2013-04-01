@@ -33,4 +33,6 @@ results
 npm-debug.log
 node_modules
 public/js/packed
+config/twitter.js
+cache/*
 *.css

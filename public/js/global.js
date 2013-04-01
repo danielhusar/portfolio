@@ -37,6 +37,21 @@
 
   };
 	
+
+  DanielHusar.prototype.ff = 'aa';
+  /*
+	DanielHusar.prototype = (function(){
+		
+		return {
+			device1 : {
+				'desktop'  : function () { return !Modernizr.mq('only all') || Modernizr.mq('only screen and (min-width: 1025px)'); },
+				'tablet'   : function () { return (!DanielHusar.prototype.device1.desktop()) && Modernizr.mq('only screen and (min-width: 569px)'); },
+				'mobile'   : function () { return ! (DanielHusar.prototype.device1.tablet() || DanielHusar.prototype.device1.desktop()); }
+			}
+		}
+
+	})();
+*/
 	/**
 	 * Defining named conditions to be used by DH.when, DH.whenSome and DH.whenAll
 	 *
