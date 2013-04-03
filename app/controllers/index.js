@@ -27,16 +27,16 @@ module.exports = function(app, model, helpers){
 		               				config.consumer_secret, 
 		               				config.access_token,
 		               				config.access_token_secret,
-		               				1
+		               				60
 		               			 );
 
-		twitter.get("statuses/user_timeline",  
-						function(error, data) {
-						  res.writeHead(200, {"Content-Type": "application/json"});
-					  	res.write(data || '');
-					  	res.end();
-					  }
-		);
+	
+		twitter.get("statuses/user_timeline");
+	  twitter.on('get:statuses/user_timeline', function(error, data){
+	  	res.writeHead(200, {"Content-Type": "application/json"});
+			res.write(data || '');
+			res.end();
+		});
 
 
 	});

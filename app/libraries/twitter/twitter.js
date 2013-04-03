@@ -1,4 +1,6 @@
 var OAuth= require('oauth').OAuth,
+		util = require("util"),
+    events = require("events"),
     fs = require('fs');
 
 /**
@@ -12,6 +14,7 @@ var OAuth= require('oauth').OAuth,
  *
  * @sample usage:
  *
+ * Constructor:
  * var twitter= require('twitter');
  * twitter = new twitter('xxx', 
  *		               		 'xxx', 
@@ -20,18 +23,39 @@ var OAuth= require('oauth').OAuth,
  *		               		  3600
  *	               			 );
  *
+ * 
+ * Getting data from twitter:
+ * --------------------------
  * twitter.get('statuses/user_timeline',  
  *						 function(error, data) {
  *						   console.dir(data);
  *					   }
  *					  );
  *
+ * 
+ * Getting data with the events emmiter:
+ * 
+ * twitter.get("statuses/user_timeline");
+ * twitter.on('get:statuses/user_timeline', function(error, data){
+ *   console.dir(data);
+ * });
+ *
+ *
+ * Posting data to twitter:
+ * ------------------------
  * twitter.post('statuses/update',
  *						  {'status' : 'testing message'},  
  *						  function(error, data) {
  *							  console.dir(data);
  *					    }
- *		         );			  
+ *		         );		
+ *
+ * Posting data with events emmiter:
+ *
+ * twitter.post('statuses/update', {'status' : 'testing message'});
+ * twitter.on('post:statuses/update', function(error, data){
+ *   console.dir(data);
+ * });		 
  *
  */
 exports.twitter= function(consumer_key, consumer_secret, access_token, access_token_secret, cache) {
@@ -50,7 +74,10 @@ exports.twitter= function(consumer_key, consumer_secret, access_token, access_to
 											                 null, 
 											                 'HMAC-SHA1'
 											                );
+	events.EventEmitter.call(this);
 };
+
+util.inherits(exports.twitter, events.EventEmitter);
 
 /**
  * Get methods to the twitter api
@@ -59,26 +86,12 @@ exports.twitter= function(consumer_key, consumer_secret, access_token, access_to
  * @return {void}
  */
 exports.twitter.prototype.get = function(method, callback) {
+
+	//this.emit("get", method, callback);
 	
 	var cacheName = method.replace(/\//g, '-'),
 			that = this;
 
-	if(this.cache){
-		helpers.cacheDir();
-		var fileUpdate = helpers.readCache(cacheName).mtime || false;
-		var lastUpdate = fileUpdate ? (new Date().getTime() - new Date(fileUpdate).getTime()) / 1000 : false;
-		if(lastUpdate && lastUpdate < this.cache){
-			if(data = helpers.getCache(cacheName)){
-				callback(false, data);
-			}else{
-				getData();
-			}
-		}else{
-			getData();
-		}
-	}else{
-		getData();
-	}
 
 	function getData(){
 		try{
@@ -86,7 +99,7 @@ exports.twitter.prototype.get = function(method, callback) {
 								  that.access_token, 
 								  that.access_token_secret,
 								  function(error, data) {
-									  callback(error, data);
+									  execute(error, data);
 									  var jsonData = JSON.parse(data);
 									  if(that.cache && !jsonData.errors){
 									 	  helpers.storeCache(cacheName, data);
@@ -95,29 +108,59 @@ exports.twitter.prototype.get = function(method, callback) {
 								 ); 
 		}catch(err){
 			if(that.cache && (data = helpers.getCache(cacheName))){
-				callback(false, data);
+				execute({error: 'none'}, data);
 			} else {
-				callback({error : 'An error occured'}, {error : 'Twitter is probably down.'});
+				execute({error : 'An error occured'}, {error : 'Twitter is probably down.'});
 			}
 		}
 	}
+ 
+  function execute(error, data){
+  	if(typeof callback === 'function'){
+  		callback(error, data);
+  	}	
+  	that.emit("get:" + method, error, data);
+  }
+
+	if(this.cache){
+		helpers.cacheDir();
+		var fileUpdate = helpers.readCache(cacheName).mtime || false;
+		var lastUpdate = fileUpdate ? (new Date().getTime() - new Date(fileUpdate).getTime()) / 1000 : false;
+		if(lastUpdate && lastUpdate < this.cache){
+			if(data = helpers.getCache(cacheName)){
+				setTimeout(function(){ // :-(
+					execute({error: 'none'}, data);
+				}, 1);
+			}else{
+				getData('twitter');
+			}
+		}else{
+			getData('twitter');
+		}
+	}else{
+		getData('twitter');
+	}
+	
 }
 
 /**
  * Post methos to twitter api
  * @param  {string}   method   method from the twitter api
- * @param  {object}   data     data to post
+ * @param  {object}   params   data to post
  * @param  {Function} callback callback to be executed in post finished
  * @return {void}
  */
-exports.twitter.prototype.post = function(method, data, callback) {
-	this.oa.post(this.baseUrl + method +'.' + this.type, 
-							 this.access_token, 
-							 this.access_token_secret,
-							 data,
-							 'application/json',
+exports.twitter.prototype.post = function(method, params, callback) {
+	var that = this;
+	that.oa.post(that.baseUrl + method +'.' + that.type, 
+							 that.access_token, 
+							 that.access_token_secret,
+							 params,
 							 function(error, data) {
-								 callback(error, data);
+							   if(typeof callback === 'function'){
+								   callback(error, data);
+							   }
+								 that.emit("post:" + method, error, data);
 								}
 							);
 }
@@ -130,10 +173,10 @@ exports.twitter.prototype.post = function(method, data, callback) {
 var helpers = {
 
 	/**
-	 * Base path for caching
+	 * Base path for caching for our app
 	 * @type {string}
 	 */
-	basePath : process.cwd() + '/cache/twitter/',
+	baseCachePath :  process.cwd() + '/cache/',
 
 	/**
 	 * Returns the fullfile path
@@ -141,7 +184,7 @@ var helpers = {
 	 * @return {string} full file path
 	 */
 	basePathFile : function(file){
-		return (helpers.basePath + file + '.json');
+		return (helpers.baseCachePath + file + '.json');
 	},
 
 	/**
@@ -151,6 +194,9 @@ var helpers = {
 	cacheDir : function(){
 		if(!fs.existsSync(helpers.basePath)){
 			fs.mkdir(helpers.basePath);
+		}
+		if(!fs.existsSync(helpers.baseCachePath)){
+			fs.mkdir(helpers.baseCachePath);
 		}
 	},
 
