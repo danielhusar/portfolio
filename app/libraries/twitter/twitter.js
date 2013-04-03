@@ -192,9 +192,6 @@ var helpers = {
 	 * @return {void}
 	 */
 	cacheDir : function(){
-		if(!fs.existsSync(helpers.basePath)){
-			fs.mkdir(helpers.basePath);
-		}
 		if(!fs.existsSync(helpers.baseCachePath)){
 			fs.mkdir(helpers.baseCachePath);
 		}
