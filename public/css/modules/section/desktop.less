@@ -19,7 +19,10 @@ img.small{
 	width: 29%;
 	margin-bottom: 10px;
 }
-section.about-me article{
+section.about-me article:before,
+section.about-me article:after{
+}
+section.about-me article > div{
 	margin-top: 300px;
 }
 section.about-me article > div{
@@ -36,7 +39,6 @@ section.photos article ul{
 section.photos article ul li{
   float: left;
 }
-section.photos article img{
-	width: 200px;
-	margin: 10px;
+section.photos article ul li.view div.view-back{
+  display: block;
 }

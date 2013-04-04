@@ -1,0 +1,391 @@
+/**
+ * http://tympanus.net/codrops/2012/06/18/3d-thumbnail-hover-effects/
+ */
+
+section.photos article ul li.view {
+	width: 310px;
+	height: 200px;
+	margin: 10px;
+	float: left;
+	position: relative;
+	border: 5px solid #fff;
+	box-shadow: 0 0 3px rgba(50,50,50,0.5);
+	background: #333;
+	-webkit-perspective: 500px;
+	-moz-perspective: 500px;
+	-o-perspective: 500px;
+	-ms-perspective: 500px;
+	perspective: 500px;
+}
+
+.view .slice{
+	width: 60px;
+	height: 100%;
+	z-index: 100;
+	
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	
+	-webkit-transform-origin: left center;
+	-moz-transform-origin: left center;
+	-o-transform-origin: left center;
+	-ms-transform-origin: left center;
+	transform-origin: left center;
+	
+	-webkit-transition: -webkit-transform 150ms ease-in-out;
+	-moz-transition: -moz-transform 150ms ease-in-out;
+	-o-transition: -o-transform 150ms ease-in-out;
+	-ms-transition: -ms-transform 150ms ease-in-out;
+	transition: transform 150ms ease-in-out;
+
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+		
+}
+
+.view .info{
+	width: 50%;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	color: black;
+	text-align:right;
+	z-index: 0;
+}
+
+
+.view .s2, 
+.view .s3, 
+.view .s4, 
+.view .s5 {
+	-webkit-transform: translate3d(60px,0,0);
+	-moz-transform: translate3d(60px,0,0);
+	-o-transform: translate3d(60px,0,0);
+	-ms-transform: translate3d(60px,0,0);
+	transform: translate3d(60px,0,0);
+}
+.view .s1 {
+	background-position: 0px 0px;
+}
+.view .s2 {
+	background-position: -60px 0px;
+}
+.view .s3 {
+	background-position: -120px 0px;
+}
+.view .s4 {
+	background-position: -180px 0px;
+}
+.view .s5 {
+	background-position: -240px 0px;
+}
+
+.view .overlay {
+	width: 60px;
+	height: 100%;
+	opacity: 0;
+	position: absolute;
+	-webkit-transition: opacity 150ms ease-in-out;
+	-moz-transition: opacity 150ms ease-in-out;
+	-o-transition: opacity 150ms ease-in-out;
+	-ms-transition: opacity 150ms ease-in-out;
+	transition: opacity 150ms ease-in-out;
+}
+
+.view:hover .overlay {
+	opacity: 1;
+}
+
+.view img {
+	position: absolute;
+	z-index: 0;
+	-webkit-transition: left 0.3s ease-in-out;
+	-o-transition: left 0.3s ease-in-out;
+	-moz-transition: left 0.3s ease-in-out;
+	-ms-transition: left 0.3s ease-in-out;
+	transition: left 0.3s ease-in-out;
+}
+
+
+/** custom styles **/
+.view.fold2 {
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	-o-perspective: 800px;
+	-ms-perspective: 800px;
+	perspective: 800px;
+}
+.view.fold2:hover .s1{
+	-webkit-transition-delay: 200ms;
+	-moz-transition-delay: 200ms;
+	-o-transition-delay: 200ms;
+	-ms-transition-delay: 200ms;
+	transition-delay: 200ms;
+	
+	-webkit-transform: rotate3d(0,1,0,-3deg);
+	-moz-transform: rotate3d(0,1,0,-3deg);
+	-o-transform: rotate3d(0,1,0,-3deg);
+	-ms-transform: rotate3d(0,1,0,-3deg);
+	transform: rotate3d(0,1,0,-3deg);
+}
+.view.fold2:hover .s2{
+	-webkit-transition-delay: 150ms;
+	-moz-transition-delay: 150ms;
+	-o-transition-delay: 150ms;
+	-ms-transition-delay: 150ms;
+	transition-delay: 150ms;
+	
+	-webkit-transform: translate3d(59px,0,0) rotate3d(0,1,0,-10deg);
+	-moz-transform: translate3d(59px,0,0) rotate3d(0,1,0,-10deg);
+	-o-transform: translate3d(59px,0,0) rotate3d(0,1,0,-10deg);
+	-ms-transform: translate3d(59px,0,0) rotate3d(0,1,0,-10deg);
+	transform: translate3d(59px,0,0) rotate3d(0,1,0,-10deg);
+}
+.view.fold2:hover .s3{
+	-webkit-transition-delay: 100ms;
+	-moz-transition-delay: 100ms;
+	-o-transition-delay: 100ms;
+	-ms-transition-delay: 100ms;
+	transition-delay: 100ms;
+	
+	-webkit-transform: translate3d(59px,0,0) rotate3d(0,1,0,-16deg);
+	-moz-transform: translate3d(59px,0,0) rotate3d(0,1,0,-16deg);
+	-o-transform: translate3d(59px,0,0) rotate3d(0,1,0,-16deg);
+	-ms-transform: translate3d(59px,0,0) rotate3d(0,1,0,-16deg);
+	transform: translate3d(59px,0,0) rotate3d(0,1,0,-16deg);
+}
+.view.fold2:hover .s4{
+	-webkit-transition-delay: 50ms;
+	-moz-transition-delay: 50ms;
+	-o-transition-delay: 50ms;
+	-ms-transition-delay: 50ms;
+	transition-delay: 50ms;
+	
+	-webkit-transform: translate3d(59px,0,0) rotate3d(0,1,0,-30deg);
+	-moz-transform: translate3d(59px,0,0) rotate3d(0,1,0,-30deg);
+	-o-transform: translate3d(59px,0,0) rotate3d(0,1,0,-30deg);
+	-ms-transform: translate3d(59px,0,0) rotate3d(0,1,0,-30deg);
+	transform: translate3d(59px,0,0) rotate3d(0,1,0,-30deg);
+}
+.view.fold2:hover .s5{
+	-webkit-transform: translate3d(60px,0,0) rotate3d(0,1,0,-42deg);
+	-moz-transform: translate3d(60px,0,0) rotate3d(0,1,0,-42deg);
+	-o-transform: translate3d(60px,0,0) rotate3d(0,1,0,-42deg);
+	-ms-transform: translate3d(60px,0,0) rotate3d(0,1,0,-42deg);
+	transform: translate3d(60px,0,0) rotate3d(0,1,0,-42deg);
+}
+
+.view.fold2 .s4 > .overlay {
+	background: -moz-linear-gradient(right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(right, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+	background: -o-linear-gradient(right, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+	background: -ms-linear-gradient(right, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+	background: linear-gradient(right, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+}
+
+.view.fold2 .s5 > .overlay {
+	background: -moz-linear-gradient(left, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+	background: -o-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+	background: -ms-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+	background: linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+}
+
+.view.fold1:hover .s2{
+	-webkit-transform: translate3d(59px,0,0) rotate3d(0,1,0,-45deg);
+	-moz-transform: translate3d(59px,0,0) rotate3d(0,1,0,-45deg);
+	-o-transform: translate3d(59px,0,0) rotate3d(0,1,0,-45deg);
+	-ms-transform: translate3d(59px,0,0) rotate3d(0,1,0,-45deg);
+	transform: translate3d(59px,0,0) rotate3d(0,1,0,-45deg);
+}
+.view.fold1:hover .s3, 
+.view.fold1:hover .s5{
+	-webkit-transform: translate3d(59px,0,0) rotate3d(0,1,0,90deg);
+	-moz-transform: translate3d(59px,0,0) rotate3d(0,1,0,90deg);
+	-o-transform: translate3d(59px,0,0) rotate3d(0,1,0,90deg);
+	-ms-transform: translate3d(59px,0,0) rotate3d(0,1,0,90deg);
+	transform: translate3d(59px,0,0) rotate3d(0,1,0,90deg);
+}
+.view.fold1:hover .s4{
+	-webkit-transform: translate3d(59px,0,0) rotate3d(0,1,0,-90deg);
+	-moz-transform: translate3d(59px,0,0) rotate3d(0,1,0,-90deg);
+	-o-transform: translate3d(59px,0,0) rotate3d(0,1,0,-90deg);
+	-ms-transform: translate3d(59px,0,0) rotate3d(0,1,0,-90deg);
+	transform: translate3d(59px,0,0) rotate3d(0,1,0,-90deg);
+}
+
+.view.fold1 .s1 > .overlay {
+	background: -moz-linear-gradient(right, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+	background: -o-linear-gradient(right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+	background: -ms-linear-gradient(right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+	background: linear-gradient(right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+}
+
+.view.fold1 .s2 > .overlay {
+	background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+	background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+	background: -o-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+	background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+	background: linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+}
+
+.view.fold1 .s3 > .overlay {
+	background: -moz-linear-gradient(right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);
+	background: -webkit-linear-gradient(right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%);
+	background: -o-linear-gradient(right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%);
+	background: -ms-linear-gradient(right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%);
+	background: linear-gradient(right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%);
+}
+
+.view.fold1 .s4 > .overlay {
+	background: -moz-linear-gradient(left, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+	background: -o-linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+	background: -ms-linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+	background: linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+}
+
+.view.fold1 .s5 > .overlay {
+	background: -moz-linear-gradient(left, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+	background: -o-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+	background: -ms-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+	background: linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+}
+
+.view.fold3 {
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	-o-perspective: 1000px;
+	-ms-perspective: 1000px;
+	perspective: 1000px;
+}
+
+.view.fold3:hover .s1{
+	-webkit-transform: rotate3d(0,1,0,-55deg);
+	-moz-transform: rotate3d(0,1,0,-55deg);
+	-o-transform: rotate3d(0,1,0,-55deg);
+	-ms-transform: rotate3d(0,1,0,-55deg);
+	transform: rotate3d(0,1,0,-55deg);
+}
+
+.view.fold3:hover .s2,
+.view.fold3:hover .s5{
+	-webkit-transform: translate3d(59px,0,0) rotate3d(0,1,0,20deg);
+	-moz-transform: translate3d(59px,0,0) rotate3d(0,1,0,20deg);
+	-o-transform: translate3d(59px,0,0) rotate3d(0,1,0,20deg);
+	-ms-transform: translate3d(59px,0,0) rotate3d(0,1,0,20deg);
+	transform: translate3d(59px,0,0) rotate3d(0,1,0,20deg);
+}
+
+.view.fold3:hover .s3{
+	-webkit-transform: translate3d(59px,0,0) rotate3d(0,1,0,30deg);
+	-moz-transform: translate3d(59px,0,0) rotate3d(0,1,0,30deg);
+	-o-transform: translate3d(59px,0,0) rotate3d(0,1,0,30deg);
+	-ms-transform: translate3d(59px,0,0) rotate3d(0,1,0,30deg);
+	transform: translate3d(59px,0,0) rotate3d(0,1,0,30deg);
+}
+
+.view.fold3:hover .s4{
+	-webkit-transform: translate3d(59px,0,0) rotate3d(0,1,0,40deg);
+	-moz-transform: translate3d(59px,0,0) rotate3d(0,1,0,40deg);
+	-o-transform: translate3d(59px,0,0) rotate3d(0,1,0,40deg);
+	-ms-transform: translate3d(59px,0,0) rotate3d(0,1,0,40deg);
+	transform: translate3d(59px,0,0) rotate3d(0,1,0,40deg);
+}
+
+.view.fold3 .s1 > .overlay {
+	background: -moz-linear-gradient(left, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+	background: -o-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+	background: -ms-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+	background: linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+}
+
+.view.fold3 .s5 > .overlay {
+	background: -moz-linear-gradient(right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(right, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 100%);
+	background: -o-linear-gradient(right, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 100%);
+	background: -ms-linear-gradient(right, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 100%);
+	background: linear-gradient(right, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 100%);
+}
+
+
+.view.fold4 {
+	-webkit-perspective: 1050px;
+	-moz-perspective: 1050px;
+	-o-perspective: 1050px;
+	-ms-perspective: 1050px;
+	perspective: 1050px;
+}
+
+.view.fold4 div {
+	-webkit-transition: all 150ms ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.view.fold4:hover .s3{
+	-webkit-transform: translate3d(59px,0,0) rotate3d(0,1,0,-55deg);
+	-moz-transform: translate3d(59px,0,0) rotate3d(0,1,0,-55deg);
+	-o-transform: translate3d(59px,0,0) rotate3d(0,1,0,-55deg);
+	-ms-transform: translate3d(59px,0,0) rotate3d(0,1,0,-55deg);
+	transform: translate3d(59px,0,0) rotate3d(0,1,0,-55deg);
+}
+
+.view.fold4:hover .s4{
+	-webkit-transform: translate3d(59px,0,0) rotate3d(0,1,0,110deg);
+	-moz-transform: translate3d(59px,0,0) rotate3d(0,1,0,110deg);
+	-o-transform: translate3d(59px,0,0) rotate3d(0,1,0,110deg);
+	-ms-transform: translate3d(59px,0,0) rotate3d(0,1,0,110deg);
+	transform: translate3d(59px,0,0) rotate3d(0,1,0,110deg);
+}
+
+.view.fold4:hover .s5{
+	-webkit-transform: translate3d(59px,0,0) rotate3d(0,1,0,-110deg);
+	-moz-transform: translate3d(59px,0,0) rotate3d(0,1,0,-110deg);
+	-o-transform: translate3d(59px,0,0) rotate3d(0,1,0,-110deg);
+	-ms-transform: translate3d(59px,0,0) rotate3d(0,1,0,-110deg);
+	transform: translate3d(59px,0,0) rotate3d(0,1,0,-110deg);
+}
+
+.view.fold4 .s2 > .overlay {
+	background: -moz-linear-gradient(right, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+	background: -o-linear-gradient(right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+	background: -ms-linear-gradient(right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+	background: linear-gradient(right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+}
+
+.view.fold4 .s3 > .overlay {
+	background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+	background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+	background: -o-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+	background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+	background: linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+}
+
+.view.fold4 .s4 > .overlay {
+	background: -moz-linear-gradient(right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);
+	background: -webkit-linear-gradient(right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%);
+	background: -o-linear-gradient(right, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 100%);
+	background: -ms-linear-gradient(right, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 100%);
+	background: linear-gradient(right, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.2) 100%);
+}
+
+.view.fold4 .s5 > .overlay {
+	background: -moz-linear-gradient(left, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+	background: -o-linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+	background: -ms-linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+	background: linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+}
