@@ -51,13 +51,18 @@ section.photos nav{
 	.rotation(-1deg);
 }
 section.photos nav ul{
-	width: 615px;
+	width: 190px;
 	height: 200px;
 	background: transparent url('/img/workspace/film.png') no-repeat top right;
 	overflow: hidden;
+	padding-right: 70px;
 	margin-left: 119px;
 	position: relative;
 	.transform(translate3d(0, 0, 0));
+	.transition(width 500ms ease);
+}
+section.photos nav:hover ul{
+	width: 615px;
 }
 section.photos nav ul li{
 	.rotation(0deg);
@@ -69,6 +74,7 @@ section.photos nav ul li{
 	float: left;
 	margin: 57px 2px;
 }
+
 section.photos nav ul li a{
 	padding: 0;
 }
