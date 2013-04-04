@@ -96,44 +96,33 @@ section.photos article ul li a{
 	display: block;
 }
 
-section.photos article ul li a:before{
-	display: block;
+
+section.photos article ul li a:before, section.photos article ul li a:after
+{
 	position: absolute;
-	top: 65%;
-	left: -2%;
-	content: "";
-	background-color: transparent;
-	width: 80px;
-	height: 43px;
-	border-radius: 1%;
-	-webkit-transform: matrix(2.13,-0.23,0.33,1.68,0,0);
-	-moz-transform: matrix(2.13,-0.23,0.33,1.68,0,0);
-	transform: matrix(2.13,-0.23,0.33,1.68,0,0);
-	-webkit-transform-origin: center;
-	-moz-transform-origin: center;
-	transform-origin: center;
-	-webkit-box-shadow: 26px 8px 5px rgba(0, 0, 0, 0.5);
-	box-shadow: 26px 8px 5px rgba(0, 0, 0, 0.5);
+	width: 40%;
+	height: 10px;
+	content: ' ';
+	left: 12px;
+	bottom: 12px;
+	background: transparent;
+	-webkit-transform: skew(-5deg) rotate(-5deg);
+	-moz-transform: skew(-5deg) rotate(-5deg);
+	-ms-transform: skew(-5deg) rotate(-5deg);
+	-o-transform: skew(-5deg) rotate(-5deg);
+	transform: skew(-5deg) rotate(-5deg);
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 	z-index: -1;
 }
-
-section.photos article ul li a:after {
-	display: block;
-	position: absolute;
-	top: 59%;
-	left: 50%;
-	content: "";
-	background-color: transparent;
-	width: 80px;
-	height: 43px;
-	border-radius: 1%;
-	-webkit-transform: matrix(-2.17,-0.16,-0.22,1.71,0,0);
-	-moz-transform: matrix(-2.17,-0.16,-0.22,1.71,0,0);
-	transform: matrix(-2.17,-0.16,-0.22,1.71,0,0);
-	-webkit-transform-origin: center;
-	-moz-transform-origin: center;
-	transform-origin: center;
-	-webkit-box-shadow: 13px 13px 5px rgba(0, 0, 0, 0.5);
-	box-shadow: 13px 13px 5px rgba(0, 0, 0, 0.5);
-	z-index: -1;
+section.photos article ul li a:after
+{
+	left: auto;
+	right: 12px;
+	-webkit-transform: skew(5deg) rotate(5deg);
+	-moz-transform: skew(5deg) rotate(5deg);
+	-ms-transform: skew(5deg) rotate(5deg);
+	-o-transform: skew(5deg) rotate(5deg);
+	transform: skew(5deg) rotate(5deg);
 }
