@@ -1,6 +1,6 @@
 var OAuth= require('oauth').OAuth,
-		util = require("util"),
-    events = require("events"),
+		util = require('util'),
+    events = require('events'),
     fs = require('fs');
 
 /**
@@ -11,6 +11,7 @@ var OAuth= require('oauth').OAuth,
  * @param  {string} access_token_secret acces token secret from twitter api
  * @param  {number} cache               (optional) time in seconds in which file should be cached (only for get requests), put false for no caching
  * @return {void}
+ * @chainable
  *
  * @sample usage:
  *
@@ -35,10 +36,16 @@ var OAuth= require('oauth').OAuth,
  * 
  * Getting data with the events emmiter:
  * 
- * twitter.get("statuses/user_timeline");
  * twitter.on('get:statuses/user_timeline', function(error, data){
  *   console.dir(data);
  * });
+ * twitter.get('statuses/user_timeline');
+ *
+ * Searching for some tweets
+ * twitter.on('get:search/tweets', function(error, data){
+ *   console.dir(data);
+ * });
+ * twitter.get("search/tweets", "?geocode=37.781157,-122.398720,100mi");
  *
  *
  * Posting data to twitter:
@@ -52,10 +59,10 @@ var OAuth= require('oauth').OAuth,
  *
  * Posting data with events emmiter:
  *
- * twitter.post('statuses/update', {'status' : 'testing message'});
  * twitter.on('post:statuses/update', function(error, data){
  *   console.dir(data);
- * });		 
+ * });	
+ * twitter.post('statuses/update', {'status' : 'testing message'});	 
  *
  */
 exports.twitter= function(consumer_key, consumer_secret, access_token, access_token_secret, cache) {
@@ -81,13 +88,15 @@ util.inherits(exports.twitter, events.EventEmitter);
 
 /**
  * Get methods to the twitter api
- * @param  {method}   method   method from twitter api
- * @param  {Function} callback function to be called when we get data
+ * @param  {method}   string   method from twitter api
+ * @param  {params}   string   query params to include
+ * @param  {Function} function callback to be called when we get data
  * @return {void}
  */
-exports.twitter.prototype.get = function(method, callback) {
+exports.twitter.prototype.get = function(method, params, callback) {
 
-	//this.emit("get", method, callback);
+	callback = (typeof callback === 'function') ? callback : params;
+	params = (typeof params === 'string') ? params : '';
 	
 	var cacheName = method.replace(/\//g, '-'),
 			that = this;
@@ -95,7 +104,7 @@ exports.twitter.prototype.get = function(method, callback) {
 
 	function getData(){
 		try{
-			that.oa.get(that.baseUrl + method +'.' + that.type, 
+			that.oa.get(that.baseUrl + method +'.' + that.type + params, 
 								  that.access_token, 
 								  that.access_token_secret,
 								  function(error, data) {
@@ -119,7 +128,7 @@ exports.twitter.prototype.get = function(method, callback) {
   	if(typeof callback === 'function'){
   		callback(error, data);
   	}	
-  	that.emit("get:" + method, error, data);
+  	that.emit('get:' + method, error, data);
   }
 
 	if(this.cache){
@@ -128,18 +137,18 @@ exports.twitter.prototype.get = function(method, callback) {
 		var lastUpdate = fileUpdate ? (new Date().getTime() - new Date(fileUpdate).getTime()) / 1000 : false;
 		if(lastUpdate && lastUpdate < this.cache){
 			if(data = helpers.getCache(cacheName)){
-				setTimeout(function(){ // :-(
-					execute({error: 'none'}, data);
-				}, 1);
+				execute({error: 'none'}, data);
 			}else{
-				getData('twitter');
+				getData();
 			}
 		}else{
-			getData('twitter');
+			getData();
 		}
 	}else{
-		getData('twitter');
+		getData();
 	}
+
+	return this;
 	
 }
 
@@ -160,9 +169,10 @@ exports.twitter.prototype.post = function(method, params, callback) {
 							   if(typeof callback === 'function'){
 								   callback(error, data);
 							   }
-								 that.emit("post:" + method, error, data);
+								 that.emit('post:' + method, error, data);
 								}
 							);
+	return this;
 }
 
 

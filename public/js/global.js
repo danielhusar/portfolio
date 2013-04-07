@@ -38,29 +38,15 @@
   };
 	
 
-  DanielHusar.prototype.ff = 'aa';
-  /*
-	DanielHusar.prototype = (function(){
-		
-		return {
-			device1 : {
-				'desktop'  : function () { return !Modernizr.mq('only all') || Modernizr.mq('only screen and (min-width: 1025px)'); },
-				'tablet'   : function () { return (!DanielHusar.prototype.device1.desktop()) && Modernizr.mq('only screen and (min-width: 569px)'); },
-				'mobile'   : function () { return ! (DanielHusar.prototype.device1.tablet() || DanielHusar.prototype.device1.desktop()); }
-			}
-		}
-
-	})();
-*/
 	/**
 	 * Defining named conditions to be used by DH.when, DH.whenSome and DH.whenAll
 	 *
 	 * @namespace DH
 	 */
-	DH.device = {
+	DanielHusar.prototype.device = {
 		'desktop'  : function () { return !Modernizr.mq('only all') || Modernizr.mq('only screen and (min-width: 1025px)'); },
-		'tablet'   : function () { return (! DH.device.desktop()) && Modernizr.mq('only screen and (min-width: 569px)'); },
-		'mobile'   : function () { return ! (DH.device.tablet() || DH.device.desktop()); }
+		'tablet'   : function () { return (! DanielHusar.prototype.device.desktop()) && Modernizr.mq('only screen and (min-width: 569px)'); },
+		'mobile'   : function () { return ! (DanielHusar.prototype.device.tablet() || DanielHusar.prototype.device.desktop()); }
 	};
 	
 	/**
@@ -81,11 +67,11 @@
 	 * @param     {Function}  callback    Callback to be triggered when conditions return true
 	 * @return    {Object}                this
 	 */
-	DH.isDevice = function (conditions, callback) {
+	DanielHusar.prototype.isDevice = function (conditions, callback) {
 		conditions = conditions.split(','); // create an array of device
 
 		var result     = _.some(conditions, function (condition) {
-			return !! (_.result(DH.device, condition) || false);
+			return !! (_.result(DanielHusar.prototype.device, condition) || false);
 		});
 
 		if (result) {
@@ -100,11 +86,11 @@
 	 * Console log function, it logs only on production enviroment
 	 * @return {void}
 	 */
-	DH.log = function () {
+	DanielHusar.prototype.log = function () {
 		var args;
 		var currentDateAndTime;
 
-		if (DH.settings && DH.settings.environment && ! DH.settings.environment.isProduction) {
+		if (DanielHusar.prototype.settings && DanielHusar.prototype.settings.environment && ! DanielHusar.prototype.settings.environment.isProduction) {
 			if (window.console && window.console.log && window.console.log.apply) {
 				args = Array.prototype.slice.call(arguments);
 				window.console.log.apply(window.console, args);
@@ -117,7 +103,7 @@
 	 * @param  {string} method css method
 	 * @return {string} prefixed method if exist, or the same method of preixed not avaiable
 	 */
-	DH.prefix = function(method) {
+	DanielHusar.prototype.prefix = function(method) {
 		var transEndEventNames = {
 		    'WebkitTransition' : 'webkitTransitionEnd',
 		    'MozTransition'    : 'transitionend',
@@ -139,7 +125,7 @@
 	 * @param  {string} hash to store
 	 * @return {string} hash
 	 */
-	DH.hash = function(hash) {
+	DanielHusar.prototype.hash = function(hash) {
 		if(hash){
 			window.location.hash = _.contains(hash, "#") ? hash : "#" + hash;
 			return hash; 
@@ -148,8 +134,6 @@
 		}
 	};
 
-
-	DH.test = function() {}
 	
 	/*
 	*

@@ -1,9 +1,7 @@
 (function (window, document, $, _, undefined) {
 	'use strict';
 
-	var DH = window.namespace('DH');
-
-	DH.settings = {
+	DanielHusar.prototype.settings = {
 		environment : {
 			isProduction	: false,
 			devices				: 'mobile',	//device, can be: desktop, tablet, mobile. The version is set up on init, but mobile is default.
