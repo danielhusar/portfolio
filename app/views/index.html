@@ -2,29 +2,8 @@
 
 {% block content %}
 
-	<section class="about-me">
-		<nav>
-			<ul>
-				<li class="about-me">
-					<a href="#about-me">
-						<img src="https://graph.facebook.com/daniel.husar/picture?type=large" alt="about me">
-						About me
-					</a>
-				</li>
-				<li class="my-works">
-					<a href="#my-works">
-						<img src="https://graph.facebook.com/daniel.husar/picture?type=large" alt="about me">
-						My Works
-					</a>
-				</li>
-				<li class="photos">
-					<a href="#photos">
-						<img src="https://graph.facebook.com/daniel.husar/picture?type=large" alt="about me">
-						Photos
-					</a>
-				</li>
-			</ul>
-		</nav>
+	<section id="about-me-wrap">
+		{% include "_nav.html" %}
 		<aside class="macbook"></aside>
 		<aside class="coffee">
 			<a href="https://www.facebook.com/daniel.husar" class="social facebook" target="_blank"></a>
@@ -54,29 +33,8 @@
 		</article>
 	</section>
 
-	<section class="my-works">
-		<nav>
-			<ul>
-				<li class="about-me">
-					<a href="#about-me">
-						<img src="https://graph.facebook.com/daniel.husar/picture?type=large" alt="about me">
-						About me
-					</a>
-				</li>
-				<li class="my-works">
-					<a href="#my-works">
-						<img src="https://graph.facebook.com/daniel.husar/picture?type=large" alt="about me">
-						My Works
-					</a>
-				</li>
-				<li class="photos">
-					<a href="#photos">
-						<img src="https://graph.facebook.com/daniel.husar/picture?type=large" alt="about me">
-						Photos
-					</a>
-				</li>
-			</ul>
-		</nav>
+	<section id="my-works-wrap">
+		{% include "_nav.html" %}
 		<aside class="iphone"></aside>
 		<article>
 			<div>
@@ -115,65 +73,14 @@
 		</article>
 	</section>
 
-	<section class="photos">
-		<nav>
-			<ul>
-				<li class="about-me">
-					<a href="#about-me">
-						<img src="https://graph.facebook.com/daniel.husar/picture?type=large" alt="about me">
-						<span>About me</span>
-					</a>
-				</li>
-				<li class="my-works">
-					<a href="#my-works">
-						<img src="https://graph.facebook.com/daniel.husar/picture?type=large" alt="about me">
-						<span>My Works</span>
-					</a>
-				</li>
-				<li class="photos">
-					<a href="#photos">
-						<img src="https://graph.facebook.com/daniel.husar/picture?type=large" alt="about me">
-						<span>Photos</span>
-					</a>
-				</li>
-			</ul>
-		</nav>
+	<section id="photos-wrap">
+		{% include "_nav.html" %}
 		<aside class="nikon"></aside>
 		<article>
 			<div>
 				<h1>Photos</h1>
 				<ul class="clearfix" id="photos-wrap">
-					<li class="view fold2">
-						<div class="info">asds</div>
-						<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-					</li>
-					<li class="view fold2">
-						<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-					</li>
-					<li class="view fold2">
-						<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-					</li>
-					<li class="view fold1">
-						<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-					</li>
-					<li class="view fold1">
-						<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-					</li>
-					<li class="view fold3">
-						<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-					</li>
-					<li class="view fold3">
-						<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-					</li>
-					<li class="view fold4">
-						<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-					</li>
-					<li class="view fold4">
-						<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-					</li>
-					<li class="view fold4">
-						<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-					</li>
+					{% include "_photos.html" %}
 				</ul>
 			</div>
 		</article>

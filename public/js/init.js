@@ -17,21 +17,18 @@
 		DH.isDevice('mobile', function () {
 			DH.log('mobile version');
 			DH.libraries.nav.mobile();
-			$('#photos-wrap').hoverfold('destroy');
 		});
 
 		//tablet init
 		DH.isDevice('tablet', function () {
 			DH.log('tablet version');
 			DH.libraries.nav.mobile();
-			$('#photos-wrap').hoverfold('destroy');
 		});
 
 		//desktop init
 		DH.isDevice('desktop', function () {
 			DH.log('desktop version');
 			DH.libraries.nav.desktop();
-			$('#photos-wrap').hoverfold('init');
 		});
 
 		//execute all hasChanges
