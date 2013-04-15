@@ -6,6 +6,9 @@ module.exports = function(app, express){
 			path 			 = require('path'),
 			config     = {};
 
+	app.use(require("express-chrome-logger"));		
+
+
 			
   config.swig = {
 		"root" 		 	: process.cwd() + "/app/views",

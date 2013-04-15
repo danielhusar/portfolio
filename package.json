@@ -24,7 +24,7 @@
     "start": "app.js"
   },
   "dependencies": {
-    "express": "3.0.6",
+    "express": "*",
 		"consolidate" : "*",
     "swig": "*",
     "oauth" : "*",
@@ -38,9 +38,10 @@
     "grunt-contrib-watch": "*",
     "grunt-contrib-qunit": "*",
     "grunt-contrib-nodeunit": "*",
-    "supervisor" : "*"
+    "supervisor" : "*",
+    "express-chrome-logger" : "*"
   },
 	"engines": {
-    "node": ">= 0.4.0"
+    "node": ">= 0.8.0"
   }
 }
