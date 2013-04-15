@@ -7,7 +7,7 @@
 	background: transparent;
 	top: 0;
 	left: 0;
-	overflow: hidden;
+	overflow: visible;
 	margin: 0 auto;
 }
 #photos-wrap article:after,
@@ -30,17 +30,12 @@
 }
 #photos-wrap article ul li,
 #photos-wrap article ul li:nth-child(even){
-  float: left;
+  float: none;
+  display: inline-block;
   width: auto;
   margin: 5px;
   .transition(1000ms ease);
   .transform(translate3d(0, 0, 0));
-}
-#photos-wrap article ul li:nth-child(1),
-#photos-wrap article ul li:nth-child(2),
-#photos-wrap article ul li:nth-child(3),
-#photos-wrap article ul li:nth-child(4){
-	margin-top: 180px;
 }
 #photos-wrap article ul li a{
 	display: block;
@@ -50,6 +45,25 @@
 }
 #photos-wrap article ul li img{
 	width: 200px;
+}
+
+
+#photos-wrap article ul li:nth-child(1){ .transform(rotate(1deg)); margin: 180px 3px 0 1px; }
+#photos-wrap article ul li:nth-child(2){ .transform(rotate(1deg)); margin: 180px 3px 0 2px; }
+#photos-wrap article ul li:nth-child(3){ .transform(rotate(-1deg)); margin: 180px 5px 0 5px; }
+#photos-wrap article ul li:nth-child(4){ .transform(rotate(0deg)); margin: 180px 3px 0 4px; }
+#photos-wrap article ul li:nth-child(5){ .transform(rotate(0deg)); margin: 0 8px 0 2px; }
+#photos-wrap article ul li:nth-child(6){ .transform(rotate(-1deg)); margin: 5px 4px 0 1px; }
+#photos-wrap article ul li:nth-child(7){ .transform(rotate(-1deg)); margin: 1px 1px 0 1px; }
+#photos-wrap article ul li:nth-child(8){ .transform(rotate(2deg)); margin: 3px 3px 0 3px; }
+#photos-wrap article ul li:nth-child(9){ .transform(rotate(-1deg)); margin: 4px 6px 0 2px; }
+#photos-wrap article ul li:nth-child(10){ .transform(rotate(-1deg)); margin: 4px 7px 5px 1px; }
+#photos-wrap article ul li:nth-child(11){ .transform(rotate(-1deg)); margin: 5 1px 3px 1px; }
+#photos-wrap article ul li:nth-child(12){ .transform(rotate(1deg)); margin: 5px 0 0 3px; }
+
+#photos-wrap article ul li:hover{
+	.transition(200ms ease);
+	.transform(rotate(0deg));
 }
 
 #photos-wrap article ul.slideDown li:nth-child(1){ .transform(translate(700px, 500%) rotate(30deg)); }
