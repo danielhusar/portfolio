@@ -16,6 +16,11 @@ module.exports = function(app, model, helpers){
 		helpers.template(res, 'index.html');
 	});
 
+	app.get('/ajax/photos/:page', function(req, res){
+		var page = req.params.page || 1;
+		helpers.template(res, '_photos.html');
+	});
+
 
 	app.get('/tweets', function(req, res){
 

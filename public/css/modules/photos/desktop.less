@@ -47,6 +47,28 @@
 	width: 200px;
 }
 
+#photos-wrap .pagination{
+	position: absolute;
+	left: -150px;
+	top: 250px;
+	cursor: pointer;
+}
+#photos-wrap .pagination .prev,
+#photos-wrap .pagination .next{
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	background-color: #ccc;
+}
+#photos-wrap .pagination .next{
+	top: 50px;
+}
+#photos-wrap .pagination .disabled{
+	opacity: 0.5;
+	cursor: auto;
+}
+
+
 
 #photos-wrap article ul li:nth-child(1){ .transform(rotate(1deg)); margin: 180px 3px 0 1px; }
 #photos-wrap article ul li:nth-child(2){ .transform(rotate(1deg)); margin: 180px 3px 0 2px; }

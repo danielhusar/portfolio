@@ -79,6 +79,11 @@
 		<article>
 			<div>
 				<h1>Photos</h1>
+				<div class="pagination">
+					<span data-page="1" class="prev disabled">Previous</span>
+					<span data-page="2" class="next">Next</span>
+					<input type="hidden" class="total" value="50">
+				</div>
 				<ul class="clearfix" id="photos-wrap">
 					{% include "_photos.html" %}
 				</ul>
