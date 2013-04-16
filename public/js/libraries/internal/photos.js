@@ -18,7 +18,6 @@
 		}
 
 		function updatePagination(currentPage){
-			console.log(currentPage);
 			var prevPage = ((currentPage - 1) > 1) ? (currentPage - 1) : 1,
 					nextPage = ((currentPage + 1) < totalPages) ? (currentPage + 1) : totalPages;
 
