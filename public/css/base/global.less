@@ -45,26 +45,26 @@ body a{
 	clear:both;
 	overflow: hidden;
 	background: transparent url('/img/wood.png') repeat;
-	.transformTransition(1200ms ease);
 	position: relative;
 	-webkit-overflow-scrolling: touch;
+	.transformTransition(1200ms ease);
 }
 #main.about-me{
-	.transform(translate(0, 0) translate3d(0, 0, 0));
+	.transformHW(translate(0, 0));
 }
 #main.my-works{
-	.transform(translate(0, 0) translate3d(-33.33%, 0, 0));
+	.transformHW(translate(-33.33%, 0));
 }
 #main.photos{
-	.transform(translate(0, 0) translate3d(-66.66%, 0, 0));
+	.transformHW(translate(-66.66%, 0));
 }
-.no-csstransforms3d #main.about-me{
+.no-csstransforms #main.about-me{
 	left: 0;
 }
-.no-csstransforms3d #main.my-works{
+.no-csstransforms #main.my-works{
 	left: -100%;
 }
-.no-csstransforms3d #main.photos{
+.no-csstransforms #main.photos{
 	left: -200%;
 }
 .shadow:before, 

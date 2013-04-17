@@ -5,11 +5,12 @@ nav ul{
 	z-index: 3;
 	font-family: 'Lobster', cursive;
 	font-size: 1.4em;
-	.transform(translate3d(10px, -230px, 0));
+	.transformHW(translate(10px, -230px));
 	.transformTransition(500ms ease);
+	.backface();
 }
 nav.active ul{
-	.transform(translate3d(15px, -200px, 0));
+	.transformHW(translate(15px, -200px));
 }
 .no-csstransforms3d nav ul{
 	top: -230px;
@@ -19,26 +20,27 @@ nav.active ul{
 }
 nav ul li{
 	position: absolute;
-	.transition(margin 500ms ease);
 	cursor: pointer;
+	.transition(margin 500ms ease);
+	.backface();
 }
 nav ul li.about-me{
-	.rotation(1deg);
 	z-index: 4;
 	margin: 7px 0 0 14px;
 	z-index: 3;
+	.rotation(1deg);
 }
 nav ul li.my-works{
-	.rotation(3deg);
 	z-index: 4;
 	margin: 7px 0 0 14px;
 	z-index: 2;
+	.rotation(3deg);
 }
 nav ul li.photos{
-	.rotation(-2deg);
 	z-index: 3;
 	margin: 10px 0 0 24px;
 	z-index: 1;
+	.rotation(-2deg);
 }
 nav.active ul li.about-me{
 	margin-top: 1px;
@@ -49,18 +51,18 @@ nav.active ul li.my-works{
 nav.active ul li.photos{
 	margin-top: 50px;
 }
-section.photos nav.active ul li.about-me{
+#photos-wrap nav.active ul li.about-me{
 	margin-top: 5px;
 }
-section.photos nav.active ul li.my-works{
+#photos-wrap nav.active ul li.my-works{
 	margin-top: 50px;
 }
 nav ul li a{
 	display: inline-block;
 	padding: 20px 20px 10px 20px;
 	background: #fafafa;
-	.box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset);
 	text-align: center;
+	.box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset);
 }
 nav ul li a img{
 	display: block;

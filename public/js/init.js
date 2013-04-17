@@ -12,26 +12,24 @@
 		//all versions
 		DH.libraries.nav.all();
 		DH.events.calculateDimensions();
+		DH.libraries.photos.all();
 
 		//mobile init
 		DH.isDevice('mobile', function () {
 			DH.log('mobile version');
 			DH.libraries.nav.mobile();
-			DH.libraries.photos.mobile();
 		});
 
 		//tablet init
 		DH.isDevice('tablet', function () {
 			DH.log('tablet version');
 			DH.libraries.nav.mobile();
-			DH.libraries.photos.mobile();
 		});
 
 		//desktop init
 		DH.isDevice('desktop', function () {
 			DH.log('desktop version');
 			DH.libraries.nav.desktop();
-			DH.libraries.photos.desktop();
 		});
 
 		//execute all hasChanges

@@ -2,13 +2,12 @@ nav ul{
 	top: auto;
 	left: auto;
 }
-
 #about-me-wrap nav ul{
 	top: 20px;
 	left: 470px;
-	.transform(translate3d(0, 0, 0));
 	width: 250px;
 	height: 260px;
+	.transformHW(translate(0, 0));
 }
 #about-me-wrap nav ul:hover{
 	width: 700px;
@@ -17,16 +16,16 @@ nav ul{
 	.transformTransition(500ms ease);
 }
 #about-me-wrap nav:hover ul li.my-works{
-	.transform(translate3d(230px, 0, 0) rotate(-5deg));
+	.transformHW(translate(230px, 0) rotate(-5deg));
 }
 #about-me-wrap nav:hover ul li.photos{
-	.transform(translate3d(460px, 0, 0) rotate(10deg));
+	.transformHW(translate(460px, 0) rotate(10deg));
 }
 .no-csstransforms3d.csstransforms #about-me-wrap nav:hover ul li.my-works{
-	.transform(translate3d(230px, 0, 0) rotate(-5deg));
+	.transformHW(translate(230px, 0) rotate(-5deg));
 }
 .no-csstransforms3d.csstransforms #about-me-wrap nav:hover ul li.photos{
-	.transform(translate3d(460px, 0, 0) rotate(10deg));
+	.transformHW(translate(460px, 0) rotate(10deg));
 }
 .no-csstransforms3d.no-csstransforms #about-me-wrap nav:hover ul li.my-works{
 	left: 230px;
@@ -40,17 +39,14 @@ nav ul{
 #photos-wrap   nav ul li.photos{
 	display: block;
 }
-
-
 #photos-wrap nav{
 	width: 120px;
 	height: 200px;
 	background: transparent url('/img/workspace/film.png') no-repeat 0 0;
 	margin-top: 0px;
 	margin-left: 150px;
-	position: relative;
-	.rotation(-1deg);
 	position: absolute;
+	.rotation(-1deg);
 }
 #photos-wrap nav ul{
 	width: 190px;
@@ -67,7 +63,6 @@ nav ul{
 	width: 615px;
 }
 #photos-wrap nav ul li{
-	.rotation(0deg);
 	background: transparent;
 	width: 141px;
 	height: 90px;
@@ -75,6 +70,7 @@ nav ul{
 	position: relative;
 	float: left;
 	margin: 57px 2px;
+	.rotation(0deg);
 }
 #photos-wrap nav ul li a{
 	padding: 0;

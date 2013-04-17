@@ -1,4 +1,4 @@
-(function (window, document, $, _, undefined) {
+(function (window, document, $, _, Modernizr, undefined) {
 	'use strict';
 	
 	var DH  = window.namespace('DH');
@@ -39,16 +39,10 @@
 		return {
 
 			all : function(){
-			},
-
-			mobile : function(){
-				DH.log('mobile photos init');
-			},
-
-			desktop : function(){
 				DH.log('desktop photos init');
 
 				$('#photos-wrap [data-page]').on('click.dh', function(){
+
 					var $that = $(this);
 
 					if($that.hasClass('disabled')){
@@ -56,23 +50,40 @@
 					}
 
 					$('#photos-wrap [data-page]').addClass('disabled');
-					var direction = $that.hasClass('next') ? 'next' : 'prev',
-							currentPage = $that.data('page');
+					var currentPage = $that.data('page');
 
-					loadPohotos(currentPage).done(function(data){
-						data = $.parseHTML(data) || data;
-						$wrap.addClass('slideDown');
-						window.setTimeout(function(){
-							$wrap.html('')
-									 .removeClass('slideDown')
-									 .addClass('slideUp')
-									 .html(data);
+					if(Modernizr.csstransforms && DH.settings.environment.device === 'desktop'){
+						var anim1 = 'slideDown',
+								anim2 = 'slideUp';
+
+						if($that.hasClass('prev')){
+							anim1 = 'slideUp';
+							anim2 = 'slideDown';
+						}	
+
+						loadPohotos(currentPage).done(function(data){
+							data = $.parseHTML(data) || data;
+							$wrap.addClass(anim1);
 							window.setTimeout(function(){
-								$wrap.removeClass('slideUp');
-							}, 1);
+								$wrap.html('')
+										 .removeClass(anim1)
+										 .addClass(anim2)
+										 .html(data);
+								window.setTimeout(function(){
+									$wrap.removeClass(anim2);
+								}, 1);
+								updatePagination(currentPage);
+							}, 1000);
+						}, 1000);	 
+					}else{
+						loadPohotos(currentPage).done(function(data){	
+							data = $.parseHTML(data) || data;
+							$wrap.fadeTo('slow', 0.5)
+									 .html(data)
+									 .fadeTo('slow', 1);
 							updatePagination(currentPage);
-						}, 1000);
-					}, 1000);	 
+						});
+					}
 
 				});
 
@@ -83,4 +94,4 @@
 
 	})();
 
-})(this, this.document, this.jQuery, this._);
+})(this, this.document, this.jQuery, this._, this.Modernizr);

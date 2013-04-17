@@ -57,12 +57,13 @@ aside.coffee .social.github{
   top: 394px;
 	left: 520px;
 	background-position: -280px 0;
-	.transformTransition(500ms ease);
-	.transform(translate3d(0, 0, 0));
 	z-index: 2;
+	.transformTransition(500ms ease);
+	.transformHW(translate(0, 0));
+	.backface();
 }
 aside.coffee .social.github:hover{
-	.transform(translate3d(-15px, 0, 0));
+	.transformHW(translate(-15px, 0));
 }
 aside.book{
 	width: 550px;

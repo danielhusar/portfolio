@@ -4,7 +4,7 @@
 	DanielHusar.prototype.settings = {
 		environment : {
 			isProduction	: false,
-			devices				: 'mobile',	//device, can be: desktop, tablet, mobile. The version is set up on init, but mobile is default.
+			device				: 'mobile',	//device, can be: desktop, tablet, mobile. The version is set up on init, but mobile is default.
 			nav						: ['about-me', 'my-works', 'photos']
 		},
 		pageWidth : 0
