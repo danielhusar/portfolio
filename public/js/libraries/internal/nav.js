@@ -1,78 +1,62 @@
 (function (window, document, $, _, undefined) {
-	'use strict';
-	
-	var DH  = window.namespace('DH');
+  'use strict';
+  
+  var DH  = window.namespace('DH');
 
-	window.namespace('DH.libraries').nav = {
+  window.namespace('DH.libraries').nav = (function(){
 
-		all : function(){
+    var nav = DH.settings.environment.nav;
 
-			$("#main").css(DH.prefix('transform'), '');
-			var nav = DH.settings.environment.nav;
+    return {
+      init : function(){
+        $("#main").css(DH.prefix('transform'), '');
 
-			$(document).on('keydown.dh', function(e){
-				if (e.keyCode === 37 || e.keyCode === 39) { 
-					$.each(nav, function(key, val){
-						var navigateTo = ((e.keyCode === 37) ? nav[--key] : nav[++key]) || false;
-						if($('#main').hasClass(val) && navigateTo){
-							DH.hash(navigateTo);
-							return false;
-						}
-					});
-				}
-			});
+        $(document).on('keydown.dh', function(e){
+          if (e.keyCode === 37 || e.keyCode === 39) { 
+            $.each(nav, function(key, val){
+              var navigateTo = ((e.keyCode === 37) ? nav[--key] : nav[++key]) || false;
+              if($('#main').hasClass(val) && navigateTo){
+                DH.hash(navigateTo);
+                return false;
+              }
+            });
+          }
+        });
 
-		},
+      },
 
-		mobile : function(){
+      navigate : function(url){
+        if(!url || !_.contains(nav, url)){
+          return;
+        }
 
-			$('nav:not(.active)').on('click.dh', function(event){
-				$(this).addClass('active');
-				event.preventDefault();
-			});
-			
-			$('nav a').on('click.dh', function(event){
-				if($(this).closest('nav').hasClass('active')){
-					DH.hash($(this).attr('href'));
-				}
-			});
+        if (DH.settings.environment.device !== 'desktop') {
+          console.log(DH.settings.environment.device);
+          $('nav:not(.active)').on('click.dh', function(event){
+            $(this).addClass('active');
+            event.preventDefault();
+          });
+          
+          $('nav a').on('click.dh', function(event){
+            if($(this).closest('nav').hasClass('active')){
+              DH.hash($(this).attr('href'));
+            }
+          });
+        }
+        
+        var sectionWidth = $("section").outerWidth(),
+            indent = (DH.settings.pageWidth < sectionWidth) ? (sectionWidth - DH.settings.pageWidth) / 2 : 0,
+            index = nav.indexOf(url),
+            position = -sectionWidth * index - indent;
 
-			$.addHashCallback(function(hash){
-				var nav = DH.settings.environment.nav;
-				if(_.contains(nav, hash)){
-					$("#main").removeClass(nav.join(' ')).addClass(hash);
-					$('nav').removeClass('active');
-				}
-			});
-			
-		},
+        $("#main").removeClass(nav.join(' '))
+                  .addClass(url)
+                  .css(DH.prefix('transform'), 'translate('+position+'px, 0) translate3d(0, 0, 0)');
+        $('nav').removeClass('active');
 
-		desktop : function(){
+      }
+    };
 
-			var nav = DH.settings.environment.nav;
-			var sectionWidth = $("section").outerWidth();
-
-			function navigate(hash){
-				if(_.contains(nav, hash)){
-					var indent = (DH.settings.pageWidth < sectionWidth) ? (sectionWidth - DH.settings.pageWidth) / 2 : 0,
-							index = nav.indexOf(hash),
-							position = -sectionWidth * index -indent;
-
-					$("#main").removeClass(nav.join(' '))
-										.addClass(hash)
-										.css(DH.prefix('transform'), 'translate(0, 0) translate3d('+position+'px, 0, 0)');
-					$('nav').removeClass('active');
-				}
-			}
-
-			$.addHashCallback(function(hash){
-				 navigate(hash);
-			});
-
-			navigate(DH.hash() || DH.settings.environment.nav[0]);
-
-		}
-
-	};
+  })();
 
 })(this, this.document, this.jQuery, this._);

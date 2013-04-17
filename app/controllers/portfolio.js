@@ -12,16 +12,25 @@
 module.exports = function(app, model, helpers){
 
 
+	/**
+	 * Main homepage controller
+	 */
 	app.get('/', function(req, res){
 		helpers.template(res, 'index.html');
 	});
 
+	/**
+	 * Ajax loader for the photos
+	 */
 	app.get('/ajax/photos/:page', function(req, res){
 		var page = req.params.page || 1;
 		helpers.template(res, '_photos.html');
 	});
 
 
+	/**
+	 * Tweets json feed
+	 */
 	app.get('/tweets', function(req, res){
 
 		var twitter= require(process.cwd() + '/app/libraries/twitter/twitter.js').twitter;
@@ -33,8 +42,6 @@ module.exports = function(app, model, helpers){
 		               				config.access_token_secret,
 		               				360
 		               			 );
-
-	
 		
 		twitter.on('get:statuses/user_timeline', function(error, data){
 	  	res.writeHead(200, {'Content-Type': 'application/json'});

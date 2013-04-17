@@ -12,30 +12,30 @@
 	window.DH = new DanielHusar();
 
 	var namespace = window.namespace = function (namespace) {
-    var parent;
-    var currentNamespacePart;
-    var nestedNamespace;
-    var namespacesCount;
+		var parent;
+		var currentNamespacePart;
+		var nestedNamespace;
+		var namespacesCount;
 
-    if (_.isString(namespace)) {
+		if (_.isString(namespace)) {
 
-      parent          = window;
-      namespace       = namespace.split('.');
-      namespacesCount = namespace.length;
+			parent          = window;
+			namespace       = namespace.split('.');
+			namespacesCount = namespace.length;
 
-      // create nested namespaces
-      for (var namespaceIndex = 0; namespaceIndex < namespacesCount; namespaceIndex++) {
-        currentNamespacePart = namespace[namespaceIndex];
-        nestedNamespace      = _.isObject(parent[currentNamespacePart]) ? parent[currentNamespacePart] : {}; // if nested namespace exists, don't overwrite it
-        parent[currentNamespacePart] = parent = nestedNamespace; // assigning from right to left
+			// create nested namespaces
+			for (var namespaceIndex = 0; namespaceIndex < namespacesCount; namespaceIndex++) {
+				currentNamespacePart = namespace[namespaceIndex];
+				nestedNamespace      = _.isObject(parent[currentNamespacePart]) ? parent[currentNamespacePart] : {}; // if nested namespace exists, don't overwrite it
+				parent[currentNamespacePart] = parent = nestedNamespace; // assigning from right to left
 
-      }
+			}
 
-      return eval('window.' + namespace.join('.'));
+			return nestedNamespace;
 
-    }
+		}
 
-  };
+	};
 	
 
 	/**
@@ -105,11 +105,11 @@
 	 */
 	DanielHusar.prototype.prefix = function(method) {
 		var transEndEventNames = {
-		    'WebkitTransition' : 'webkitTransitionEnd',
-		    'MozTransition'    : 'transitionend',
-		    'OTransition'      : 'otransitionend',
-		    'msTransition'     : 'MSTransitionEnd',
-		    'transition'       : 'transitionend'
+				'WebkitTransition' : 'webkitTransitionEnd',
+				'MozTransition'    : 'transitionend',
+				'OTransition'      : 'otransitionend',
+				'msTransition'     : 'MSTransitionEnd',
+				'transition'       : 'transitionend'
 			};
 		if(method === 'transitionEnd'){
 			return transEndEventNames[Modernizr.prefixed('transition')];

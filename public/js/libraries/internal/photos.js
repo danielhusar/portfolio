@@ -38,7 +38,7 @@
 
 		return {
 
-			all : function(){
+			init : function(){
 				DH.log('desktop photos init');
 
 				$('#photos-wrap [data-page]').on('click.dh', function(){
@@ -52,44 +52,46 @@
 					$('#photos-wrap [data-page]').addClass('disabled');
 					var currentPage = $that.data('page');
 
-					if(Modernizr.csstransforms && DH.settings.environment.device === 'desktop'){
+					if (Modernizr.csstransforms && DH.settings.environment.device === 'desktop') {
+						/** Fancy way of loading photos **/
 						var anim1 = 'slideDown',
 								anim2 = 'slideUp';
 
 						if($that.hasClass('prev')){
 							anim1 = 'slideUp';
 							anim2 = 'slideDown';
-						}	
+						} 
 
 						loadPohotos(currentPage).done(function(data){
 							data = $.parseHTML(data) || data;
 							$wrap.addClass(anim1);
 							window.setTimeout(function(){
 								$wrap.html('')
-										 .removeClass(anim1)
-										 .addClass(anim2)
-										 .html(data);
+											.removeClass(anim1)
+											.addClass(anim2)
+											.html(data);
 								window.setTimeout(function(){
 									$wrap.removeClass(anim2);
 								}, 1);
 								updatePagination(currentPage);
 							}, 1000);
-						}, 1000);	 
-					}else{
-						loadPohotos(currentPage).done(function(data){	
+						}, 1000);
+
+					} else {
+						/** boring way to load photos :) **/
+						loadPohotos(currentPage).done(function(data){ 
 							data = $.parseHTML(data) || data;
 							$wrap.fadeTo('slow', 0.5)
-									 .html(data)
-									 .fadeTo('slow', 1);
+										.html(data)
+										.fadeTo('slow', 1);
 							updatePagination(currentPage);
 						});
+
 					}
 
 				});
-
 			}
-
-		}
+		};
 
 
 	})();

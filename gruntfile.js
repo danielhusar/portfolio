@@ -8,11 +8,11 @@ module.exports = function(grunt) {
         separator: '\n\n'
       },
       app : {
-        src: ['public/js/global.js', 'public/js/settings.js', 'public/js/libraries/internal/*.js', 'public/js/events.js', 'public/js/init.js'],
+        src: ['public/js/global.js', 'public/js/settings.js', 'public/js/libraries/internal/*.js', 'public/js/events.js', 'public/js/routes.js', 'public/js/init.js'],
         dest: 'public/js/packed/app.js'
       },
       plugins : {
-        src: ['public/js/plugins/*.js'],
+        src: ['public/js/libraries/external/*.js', 'public/js/plugins/*.js', '!**/*min.js'],
         dest: 'public/js/packed/plugins.js'
       }
     },
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
 
   //Tasks  
-  grunt.registerTask('jshint', ['jshint']);
+  grunt.registerTask('hint', ['jshint']);
   grunt.registerTask('default', ['concat', 'uglify', 'jshint', 'watch']);
   grunt.registerTask('development', ['concat', 'uglify', 'watch']);
   grunt.registerTask('production', ['concat', 'uglify']);
