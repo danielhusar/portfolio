@@ -31,7 +31,6 @@
         }
 
         if (DH.settings.environment.device !== 'desktop') {
-          console.log(DH.settings.environment.device);
           $('nav:not(.active)').on('click.dh', function(event){
             $(this).addClass('active');
             event.preventDefault();
@@ -42,16 +41,18 @@
               DH.hash($(this).attr('href'));
             }
           });
+          $("#main").removeAttr('style');
+        } else {
+          var sectionWidth = $("section").outerWidth(),
+              indent = (DH.settings.pageWidth < sectionWidth) ? (sectionWidth - DH.settings.pageWidth) / 2 : 0,
+              index = nav.indexOf(url),
+              position = -sectionWidth * index - indent;
+
+          $("#main").css(DH.prefix('transform'), 'translate('+position+'px, 0) translate3d(0, 0, 0)');
         }
-        
-        var sectionWidth = $("section").outerWidth(),
-            indent = (DH.settings.pageWidth < sectionWidth) ? (sectionWidth - DH.settings.pageWidth) / 2 : 0,
-            index = nav.indexOf(url),
-            position = -sectionWidth * index - indent;
 
         $("#main").removeClass(nav.join(' '))
-                  .addClass(url)
-                  .css(DH.prefix('transform'), 'translate('+position+'px, 0) translate3d(0, 0, 0)');
+                  .addClass(url);
         $('nav').removeClass('active');
 
       }
