@@ -1,11 +1,42 @@
-#my-works-wrap article ul li{
-	margin-bottom: 10px;
-	position: relative;
+#my-works-wrap article ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 #my-works-wrap article ul li{
+	position: relative;
+	width: 100%;
+	margin: 0 0 10px 0;
+	padding-bottom: 10px; 
+	display: block;
+	float: left;
 	overflow: hidden;
+	border-bottom: 1px dotted #ccc;
+}
+#my-works-wrap article ul li > a{
+	width: 40%;
+	display: block;
+	float: left;
+}
+#my-works-wrap article ul li .desc{
+	width: 58%;
+	margin-left: 2%;
+	float: left;
+}
+#my-works-wrap article ul li .desc h5,
+#my-works-wrap article ul li .desc p,
+#my-works-wrap article ul li .desc a{
+  margin: 0 0 5px 0;
+  font-size: 0.8em;
+}
+#my-works-wrap article ul li .desc a{
+	margin: 0;
 }
 #my-works-wrap article ul li img{
 	width: 100%;
 	height: auto;
+	display: block;
+	margin: 0;
+	padding: 0;
+	vertical-align: text-bottom;
 }
