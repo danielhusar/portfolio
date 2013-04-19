@@ -40,19 +40,31 @@
 }
 #photos-wrap .pagination{
 	position: absolute;
-	left: -150px;
+	left: -90px;
 	top: 250px;
 	cursor: pointer;
 }
 #photos-wrap .pagination .prev,
 #photos-wrap .pagination .next{
 	position: absolute;
-	width: 40px;
-	height: 40px;
-	background-color: #ccc;
+	width: 52px;
+	height: 70px;
+	background: transparent url('/img/sprite.png') no-repeat 0 -73px;
+	display: block;
+	overflow: hidden;
+	text-indent: -500px;
+	.transformTransition(200ms ease);
+	.backface();
+}
+#photos-wrap .pagination .prev:hover{
+	.transformHW(translate(0, -5px));
+}
+#photos-wrap .pagination .next:hover{
+	.transformHW(translate(0, 5px));
 }
 #photos-wrap .pagination .next{
-	top: 50px;
+	top: 90px;
+	background-position: -52px -73px;
 }
 #photos-wrap .pagination .disabled{
 	opacity: 0.5;

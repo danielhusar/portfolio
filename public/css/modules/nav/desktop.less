@@ -9,28 +9,27 @@ nav ul{
 	height: 260px;
 	.transformHW(translate(0, 0));
 }
-#about-me-wrap nav ul:hover{
+#about-me-wrap nav ul:hover,
+.touch #about-me-wrap nav ul{
 	width: 700px;
 }
 #about-me-wrap nav ul li{
 	.transformTransition(500ms ease);
 }
-#about-me-wrap nav:hover ul li.my-works{
+#about-me-wrap nav:hover ul li.my-works,
+.touch #about-me-wrap nav ul li.my-works{
 	.transformHW(translate(230px, 0) rotate(-5deg));
 }
-#about-me-wrap nav:hover ul li.photos{
+#about-me-wrap nav:hover ul li.photos,
+.touch #about-me-wrap nav ul li.photos{
 	.transformHW(translate(460px, 0) rotate(10deg));
 }
-.no-csstransforms3d.csstransforms #about-me-wrap nav:hover ul li.my-works{
-	.transformHW(translate(230px, 0) rotate(-5deg));
-}
-.no-csstransforms3d.csstransforms #about-me-wrap nav:hover ul li.photos{
-	.transformHW(translate(460px, 0) rotate(10deg));
-}
-.no-csstransforms3d.no-csstransforms #about-me-wrap nav:hover ul li.my-works{
+.no-csstransforms #about-me-wrap nav:hover ul li.my-works,
+.no-csstransforms.touch #about-me-wrap nav ul li.my-works{
 	left: 230px;
 }
-.no-csstransforms3d.no-csstransforms #about-me-wrap nav:hover ul li.photos{
+.no-csstransforms #about-me-wrap nav:hover ul li.photos,
+.no-csstransforms.touch #about-me-wrap nav ul li.photos{
 	left: 460px;
 }
 #about-me-wrap nav ul li.about-me,
