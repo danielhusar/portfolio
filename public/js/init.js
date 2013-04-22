@@ -11,6 +11,7 @@
 		//all inits
 		DH.libraries.nav.init();
 		DH.events.calculateDimensions();
+		DH.events.lightbox();
 		DH.libraries.photos.init();
 		DH.libraries.nav.navigate(DH.hash());
 

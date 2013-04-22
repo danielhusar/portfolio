@@ -44,6 +44,14 @@
 		 */
 		calculateDimensions : function(){
 			DH.settings.pageWidth = $('body').outerWidth();
+		},
+
+		lightbox : function(){
+			$('#photos-wrap').on('click.dh', '#photos-list li', function(event){
+				$('#photos-list li').removeClass('opened');
+				$(this).toggleClass('opened');
+				event.preventDefault();
+			})
 		}
 
 	};
