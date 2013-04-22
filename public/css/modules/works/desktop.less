@@ -1,20 +1,69 @@
 #my-works-wrap article{
-	width: 970px;
-	height: 715px;
-	background: transparent url('/img/workspace/album.png') no-repeat top center;
-	top: 50px;
+	width: 1200px;
+	height: 1200px;
+	margin: 0 auto;
+	background: none;
+	top: 0;
 	left: 0;
-	overflow: hidden;
 }
 #my-works-wrap article > div{
 	padding: 0;
 	background: transparent;
 	border: none;
-	margin: 90px 85px;
 	.border-radius(0);
 	.box-shadow(0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(0, 0, 0, 0) inset);
 }
 #my-works-wrap article:after,
 #my-works-wrap article:before{
 	display: none;
+}
+
+#my-works-wrap article .perform{
+	width: 800px;
+	height: 645px;
+	padding: 30px;
+	background: transparent url('/img/workspace/album.png') no-repeat;
+	position: absolute;
+	display: inline-block;
+	top: 350px;
+	left: 0;
+	.transformHW(rotate(1deg));
+}
+#my-works-wrap article .perform .work{
+	padding: 30px 30px 0 30px;
+}
+
+#my-works-wrap article .facebook{
+	width: 450px;
+	height: 625px;
+	background: transparent url('/img/workspace/clip.png') no-repeat;
+	position: absolute;
+	display: inline-block;
+	top: -105px;
+	right: 10px;
+	.transformHW(rotate(-3deg));
+}
+#my-works-wrap article .facebook .work{
+	margin: 0 0 0 108px;
+	width: 255px;
+	padding: 10px 0;
+	border-bottom: 1px solid #ccc;
+}
+#my-works-wrap article .facebook .work:nth-child(1){
+	margin-top: 205px;
+}
+#my-works-wrap article .facebook .work > a{
+	width: 30%;
+}
+#my-works-wrap article .facebook .desc{
+	width: 68%;
+}
+
+#my-works-wrap article .freelancer{
+	width: 450px;
+	height: 325px;
+	position: absolute;
+	display: inline-block;
+	top: 20px;
+	left: 100px;
 }

@@ -1,9 +1,4 @@
-#my-works-wrap article ul{
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-#my-works-wrap article ul li{
+#my-works-wrap article .work{
 	position: relative;
 	width: 100%;
 	margin: 0 0 10px 0;
@@ -13,26 +8,29 @@
 	overflow: hidden;
 	border-bottom: 1px dotted #ccc;
 }
-#my-works-wrap article ul li > a{
+#my-works-wrap article .work > a{
 	width: 40%;
 	display: block;
 	float: left;
 }
-#my-works-wrap article ul li .desc{
+#my-works-wrap article .work .desc{
 	width: 58%;
 	margin-left: 2%;
 	float: left;
 }
-#my-works-wrap article ul li .desc h5,
-#my-works-wrap article ul li .desc p,
-#my-works-wrap article ul li .desc a{
+#my-works-wrap article .work .desc h5,
+#my-works-wrap article .work .desc p,
+#my-works-wrap article .work .desc a{
   margin: 0 0 5px 0;
   font-size: 0.8em;
 }
-#my-works-wrap article ul li .desc a{
+#my-works-wrap article .work .desc p span{
+	font-weight: bold;
+}
+#my-works-wrap article .work .desc a{
 	margin: 0;
 }
-#my-works-wrap article ul li img{
+#my-works-wrap article .work img{
 	width: 100%;
 	height: auto;
 	display: block;

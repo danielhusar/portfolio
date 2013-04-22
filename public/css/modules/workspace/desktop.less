@@ -16,7 +16,7 @@ aside.coffee{
 	top: 400px;
 	left: 0;
 }
-aside.coffee .social{
+.social{
 	width: 70px;
 	height: 70px;
 	position: absolute;
@@ -28,10 +28,10 @@ aside.coffee .social.linkedin{
   top: 375px;
 	left: 39px;
 	.transformTransition(500ms ease);
-	.transform(rotate(30deg));
+	.transformHW(rotate(30deg));
 }
 aside.coffee .social.linkedin:hover{
-	.transform(rotate(-5deg));
+	.transformHW(rotate(-5deg));
 }
 aside.coffee .social.facebook{
   top: 240px;
@@ -48,22 +48,14 @@ aside.coffee .social.lastfm{
 	left: 165px;
 	background-position: -211px 0
 }
-aside.coffee .social.github{
-  top: 394px;
-	left: 412px;
-	background-position: -280px 0;
-}
-aside.coffee .social.github{
-  top: 394px;
-	left: 520px;
-	background-position: -280px 0;
+aside.macbook .social.github{
+	width: 100px;
+	height: 100px;
+  top: 135px;
+	left: 325px;
+	background-position: -109px -72px;
 	z-index: 2;
-	.transformTransition(500ms ease);
-	.transformHW(translate(0, 0));
-	.backface();
-}
-aside.coffee .social.github:hover{
-	.transformHW(translate(-15px, 0));
+	.rotation(-10deg);
 }
 aside.book{
 	width: 550px;
