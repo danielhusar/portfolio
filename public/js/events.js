@@ -59,12 +59,14 @@
 			return {
 				works : function(){
 					if(!loaded.works){
+						DH.log('Works images lazy loaded.');
 						$('#my-works-wrap').lazyLoad();
 						loaded.works = true;
 					}
 				},
 				photos : function(){
 					if(!loaded.photos){
+						DH.log('Photos lazy loaded.');
 						$('#photos-wrap').lazyLoad();
 						loaded.photos = true;
 					}
@@ -104,8 +106,27 @@
 
 				desktop : function(){
 					$('#photos-wrap').on('click.dh', '#photos-list li', function(event){
-						$('#photos-list li').removeClass('opened');
-						$(this).toggleClass('opened');
+						var $this = $(this),
+								src = $this.find('a').attr('href'),
+								$modal = $('#modal');
+/*
+						$('#photos-list li').removeClass('opened')
+																.find('img')
+																.removeAttr('style');
+
+						$(this).find('img').attr('src', imgSrc)
+															 .css({
+															 	 'width'  : $this.find('a').data('width'),
+															 	 'height' : $this.find('a').data('height')
+															 });
+
+						
+						$(this).toggleClass('opened');*/
+						var $img = $('<img/>').attr('src', src)
+																	.load(function(){
+																		console.log('image loaded');
+																	});
+						$modal.html($img);
 						event.preventDefault();
 					});
 				}

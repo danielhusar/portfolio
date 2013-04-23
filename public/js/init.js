@@ -17,11 +17,13 @@
 		//mobile inits
 		DH.isDevice('mobile', function () {
 			DH.log('mobile version');
+			DH.events.lightbox.mobile();
 		});
 
 		//tablet inits
 		DH.isDevice('tablet', function () {
 			DH.log('tablet version');
+			DH.events.lightbox.mobile();
 		});
 
 		//desktop inits
