@@ -46,14 +46,73 @@
 			DH.settings.pageWidth = $('body').outerWidth();
 		},
 
-		lightbox : function(){
-			$('#photos-wrap').on('click.dh', '#photos-list li', function(event){
-				$('#photos-list li').removeClass('opened');
-				$(this).toggleClass('opened');
-				event.preventDefault();
-			})
-		}
+		/**
+		 * Load the images in works section
+		 * @return {object}
+		 */
+		lazyLoad : (function(){
+			var loaded = {
+				works : false,
+				photos : false
+			};
 
-	};
+			return {
+				works : function(){
+					if(!loaded.works){
+						$('#my-works-wrap').lazyLoad();
+						loaded.works = true;
+					}
+				},
+				photos : function(){
+					if(!loaded.photos){
+						$('#photos-wrap').lazyLoad();
+						loaded.photos = true;
+					}
+				}
+			}
+	  })(),
+
+
+/*
+    lazyLoad : {
+      forDevice : function (device) {
+
+        $('img[data-image-src]').addClass('hidden').filter(DH.fmt('[data-image-load-for*="%@"]', device)).removeClass('hidden').each(function () {
+          var $img = $(this),
+              src = $img.data('imageSrc');
+          $img.attr('src', src);
+
+          $('<img/>').attr('src', src);
+          					 .on('load.dh', function(){
+          					   console.log($(this).width());	
+          					 });
+      	});
+
+      }
+     },
+*/
+
+		/**
+		 * Big photos views
+		 */
+		lightbox : (function(){
+
+			return {
+				mobile : function(){
+
+				},
+
+				desktop : function(){
+					$('#photos-wrap').on('click.dh', '#photos-list li', function(event){
+						$('#photos-list li').removeClass('opened');
+						$(this).toggleClass('opened');
+						event.preventDefault();
+					});
+				}
+
+			}
+	  })()
+
+	}
 
 })(this, this.document, this.jQuery, this._);

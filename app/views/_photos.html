@@ -1,60 +1,11 @@
-<li>
-	<a href="" class="shadow">
-		<img src="/upload/photos/sirava.jpg" alt="sirava">
-	</a>
-</li>
-<li>
-	<a href="" class="shadow">
-		<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-	</a>
-</li>
-<li>
-	<a href="" class="shadow">
-		<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-	</a>
-</li>
-<li>
-	<a href="" class="shadow">
-		<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-	</a>
-</li>
-<li>
-	<a href="" class="shadow">
-		<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-	</a>
-</li>
-<li>
-	<a href="" class="shadow">
-		<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-	</a>
-</li>
-<li>
-	<a href="" class="shadow">
-		<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-	</a>
-</li>
-<li>
-	<a href="" class="shadow">
-		<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-	</a>
-</li>
-<li>
-	<a href="" class="shadow">
-		<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-	</a>
-</li>
-<li>
-	<a href="" class="shadow">
-		<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-	</a>
-</li>
-<li>
-	<a href="" class="shadow">
-		<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-	</a>
-</li>
-<li>
-	<a href="" class="shadow">
-		<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
-	</a>
-</li>
+{% for photo in photos %}
+  <li>
+		<a href="/upload/photos/sirava.jpg" class="shadow">
+			{% if type == 'lazy' %}
+				<img src="/img/blank.png" data-image-src="/upload/photos/sirava_thumb.jpg" alt="sirava">
+			{% else %}
+				<img src="/upload/photos/sirava_thumb.jpg" alt="sirava">
+			{% endif %}
+		</a>
+	</li>
+{% endfor %}

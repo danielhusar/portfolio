@@ -9,11 +9,12 @@
 
 		'my-works' : function() {
 			DH.libraries.nav.navigate('my-works');
-
+			DH.events.lazyLoad.works();
 		},
 
 		'photos' : function() {
 			DH.libraries.nav.navigate('photos');
+			DH.events.lazyLoad.photos();
 		}
 
 	};

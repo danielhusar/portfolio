@@ -134,6 +134,48 @@
 		}
 	};
 
+
+	/**
+   * Apply formatting options to the string. This will look for occurrences
+   * of %@ in your string and substitute them with the arguments you pass into
+   * this method.  If you want to control the specific order of replacement,
+   * you can add a number after the key as well to indicate which argument
+   * you want to insert.
+   *
+   * Ordered insertions are most useful when building loc strings where values
+   * you need to insert may appear in different orders.
+   *
+   *
+   * Sample Usage:
+   *
+   *   LS.fmt('Hello %@ %@',    'John', 'Doe') // => 'Hello John Doe'
+   *   LS.fmt('Hello %@2, %@1', 'John', 'Doe') // => 'Hello Doe, John'
+   *
+   *
+   * @namespace LS
+   *
+   * @param  {String}     string  String to be formatted
+   * @param  {String...}  *args   Strings to be passed into @string param
+   * @return {String}             Formatted string
+   */
+  DanielHusar.prototype.fmt = function (string) {
+    var formats;
+    var index;
+
+    // Words to fill the string should be all arguments but first
+    formats = Array.prototype.slice.call(arguments, 1);
+
+    // first, replace any ORDERED replacements.
+    index  = 0; // the current index for non-numerical replacements
+
+    return string.replace(/%@([0-9]+)?/g, function (match, argumentIndex) {
+      argumentIndex = (argumentIndex) ? parseInt(argumentIndex, 10) - 1 : index++;
+      match         = formats[argumentIndex];
+
+      return ((match === null) ? '(null)' : (match === undefined) ? '' : match).toString();
+    });
+  };
+
 	
 	/*
 	*

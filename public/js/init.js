@@ -11,7 +11,6 @@
 		//all inits
 		DH.libraries.nav.init();
 		DH.events.calculateDimensions();
-		DH.events.lightbox();
 		DH.libraries.photos.init();
 		DH.libraries.nav.navigate(DH.hash());
 
@@ -28,6 +27,7 @@
 		//desktop inits
 		DH.isDevice('desktop', function () {
 			DH.log('desktop version');
+			DH.events.lightbox.desktop();
 		});
 
 
