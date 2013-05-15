@@ -28,7 +28,8 @@
 		"consolidate" : "*",
     "swig": "*",
     "oauth" : "*",
-    "less-middleware": "*"
+    "less-middleware": "*",
+    "nosql" : "*"
   },
   "devDependencies": {
     "grunt": "~0.4.0",

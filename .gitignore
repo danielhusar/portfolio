@@ -25,6 +25,8 @@ lib-cov
 *.out
 *.pid
 *.gz
+*.nosql
+*.changes
 
 pids
 logs

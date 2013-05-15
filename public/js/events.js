@@ -74,26 +74,6 @@
 			}
 	  })(),
 
-
-/*
-    lazyLoad : {
-      forDevice : function (device) {
-
-        $('img[data-image-src]').addClass('hidden').filter(DH.fmt('[data-image-load-for*="%@"]', device)).removeClass('hidden').each(function () {
-          var $img = $(this),
-              src = $img.data('imageSrc');
-          $img.attr('src', src);
-
-          $('<img/>').attr('src', src);
-          					 .on('load.dh', function(){
-          					   console.log($(this).width());	
-          					 });
-      	});
-
-      }
-     },
-*/
-
 		/**
 		 * Big photos views
 		 */
@@ -108,25 +88,19 @@
 					$('#photos-wrap').on('click.dh', '#photos-list li', function(event){
 						var $this = $(this),
 								src = $this.find('a').attr('href'),
-								$modal = $('#modal');
-/*
-						$('#photos-list li').removeClass('opened')
-																.find('img')
-																.removeAttr('style');
+								$modal = $('#photo');
 
-						$(this).find('img').attr('src', imgSrc)
-															 .css({
-															 	 'width'  : $this.find('a').data('width'),
-															 	 'height' : $this.find('a').data('height')
-															 });
-
-						
-						$(this).toggleClass('opened');*/
 						var $img = $('<img/>').attr('src', src)
 																	.load(function(){
-																		console.log('image loaded');
+																		$('body').addClass('modal');
 																	});
 						$modal.html($img);
+						$('#main').on('transitionend.dh', function(event) {
+						  if(event.originalEvent.propertyName === 'margin-top'){
+						  	$('body').addClass('modal-opened');
+						  	$('#main').unbind('transitionend.dh');
+						  }
+						});
 						event.preventDefault();
 					});
 				}

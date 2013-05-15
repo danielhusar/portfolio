@@ -44,10 +44,12 @@ body a{
 	min-width: 300%;
 	clear:both;
 	overflow: hidden;
+	padding-top: 1000px;
+	margin-top: -1000px;
 	background: transparent url('/img/wood.png') repeat;
 	position: relative;
 	-webkit-overflow-scrolling: touch;
-	.transformTransition(1200ms ease);
+	.transition(1200ms ease);
 }
 #main.about-me{
 	.transformHW(translate(0, 0));
@@ -69,40 +71,30 @@ body a{
 }
 #overlay{
 	position: absolute;
-	z-index: 100;
+	z-index: 2;
 	background: black;
-	opacity: 0.5;
+	opacity: 0.2;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	display: none;
 }
-#modal{
+#photo{
 	position: absolute;
-	display: none;
+	z-index: 5;
+	top: -900px;
+	left: 50%;
+	margin-left: -300px;
 }
-/*
-.shadow:before, 
-.shadow:after{
-	position: absolute;
-	width: 40%;
-	height: 10px;
-	content: ' ';
-	left: 12px;
-	bottom: 3px;
-	background: transparent;
-	z-index: -1;
-	.transform(skew(-5deg) rotate(-5deg));
-	.box-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+.modal #main{
+	margin-top: 0;
 }
-.shadow:after{
-	left: auto;
-	right: 12px;
-	.transform(skew(5deg) rotate(5deg));
-}*/
-.shadow:before, .shadow:after
-{
+.modal-opened #main{
+	height: 1000px;
+	overflow: hidden;
+}
+.shadow:before, .shadow:after{
   z-index: -1;
   position: absolute;
   content: "";
@@ -121,8 +113,7 @@ body a{
   -ms-transform: rotate(-3deg);
   transform: rotate(-3deg);
 }
-.shadow:after
-{
+.shadow:after{
   -webkit-transform: rotate(3deg);
   -moz-transform: rotate(3deg);
   -o-transform: rotate(3deg);
