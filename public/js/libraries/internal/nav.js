@@ -30,7 +30,7 @@
           return;
         }
 
-        $('body').removeClass('modal modal-opened');
+        $('body').removeClass('modal');
 
         if (DH.settings.environment.device !== 'desktop') {
           $('nav:not(.active)').on('click.dh', function(event){

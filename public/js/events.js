@@ -95,12 +95,6 @@
 																		$('body').addClass('modal');
 																	});
 						$modal.html($img);
-						$('#main').on('transitionend.dh', function(event) {
-						  if(event.originalEvent.propertyName === 'margin-top'){
-						  	$('body').addClass('modal-opened');
-						  	$('#main').unbind('transitionend.dh');
-						  }
-						});
 						event.preventDefault();
 					});
 				}
