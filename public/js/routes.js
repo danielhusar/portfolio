@@ -15,6 +15,9 @@
 		'photos' : function() {
 			DH.libraries.nav.navigate('photos');
 			DH.events.lazyLoad.photos();
+		},
+		'photo/:id': function(id) {
+    	
 		}
 
 	};

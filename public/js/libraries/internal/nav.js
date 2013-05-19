@@ -11,7 +11,7 @@
       init : function(){
         $("#main").css(DH.prefix('transform'), '');
 
-        $(document).on('keydown.dh', function(e){
+        $(document).on('keydown.dh.key', function(e){
           if (e.keyCode === 37 || e.keyCode === 39) { 
             $.each(nav, function(key, val){
               var navigateTo = ((e.keyCode === 37) ? nav[--key] : nav[++key]) || false;

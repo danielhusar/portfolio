@@ -6,31 +6,16 @@
  */
 module.exports = function(app, helpers){
 
-	var model = {
-		data : ['first', 'second', 'third'],
-		edit : function(id, data){},
-		new  : function(data){},
-		delete : function(id){}
+	var photos = require('nosql').load(process.cwd() + '/db/photos.nosql');
+
+	return {
+		getPhotos : function(start, limit, callback){
+			start = start ? start: false;
+			limit = limit ? limit: false;
+			photos.all(function(selected){
+				callback(selected);
+			});
+		}
 	}
 
-	var nosql = require('nosql').load(process.cwd() + '/db/photos.nosql');
-
-	var callback = function(selected) {
-
-	    var users = [];
-	    selected.forEach(function(o) {
-	        users.push(o.firstName + ' ' + o.lastName);
-	    });
-
-	    console.log('Users between 25 and 35 years old: ' + users.join(', '));
-	};
-
-	var filter = function(doc) {
-	    return doc.age > 24 && doc.age < 36;
-	};
-
-	nosql.all(filter, callback);
-
-
-	return model;
 };
