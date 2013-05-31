@@ -36,6 +36,22 @@ module.exports = function(grunt) {
     watch: {
       files: ['<%= concat.app.src %>', '<%= concat.plugins.src %>'],
       tasks: ['concat', 'uglify']
+    },
+    //mocha
+    mocha: {
+      all: {
+        src: 'test/index.html',
+        options: {
+          run: true
+        }
+      }
+    },
+    plato: {
+      main: {
+        files: {
+          'reports': ['public/js/*.js', '!**/*min.js']
+        }
+      }
     }
   });
 
@@ -44,12 +60,18 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-mocha');
+  grunt.loadNpmTasks('grunt-plato');
 
   //Tasks  
-  grunt.registerTask('hint', ['jshint']);
-  grunt.registerTask('default', ['concat', 'uglify', 'jshint', 'watch']);
+
+  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'mocha']);
   grunt.registerTask('development', ['concat', 'uglify', 'watch']);
   grunt.registerTask('production', ['concat', 'uglify']);
+
+  grunt.registerTask('hint', ['jshint']);
+  grunt.registerTask('tests', ['mocha']);
+  grunt.registerTask('reports', ['plato']);
 
   return grunt;
 

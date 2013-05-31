@@ -34,6 +34,8 @@ results
 
 npm-debug.log
 node_modules
+components
+reports
 public/js/packed
 config/twitter.js
 cache/*

@@ -37,9 +37,11 @@
     "grunt-contrib-uglify": "*",
     "grunt-contrib-concat": "*",
     "grunt-contrib-watch": "*",
-    "grunt-contrib-qunit": "*",
-    "grunt-contrib-nodeunit": "*",
+    "grunt-plato": "~0.2.0",
+    "grunt-mocha": "~0.3.0",
     "supervisor" : "*",
+    "mocha" : "*",
+    "chai" : "*",
     "express-chrome-logger" : "*"
   },
 	"engines": {

@@ -71,8 +71,8 @@
 						loaded.photos = true;
 					}
 				}
-			}
-	  })(),
+			};
+		})(),
 
 		/**
 		 * Big photos views
@@ -99,9 +99,9 @@
 					});
 				}
 
-			}
-	  })()
+			};
+		})()
 
-	}
+	};
 
 })(this, this.document, this.jQuery, this._);

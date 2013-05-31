@@ -1,3 +1,7 @@
+/**
+ * Lazy load JQuery plugin
+ * Author: Daniel Husar
+ */
 (function (window, document, $, undefined) {
 	'use strict';
 
