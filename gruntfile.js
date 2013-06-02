@@ -37,7 +37,7 @@ module.exports = function(grunt) {
       files: ['<%= concat.app.src %>', '<%= concat.plugins.src %>'],
       tasks: ['concat', 'uglify']
     },
-    //mocha
+    //tests
     mocha: {
       all: {
         src: 'test/index.html',
@@ -46,6 +46,7 @@ module.exports = function(grunt) {
         }
       }
     },
+    //reports
     plato: {
       main: {
         files: {

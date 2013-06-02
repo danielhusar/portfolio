@@ -15,6 +15,13 @@ module.exports = function(app, helpers){
 			photos.all(function(selected){
 				callback(selected);
 			});
+		},
+		getAllPhotos : function(start, limit, callback){
+			start = start ? start: false;
+			limit = limit ? limit: false;
+			photos.all(function(selected){
+				callback(selected);
+			});
 		}
 	}
 
