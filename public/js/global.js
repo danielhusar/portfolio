@@ -36,7 +36,6 @@
 		}
 
 	};
-	
 
 	/**
 	 * Defining named conditions to be used by DH.when, DH.whenSome and DH.whenAll
@@ -83,7 +82,7 @@
 	
 
 	/**
-	 * Console log function, it logs only on production enviroment
+	 * Console log function, it logs only on development enviroment
 	 * @return {void}
 	 */
 	DanielHusar.prototype.log = function () {

@@ -36,22 +36,21 @@ module.exports = function(app, model, helpers){
 		var twitter= require(process.cwd() + '/app/libraries/twitter/twitter.js').twitter;
 		var config = require(process.cwd() + '/config/twitter.js')();
 
-		twitter = new twitter(config.consumer_key, 
-		               				config.consumer_secret, 
-		               				config.access_token,
-		               				config.access_token_secret,
-		               				360
-		               			 );
-		
+		twitter = new twitter(config.consumer_key,
+													config.consumer_secret,
+													config.access_token,
+													config.access_token_secret,
+													360
+												);
+
 		twitter.on('get:statuses/user_timeline', function(error, data){
-	  	res.writeHead(200, {'Content-Type': 'application/json'});
+			res.writeHead(200, {'Content-Type': 'application/json'});
 			res.write(data || '');
 			res.end();
 		}).get('statuses/user_timeline');
 
 
 	});
-	
 
 
 };
