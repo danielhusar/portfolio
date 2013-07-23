@@ -29,6 +29,7 @@
     "swig": "*",
     "oauth" : "*",
     "less-middleware": "*",
+    "underscore" : "*",
     "nosql" : "*"
   },
   "devDependencies": {

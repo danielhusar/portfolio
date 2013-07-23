@@ -1,10 +1,10 @@
 {% for photo in photos %}
-  <li class="shadow">
-		<a href="/upload/photos/sirava.jpg">
+  <li class="shadow" data-id="{{ photo.id }}">
+		<a href="/upload/photos/{{ photo.name }}">
 			{% if type == 'lazy' %}
-				<img src="/img/blank.png" data-image-src="/upload/photos/thumb/sirava.jpg" alt="sirava">
+				<img src="/img/blank.png" data-image-src="/upload/photos/thumb/{{ photo.name }}" alt="{{ photo.name }}">
 			{% else %}
-				<img src="/upload/photos/thumb/sirava.jpg" alt="sirava">
+				<img src="/upload/photos/thumb/{{ photo.name }}" alt="sirava">
 			{% endif %}
 		</a>
 	</li>

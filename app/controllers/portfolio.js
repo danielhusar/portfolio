@@ -16,7 +16,10 @@ module.exports = function(app, model, helpers){
 	 * Main homepage controller
 	 */
 	app.get('/', function(req, res){
-		helpers.template(res, 'index.html', {photos: [1,2,3,4,5,6,7,8,9,10,11,12]});
+
+		model.getPhotos(function(data, total){
+			helpers.template(res, 'index.html', {photos: data, total : total});
+		}, 1, 12);
 	});
 
 	/**
@@ -24,7 +27,9 @@ module.exports = function(app, model, helpers){
 	 */
 	app.get('/ajax/photos/:page', function(req, res){
 		var page = req.params.page || 1;
-		helpers.template(res, '_photos.html', {photos: [1,2,3,4,5,6,7,8,9,10,11,12]});
+		model.getPhotos(function(data, total){
+			helpers.template(res, '_photos.html', {photos: data});
+		}, page, 12);
 	});
 
 
