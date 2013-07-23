@@ -1,8 +1,4 @@
 /**
-	EXAMPLE OF ONE CONTROLLER, EVERY CONTROLLER MUST HAVE MODEL WITH SAME NAME INSIDE MODEL DIRECTORY
-**/
-
-/**
  * Main controller for the admin section
  * @param  {object} app     app object
  * @param  {object} model   model object that belong to the current controller
