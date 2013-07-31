@@ -28,9 +28,9 @@ body{
 	height: 100%;
 	overflow-x: hidden;
 	-webkit-font-smoothing: antialiased;
-	color: #333;
+	color: @color;
 	font-family: 'Droid Serif', 'Georgia';
-	background: transparent url('/img/wood.png') repeat;
+	background: transparent url(@bg) repeat;
 	font-size: 0.95em;
 	/*-webkit-overflow-scrolling: touch;*/
 }
@@ -46,10 +46,11 @@ body a{
 	overflow: hidden;
 	padding-top: 1000px;
 	margin-top: -1000px;
-	background: transparent url('/img/wood.png') repeat;
+	background: transparent url(@bg) repeat;
 	position: relative;
 	-webkit-overflow-scrolling: touch;
 	.transition(1200ms ease);
+	
 }
 #main.about-me{
 	.transformHW(translate(0, 0));
@@ -60,14 +61,22 @@ body a{
 #main.photos{
 	.transformHW(translate(-66.66%, 0));
 }
-.no-csstransforms #main.about-me{
-	left: 0;
+.carousel{
+	overflow: hidden;
+	#main{
+		margin-top: 0;
+	}
 }
-.no-csstransforms #main.my-works{
-	left: -100%;
-}
-.no-csstransforms #main.photos{
-	left: -200%;
+.no-csstransforms{
+	#main.about-me{
+		left: 0;
+	}
+	#main.my-works{
+		left: -100%;
+	}
+	#main.photos{
+		left: -200%;
+	}
 }
 #overlay{
 	position: absolute;
@@ -80,20 +89,9 @@ body a{
 	bottom: 0;
 	display: none;
 }
-#photo{
-	position: absolute;
-	z-index: 5;
-	top: -900px;
-	left: 50%;
-	margin-left: -300px;
-}
-.modal{
-	overflow: hidden;
-}
-.modal #main{
-	margin-top: 0;
-}
-.shadow:before, .shadow:after{
+
+.shadow:before, 
+.shadow:after{
   z-index: -1;
   position: absolute;
   content: "";
@@ -101,23 +99,12 @@ body a{
   left: 10px;
   width: 50%;
   top: 80%;
-  max-width:300px;
   background: #777;
-  -webkit-box-shadow: 0 15px 10px #777;
-  -moz-box-shadow: 0 15px 10px #777;
-  box-shadow: 0 15px 10px #777;
-  -webkit-transform: rotate(-3deg);
-  -moz-transform: rotate(-3deg);
-  -o-transform: rotate(-3deg);
-  -ms-transform: rotate(-3deg);
-  transform: rotate(-3deg);
+  .box-shadow(0 15px 10px #777);
+  .transform(rotate(-3deg));  
 }
 .shadow:after{
-  -webkit-transform: rotate(3deg);
-  -moz-transform: rotate(3deg);
-  -o-transform: rotate(3deg);
-  -ms-transform: rotate(3deg);
-  transform: rotate(3deg);
+  .transform(rotate(3deg));    
   right: 10px;
   left: auto;
 }

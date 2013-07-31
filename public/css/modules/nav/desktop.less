@@ -2,28 +2,37 @@ nav ul{
 	top: auto;
 	left: auto;
 }
-#about-me-wrap nav ul{
-	top: 20px;
-	left: 470px;
-	width: 250px;
-	height: 260px;
-	.transformHW(translate(0, 0));
+
+#about-me-wrap{
+	nav ul{
+		top: 20px;
+		left: 470px;
+		width: 250px;
+		height: 260px;
+		.transformHW(translate(0, 0));
+	}
+	nav ul:hover,
+	.touch #about-me-wrap nav ul{
+		width: 700px;
+	}
+	nav ul li{
+		.transformTransition(500ms ease);
+	}
+	nav:hover ul li.my-works,
+	.touch #about-me-wrap nav ul li.my-works{
+		.transformHW(translate(230px, 0) rotate(-5deg));
+	}
+	nav:hover ul li.photos,
+	.touch #about-me-wrap nav ul li.photos{
+		.transformHW(translate(460px, 0) rotate(10deg));
+	}	
+	nav ul li.about-me,
+	nav ul li.my-works,
+	nav ul li.photos{
+		display: block;
+	}
 }
-#about-me-wrap nav ul:hover,
-.touch #about-me-wrap nav ul{
-	width: 700px;
-}
-#about-me-wrap nav ul li{
-	.transformTransition(500ms ease);
-}
-#about-me-wrap nav:hover ul li.my-works,
-.touch #about-me-wrap nav ul li.my-works{
-	.transformHW(translate(230px, 0) rotate(-5deg));
-}
-#about-me-wrap nav:hover ul li.photos,
-.touch #about-me-wrap nav ul li.photos{
-	.transformHW(translate(460px, 0) rotate(10deg));
-}
+
 .no-csstransforms #about-me-wrap nav:hover ul li.my-works,
 .no-csstransforms.touch #about-me-wrap nav ul li.my-works{
 	left: 230px;
@@ -32,44 +41,48 @@ nav ul{
 .no-csstransforms.touch #about-me-wrap nav ul li.photos{
 	left: 460px;
 }
-#about-me-wrap nav ul li.about-me,
-#about-me-wrap nav ul li.my-works,
-#about-me-wrap nav ul li.photos,
-#photos-wrap   nav ul li.photos{
-	display: block;
+
+#photos-wrap{
+	nav ul{
+		width: 380px;
+		height: 128px;
+		padding-left: 23px;
+		margin: 0 0 0 160px;
+		background: transparent url('/img/workspace/filmstrip.png') no-repeat 0 0;
+		.transformHW(rotate(-3deg));
+	}
+	nav ul li{
+		background: transparent;
+		width: 102px;
+		margin: 25px 5px 0 0;
+		height: 72px;
+		position: relative;
+		float: left;
+		overflow: hidden;
+		.rotation(0deg);
+		a{
+			padding: 0;
+		}
+		a span{
+			display: none;
+		}
+		a img{
+			width: 100%;
+			height: 100%;
+			margin: 0;
+		}
+		a img:hover{
+			.grayscale(100%);
+		}	
+	}
+	nav ul li:hover{
+		.grayscale(0%);
+	}
+	nav ul li.about-me,
+	nav ul li.my-works,
+	nav ul li.photos{
+		display: block;
+	}
+
 }
-#photos-wrap nav ul{
-	width: 380px;
-	height: 128px;
-	padding-left: 23px;
-	margin: 0 0 0 160px;
-	background: transparent url('/img/workspace/filmstrip.png') no-repeat 0 0;
-	.transformHW(rotate(-3deg));
-}
-#photos-wrap nav ul li{
-	background: transparent;
-	width: 102px;
-	margin: 25px 5px 0 0;
-	height: 72px;
-	position: relative;
-	float: left;
-	overflow: hidden;
-	.rotation(0deg);
-}
-#photos-wrap nav ul li:hover{
-	.grayscale(0%);
-}
-#photos-wrap nav ul li a{
-	padding: 0;
-}
-#photos-wrap nav ul li a span{
-	display: none;
-}
-#photos-wrap nav ul li a img{
-	width: 100%;
-	height: 100%;
-	margin: 0;
-}
-#photos-wrap nav ul li a img:hover{
-	.grayscale(100%);
-}
+

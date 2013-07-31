@@ -18,9 +18,8 @@ module.exports = function(app, helpers){
 			photos.all(function(data){
 				var total = data.length;
 				if(start && limit){
-					data = _.filter(data, function(item){ return(item.id >= (start * limit - limit) && item.id <= (start * limit)); });
+					data = _.filter(data, function(item){ return(item.id >= (start * limit - limit + 1) && item.id <= (start * limit)); });
 				}
-				console.dir(data);
 				callback(data, total);
 			});
 		}

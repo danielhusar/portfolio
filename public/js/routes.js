@@ -17,7 +17,7 @@
 			DH.events.lazyLoad.photos();
 		},
 		'photo/:id': function(id) {
-			DH.log('photos');
+			DH.carousel.init(id);
 		}
 
 	};

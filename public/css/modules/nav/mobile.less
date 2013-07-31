@@ -8,68 +8,75 @@ nav ul{
 	.transformHW(translate(10px, -230px));
 	.transformTransition(500ms ease);
 	.backface();
+	li{
+		position: absolute;
+		cursor: pointer;
+		.transition(margin 500ms ease);
+		.backface();
+	}
+	li.about-me{
+		z-index: 4;
+		margin: 7px 0 0 14px;
+		z-index: 3;
+		.rotation(1deg);
+	}
+	li.my-works{
+		z-index: 4;
+		margin: 7px 0 0 14px;
+		z-index: 2;
+		.rotation(3deg);
+	}
+	li.photos{
+		z-index: 3;
+		margin: 10px 0 0 24px;
+		z-index: 1;
+		.rotation(-2deg);
+	}
+	li a{
+		display: inline-block;
+		padding: 20px 20px 10px 20px;
+		background: #fafafa;
+		text-align: center;
+		.box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset);
+	}
+	li a img{
+		display: block;
+		margin-bottom: 10px;
+		width: 180px;
+		height: 180px;
+	}
 }
 nav.active ul{
 	.transformHW(translate(15px, -200px));
+	li.about-me{
+		margin-top: 1px;
+	}
+	li.my-works{
+		margin-top: 5px;
+	}
+	li.photos{
+		margin-top: 50px;
+	}
 }
-.no-csstransforms nav ul{
-	top: -230px;
+.no-csstransforms{
+	nav ul{
+		top: -230px;
+	}
+	nav.active ul{
+		top: -210px;
+	}	
 }
-.no-csstransforms nav.active ul{
-	top: -210px;
+
+
+#photos-wrap nav.active ul{
+	li.about-me{
+		margin-top: 5px;
+	}
+	li.my-works{
+		margin-top: 50px;
+	}	
 }
-nav ul li{
-	position: absolute;
-	cursor: pointer;
-	.transition(margin 500ms ease);
-	.backface();
-}
-nav ul li.about-me{
-	z-index: 4;
-	margin: 7px 0 0 14px;
-	z-index: 3;
-	.rotation(1deg);
-}
-nav ul li.my-works{
-	z-index: 4;
-	margin: 7px 0 0 14px;
-	z-index: 2;
-	.rotation(3deg);
-}
-nav ul li.photos{
-	z-index: 3;
-	margin: 10px 0 0 24px;
-	z-index: 1;
-	.rotation(-2deg);
-}
-nav.active ul li.about-me{
-	margin-top: 1px;
-}
-nav.active ul li.my-works{
-	margin-top: 5px;
-}
-nav.active ul li.photos{
-	margin-top: 50px;
-}
-#photos-wrap nav.active ul li.about-me{
-	margin-top: 5px;
-}
-#photos-wrap nav.active ul li.my-works{
-	margin-top: 50px;
-}
-nav ul li a{
-	display: inline-block;
-	padding: 20px 20px 10px 20px;
-	background: #fafafa;
-	text-align: center;
-	.box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset);
-}
-nav ul li a img{
-	display: block;
-	margin-bottom: 10px;
-	width: 180px;
-	height: 180px;
-}
+
 #about-me-wrap nav ul li.about-me,
 #my-works-wrap nav ul li.my-works,
 #photos-wrap nav ul li.photos{

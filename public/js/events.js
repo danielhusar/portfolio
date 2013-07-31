@@ -72,11 +72,12 @@
 					}
 				}
 			};
-		})(),
+		})()
 
 		/**
 		 * Big photos views
 		 */
+		/*
 		lightbox : (function(){
 
 			return {
@@ -88,12 +89,12 @@
 					$('#photos-wrap').on('click.dh', '#photos-list li', function(event){
 						var $this = $(this),
 								src = $this.find('a').attr('href'),
-								$modal = $('#photo');
+								$modal = $('#carousel');
 
 						var $img = $('<img/>').attr('src', src)
-																	.load(function(){
-																		$('body').addClass('modal');
-																	});
+												.load(function(){
+													$('body').addClass('modal');
+												});
 						$modal.html($img);
 						event.preventDefault();
 					});
@@ -101,6 +102,7 @@
 
 			};
 		})()
+		*/
 
 	};
 

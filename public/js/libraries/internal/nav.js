@@ -30,7 +30,7 @@
           return;
         }
 
-        $('body').removeClass('modal');
+        $('body').removeClass('carousel');
 
         if (DH.settings.environment.device !== 'desktop') {
           $('nav:not(.active)').on('click.dh', function(event){

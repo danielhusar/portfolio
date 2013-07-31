@@ -1,40 +1,43 @@
-#my-works-wrap article .work{
-	position: relative;
-	width: 100%;
-	margin: 0 0 10px 0;
-	padding-bottom: 10px; 
-	display: block;
-	float: left;
-	overflow: hidden;
-	border-bottom: 1px dotted #ccc;
-}
-#my-works-wrap article .work > a{
-	width: 40%;
-	display: block;
-	float: left;
-}
-#my-works-wrap article .work .desc{
-	width: 58%;
-	margin-left: 2%;
-	float: left;
-}
-#my-works-wrap article .work .desc h5,
-#my-works-wrap article .work .desc p,
-#my-works-wrap article .work .desc a{
-  margin: 0 0 5px 0;
-  font-size: 0.8em;
-}
-#my-works-wrap article .work .desc p span{
-	font-weight: bold;
-}
-#my-works-wrap article .work .desc a{
-	margin: 0;
-}
-#my-works-wrap article .work img{
-	width: 100%;
-	height: auto;
-	display: block;
-	margin: 0;
-	padding: 0;
-	vertical-align: text-bottom;
+#my-works-wrap article{
+	.work{
+		position: relative;
+		width: 100%;
+		margin: 0 0 10px 0;
+		padding-bottom: 10px; 
+		display: block;
+		float: left;
+		overflow: hidden;
+		border-bottom: 1px dotted #ccc;
+		> a{
+			width: 40%;
+			display: block;
+			float: left;
+		}
+		.desc{
+			width: 58%;
+			margin-left: 2%;
+			float: left;
+		}
+		.desc h5,
+		.desc p,
+		.desc a{
+		  margin: 0 0 5px 0;
+		  font-size: 0.8em;
+		}
+		.desc p span{
+			font-weight: bold;
+		}
+		.desc a{
+			margin: 0;
+		}
+		img{
+			width: 100%;
+			height: auto;
+			display: block;
+			margin: 0;
+			padding: 0;
+			vertical-align: text-bottom;
+		}	
+	}
+	
 }
