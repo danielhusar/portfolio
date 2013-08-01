@@ -21,7 +21,7 @@
 	    padding: 0;
 			text-align: center;
 			a{
-				padding: 20px 20px 40px 20px;
+				/*padding: 20px 20px 40px 20px;*/
 				display: inline-block;
 				position: relative;
 				background: #fafafa;
@@ -34,3 +34,28 @@
 		}
 	}
 }
+
+
+
+/*
+@iterations: 30;
+
+// helper class, will never show up in resulting css
+// will be called as long the index is above 0
+.loopingClass (@index) when (@index > 0) {
+
+	// create the actual css selector, example will result in
+	// .myclass_30, .myclass_28, .... , .myclass_1
+	.myclass_@{index}{
+		// your resulting css
+		my-property: -@index px;
+		color: randomcolor();
+	}
+
+	// next iteration
+	.loopingClass(@index - 1);
+}
+
+// "call" the loopingClass the first time with highest value
+.loopingClass (@iterations);
+*/
