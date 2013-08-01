@@ -46,7 +46,17 @@
 	</section>
 
 	<section id="photos-wrap">
-		<div id="carousel"></div>
+		<div id="carousel">
+            <ul>
+                {% for photo in carouselPhotos %}
+                    <li data-id="{{ photo.id }}">
+                        <a href="#photo/{{ photo.id }}" class="shadow">
+                        	<img src="/upload/photos/thumb/{{ photo.name }}" alt="sirava">
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
 		{% include "_nav.html" %}
 		<aside class="nikon"></aside>
 		<article>

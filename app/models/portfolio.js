@@ -17,10 +17,11 @@ module.exports = function(app, helpers){
 			limit = limit ? limit : false;
 			photos.all(function(data){
 				var total = data.length;
+                var totalData = data;
 				if(start && limit){
 					data = _.filter(data, function(item){ return(item.id >= (start * limit - limit + 1) && item.id <= (start * limit)); });
 				}
-				callback(data, total);
+				callback(data, total, totalData);
 			});
 		}
 	};

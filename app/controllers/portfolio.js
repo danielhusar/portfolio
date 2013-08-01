@@ -13,8 +13,8 @@ module.exports = function(app, model, helpers){
 	 */
 	app.get('/', function(req, res){
 
-		model.getPhotos(function(data, total){
-			helpers.template(res, 'index.html', {photos: data, total : total});
+		model.getPhotos(function(data, total, totalData){
+			helpers.template(res, 'index.html', {photos: data, total : total, carouselPhotos: totalData});
 		}, 1, 12);
 	});
 
