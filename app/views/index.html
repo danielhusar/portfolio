@@ -51,7 +51,7 @@
                 {% for photo in carouselPhotos %}
                     <li data-id="{{ photo.id }}">
                         <a href="#photo/{{ photo.id }}" class="shadow">
-                        	<img src="/upload/photos/{{ photo.name }}" alt="sirava">
+                        	<img src="/img/blank.png" data-image-src="/upload/photos/{{ photo.name }}" alt="{{ photo.name }}">
                         </a>
                     </li>
                 {% endfor %}

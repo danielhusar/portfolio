@@ -8,9 +8,11 @@
     var nav = DH.settings.environment.nav;
 
     return {
-      init : function(){
+      resetView : function(){
         $("#main").css(DH.prefix('transform'), '');
+      },
 
+      init : function(){
         $(document).on('keydown.dh.key', function(e){
           if (e.keyCode === 37 || e.keyCode === 39) { 
             $.each(nav, function(key, val){

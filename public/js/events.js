@@ -67,7 +67,7 @@
 				photos : function(){
 					if(!loaded.photos){
 						DH.log('Photos lazy loaded.');
-						$('#photos-wrap').lazyLoad();
+						$('#photos-list').lazyLoad();
 						loaded.photos = true;
 					}
 				}

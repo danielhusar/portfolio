@@ -12,7 +12,7 @@
 			var settings = $.extend( {
 				'effect'       : 'show',
 				'effect_speed' : '',
-				'attr'         : 'data-image-src'  //type of the content, can be image, static, ajax  (if not present it will guess)
+				'attr'         : 'data-image-src'
 			}, options);
 
 			

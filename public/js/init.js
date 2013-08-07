@@ -9,6 +9,7 @@
 		DH.settings.environment.device = DH.events.getDevice();
 
 		//all inits
+		DH.libraries.nav.resetView();
 		DH.libraries.nav.init();
 		DH.events.calculateDimensions();
 		DH.libraries.photos.init();
