@@ -61,19 +61,24 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.string/2.3.0/underscore.string.min.js"></script>
 	<script>window._.str || document.write('<script src="/js/libraries/external/underscore.string.2.3.0.min.js"><\/script>')</script>
 
-	<!--<script src="/js/app.packed.js"></script>-->
-	<script src="/js/libraries/external/routie.js"></script>
-	<script src="/js/plugins/jQuery.lazyLoad.js"></script>
-	<script src="/js/plugins/jQuery.konami.js"></script>
+	{% if type == 'production' %}
+		<script src="/js/packed/plugins.min.js"></script>
+		<script src="/js/packed/app.min.js"></script>
+	{% else %}
+		<script src="/js/libraries/external/routie.js"></script>
+		<script src="/js/plugins/jQuery.lazyLoad.js"></script>
+		<script src="/js/plugins/jQuery.konami.js"></script>
 
-	<script src="/js/global.js"></script>
-	<script src="/js/settings.js"></script>
-	<script src="/js/libraries/internal/nav.js"></script>
-	<script src="/js/libraries/internal/photos.js"></script>
-	<script src="/js/libraries/internal/carousel.js"></script>
-	<script src="/js/events.js"></script>
-	<script src="/js/init.js"></script>
-	<script src="/js/routes.js"></script>
+		<script src="/js/global.js"></script>
+		<script src="/js/settings.js"></script>
+		<script src="/js/libraries/internal/nav.js"></script>
+		<script src="/js/libraries/internal/photos.js"></script>
+		<script src="/js/libraries/internal/carousel.js"></script>
+		<script src="/js/events.js"></script>
+		<script src="/js/init.js"></script>
+		<script src="/js/routes.js"></script>
+	{% endif %}
+
 	
 </body>
 </html>

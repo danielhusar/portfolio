@@ -5,6 +5,7 @@ nav ul{
 	z-index: 3;
 	font-family: 'Lobster', cursive;
 	font-size: 1.4em;
+	width: 250px;
 	.transformHW(translate(10px, -230px));
 	.transformTransition(500ms ease);
 	.backface();
@@ -13,39 +14,40 @@ nav ul{
 		cursor: pointer;
 		.transition(margin 500ms ease);
 		.backface();
-	}
-	li.about-me{
-		z-index: 4;
-		margin: 7px 0 0 14px;
-		z-index: 3;
-		.rotation(1deg);
-	}
-	li.my-works{
-		z-index: 4;
-		margin: 7px 0 0 14px;
-		z-index: 2;
-		.rotation(3deg);
-	}
-	li.photos{
-		z-index: 3;
-		margin: 10px 0 0 24px;
-		z-index: 1;
-		.rotation(-2deg);
-	}
-	li a{
-		display: inline-block;
-		padding: 20px 20px 10px 20px;
-		background: #fafafa;
-		text-align: center;
-		.box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset);
-	}
-	li a img{
-		display: block;
-		margin-bottom: 10px;
-		width: 180px;
-		height: 180px;
+		&.about-me{
+			z-index: 4;
+			margin: 7px 0 0 14px;
+			z-index: 3;
+			.rotation(1deg);
+		}
+		&.my-works{
+			z-index: 4;
+			margin: 7px 0 0 14px;
+			z-index: 2;
+			.rotation(3deg);
+		}
+		&.photos{
+			z-index: 3;
+			margin: 10px 0 0 24px;
+			z-index: 1;
+			.rotation(-2deg);
+		}
+		a{
+			display: inline-block;
+			padding: 20px 20px 10px 20px;
+			background: #fafafa;
+			text-align: center;
+			.box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset);
+			img{
+				display: block;
+				margin-bottom: 10px;
+				width: 180px;
+				height: 180px;
+			}
+		}
 	}
 }
+
 nav.active ul{
 	.transformHW(translate(15px, -200px));
 	li.about-me{

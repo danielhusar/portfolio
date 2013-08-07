@@ -57,7 +57,7 @@ module.exports = function(app, express){
 	app.use(express.cookieParser('secreet key'));
 	app.use(express.session());
 	app.use(app.router);
-	app.use(require('less-middleware')(config.less));
+	app.use(require('../app/libraries/less/middleware.js')(config.less));
 	app.use(express.static(path.join(process.cwd(), 'public')));
 
 	return app;

@@ -6,6 +6,10 @@
 		background: none;
 		top: 0;
 		left: 0;
+		&:after,
+		&:before{
+			display: none;
+		}
 		> div{
 			padding: 0;
 			background: transparent;
@@ -41,12 +45,12 @@
 				width: 255px;
 				padding: 10px 0;
 				border-bottom: 1px solid #ccc;
+				&:nth-child(1){
+					margin-top: 205px;
+				}
 				> a{
 					width: 30%;
 				}
-			}
-			.work:nth-child(1){
-				margin-top: 205px;
 			}
 
 			.desc{
@@ -61,11 +65,6 @@
 			top: 20px;
 			left: 100px;
 		}
-	}
-
-	article:after,
-	article:before{
-		display: none;
 	}
 }
 

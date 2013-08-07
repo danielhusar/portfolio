@@ -1,12 +1,12 @@
 #about-me-wrap{
-	article:before,
-	article:after{
+	article{
+		&:before,
+		&:after{
+		}
+		> div{
+			margin-top: 300px;
+			.border-radius(0, 0, 170px 16px, 0);
+		}
 	}
-	article > div{
-		margin-top: 300px;
-	}
-	article > div{
-	 .border-radius(0, 0, 170px 16px, 0);
-	}	
 }
 

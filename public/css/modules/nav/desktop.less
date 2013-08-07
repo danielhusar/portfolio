@@ -7,16 +7,21 @@ nav ul{
 	nav ul{
 		top: 20px;
 		left: 470px;
-		width: 250px;
 		height: 260px;
 		.transformHW(translate(0, 0));
+		li{
+			.transformTransition(500ms ease);
+		}
+		li.about-me,
+		li.my-works,
+		li.photos{
+			display: block;
+		}
+
 	}
 	nav ul:hover,
 	.touch #about-me-wrap nav ul{
 		width: 700px;
-	}
-	nav ul li{
-		.transformTransition(500ms ease);
 	}
 	nav:hover ul li.my-works,
 	.touch #about-me-wrap nav ul li.my-works{
@@ -26,11 +31,7 @@ nav ul{
 	.touch #about-me-wrap nav ul li.photos{
 		.transformHW(translate(460px, 0) rotate(10deg));
 	}	
-	nav ul li.about-me,
-	nav ul li.my-works,
-	nav ul li.photos{
-		display: block;
-	}
+
 }
 
 .no-csstransforms #about-me-wrap nav:hover ul li.my-works,
@@ -50,39 +51,38 @@ nav ul{
 		margin: 0 0 0 160px;
 		background: transparent url('/img/workspace/filmstrip.png') no-repeat 0 0;
 		.transformHW(rotate(-3deg));
-	}
-	nav ul li{
-		background: transparent;
-		width: 102px;
-		margin: 25px 5px 0 0;
-		height: 72px;
-		position: relative;
-		float: left;
-		overflow: hidden;
-		.rotation(0deg);
-		a{
-			padding: 0;
+		li{
+			background: transparent;
+			width: 102px;
+			margin: 25px 5px 0 0;
+			height: 72px;
+			position: relative;
+			float: left;
+			overflow: hidden;
+			.rotation(0deg);
+			&:hover{
+				.grayscale(0%);
+			}
+			&.about-me,
+			&.my-works,
+			&.photos{
+				display: block;
+			}
+			a{
+				padding: 0;
+			}
+			a span{
+				display: none;
+			}
+			a img{
+				width: 100%;
+				height: 100%;
+				margin: 0;
+			}
+			a img:hover{
+				.grayscale(100%);
+			}	
 		}
-		a span{
-			display: none;
-		}
-		a img{
-			width: 100%;
-			height: 100%;
-			margin: 0;
-		}
-		a img:hover{
-			.grayscale(100%);
-		}	
 	}
-	nav ul li:hover{
-		.grayscale(0%);
-	}
-	nav ul li.about-me,
-	nav ul li.my-works,
-	nav ul li.photos{
-		display: block;
-	}
-
 }
 

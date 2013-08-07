@@ -28,7 +28,8 @@
 		"consolidate" : "*",
     "swig": "*",
     "oauth" : "*",
-    "less-middleware": "*",
+    "less": "~1.4",
+    "mkdirp": "~0.3",
     "underscore" : "*",
     "nosql" : "*"
   },

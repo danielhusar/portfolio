@@ -1,87 +1,85 @@
 aside{
 	display: block;
 	position: absolute;
-}
-aside.macbook{
-	width: 470px;
-	height: 345px;
-	background: transparent url('/img/workspace/macbook.png') no-repeat top left;
-	top: 0;
-	left: 0;
-}
-aside.coffee{
-	width: 308px;
-	height: 396px;
-	background: transparent url('/img/workspace/coffee.png') no-repeat bottom right;
-	top: 400px;
-	left: 0;
-}
-.social{
-	width: 70px;
-	height: 70px;
-	position: absolute;
-	background: transparent url('/img/sprite.png') no-repeat 0 0;
-	display: block;
-	overflow: hidden;
-}
-aside.coffee{
-	.social.linkedin{
-	  top: 375px;
-		left: 39px;
-		.transformTransition(500ms ease);
-		.transformHW(rotate(30deg));
+	&.macbook{
+		width: 470px;
+		height: 345px;
+		background: transparent url('/img/workspace/macbook.png') no-repeat top left;
+		top: 0;
+		left: 0;
 	}
-	.social.linkedin:hover{
-		.transformHW(rotate(-5deg));
+	&.coffee{
+		width: 308px;
+		height: 396px;
+		background: transparent url('/img/workspace/coffee.png') no-repeat bottom right;
+		top: 400px;
+		left: 0;
+		.social{
+			width: 70px;
+			height: 70px;
+			position: absolute;
+			background: transparent url('/img/sprite.png') no-repeat 0 0;
+			display: block;
+			overflow: hidden;
+			&.linkedin{
+			  top: 375px;
+				left: 39px;
+				.transformTransition(500ms ease);
+				.transformHW(rotate(30deg));
+			}
+			&.linkedin:hover{
+				.transformHW(rotate(-5deg));
+			}
+			&.facebook{
+			  top: 240px;
+			  left: 50px;
+			  background-position: -65px 0;
+			}
+			&.twitter{
+			  top: 400px;
+			  left: 120px;
+			  background-position: -140px 0;
+			}
+			&.lastfm{
+			  top: 413px;
+				left: 165px;
+				background-position: -211px 0
+			}
+		}
 	}
-	.social.facebook{
-	  top: 240px;
-	  left: 50px;
-	  background-position: -65px 0;
+	&.macbook .social.github{
+		width: 100px;
+		height: 100px;
+	  top: 135px;
+		left: 325px;
+		background-position: -109px -72px;
+		z-index: 2;
+		.rotation(-10deg);
 	}
-	.social.twitter{
-	  top: 400px;
-	  left: 120px;
-	  background-position: -140px 0;
+	&.book{
+		width: 550px;
+		height: 615px;
+		background: transparent url('/img/workspace/book.png') no-repeat;
+		top: 0;
+		right: 0;
+		margin-right: -220px;
 	}
-	.social.lastfm{
-	  top: 413px;
+	&.iphone{
+		width: 220px;
+		height: 445px;
+		background: transparent url('/img/workspace/iphone.png') no-repeat 0 0;
+		overflow: hidden;
+		top: 413px;
 		left: 165px;
-		background-position: -211px 0
+		.transform(rotate(5deg));
+		display: none;
 	}
-}
-aside.macbook .social.github{
-	width: 100px;
-	height: 100px;
-  top: 135px;
-	left: 325px;
-	background-position: -109px -72px;
-	z-index: 2;
-	.rotation(-10deg);
-}
-aside.book{
-	width: 550px;
-	height: 615px;
-	background: transparent url('/img/workspace/book.png') no-repeat;
-	top: 0;
-	right: 0;
-	margin-right: -220px;
-}
-aside.iphone{
-	width: 220px;
-	height: 445px;
-	background: transparent url('/img/workspace/iphone.png') no-repeat 0 0;
-	overflow: hidden;
-	top: 413px;
-	left: 165px;
-	.transform(rotate(5deg));
-	display: none;
-}
-aside.nikon{
-	width: 400px;
-	height: 389px;
-	background: transparent url('/img/workspace/nikon.png') no-repeat 0 0;
-	overflow: hidden;
-	top: 0;
-	right: -100px;
+	&.nikon{
+		width: 400px;
+		height: 389px;
+		background: transparent url('/img/workspace/nikon.png') no-repeat 0 0;
+		overflow: hidden;
+		top: 0;
+		right: -100px;
+	}
 }

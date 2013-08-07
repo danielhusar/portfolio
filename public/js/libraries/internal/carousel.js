@@ -22,7 +22,7 @@
 
 			$('#carousel ul').css({
 				marginLeft : (-id * width + width) + 'px'
-			})
+			});
 		}
 
 	};

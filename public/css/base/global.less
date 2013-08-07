@@ -50,17 +50,17 @@ body a{
 	position: relative;
 	-webkit-overflow-scrolling: touch;
 	.transition(1200ms ease);
-	
+	&.about-me{
+		.transformHW(translate(0, 0));
+	}
+	&.my-works{
+		.transformHW(translate(-33.33%, 0));
+	}
+	&.photos{
+		.transformHW(translate(-66.66%, 0));
+	}
 }
-#main.about-me{
-	.transformHW(translate(0, 0));
-}
-#main.my-works{
-	.transformHW(translate(-33.33%, 0));
-}
-#main.photos{
-	.transformHW(translate(-66.66%, 0));
-}
+
 .carousel{
 	overflow: hidden;
 	min-height: 900px;
