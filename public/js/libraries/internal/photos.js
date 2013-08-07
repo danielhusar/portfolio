@@ -5,10 +5,12 @@
 
 	window.namespace('DH.libraries').photos = (function(){
 
-		var limit = 12,
+		var limit = DH.settings.photos.limit,
 				totalPhotos = Number($('#photos-wrap .total').val()),
 				totalPages = Math.ceil(totalPhotos/limit),
 				$wrap = $('#photos-wrap article ul');
+
+		DH.settings.photos.totalPhotos = totalPhotos;
 
 
 		function loadPohotos(page){

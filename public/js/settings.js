@@ -7,7 +7,12 @@
 			device				: 'mobile',	//device, can be: desktop, tablet, mobile. The version is set up on init, but mobile is default.
 			nav						: ['about-me', 'my-works', 'photos']
 		},
-		pageWidth : 0
+		pageWidth : 0,
+		photos		: {
+			limit					:	12,
+			totalPhotos		:	0,
+			currentPhoto	:	0
+		}
 	};
 
 })(this, this.document, this.jQuery, this._);

@@ -5,7 +5,7 @@
 	var width = 700;
 	var $carousel = $('#carousel');
 
-	DH.carousel = {
+	window.namespace('DH.libraries').carousel = {
 
 		init : function(){
 			$('#carousel').css({
@@ -18,8 +18,15 @@
 			if(DH.settings.environment.device !== 'desktop'){
 				return;
 			}
+
+			//store current photo
+			DH.settings.photos.currentPhoto = Number(id);
+
 			//remove global navigation binds
 			$(document).off('.key');
+
+			//plug in carousel navigation
+			DH.libraries.carousel.keyNav();
 
 			//lazy load images in carousel
 			$carousel.find('[data-id="'+ id +'"], [data-id="'+ (Number(id) - 1) +'"], [data-id="'+ (Number(id) + 1) +'"]').lazyLoad({effect: 'fadeIn'});
@@ -30,6 +37,23 @@
 
 			$carousel.find('ul').css({
 				marginLeft : (-id * width + width) + 'px'
+			});
+		},
+
+		keyNav : function(){
+			$(document).on('keydown.dh.carousel', function(e){
+				console.log(e.keyCode);
+				if (e.keyCode === 37 || e.keyCode === 39) {
+					var id = DH.settings.photos.currentPhoto,
+							navigateTo = (e.keyCode === 37) ? --id : ++id;
+
+					if( id > 0 && id <= DH.settings.photos.totalPhotos){
+						DH.hash('photo/' + navigateTo);
+					}
+				}else if(e.keyCode === 40){
+					DH.hash('photos');
+					DH.libraries.nav.init();
+				}
 			});
 		}
 

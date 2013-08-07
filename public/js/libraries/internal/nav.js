@@ -13,6 +13,11 @@
       },
 
       init : function(){
+
+        //unplug carousel nav
+        $(document).off('.carousel');
+        
+        //plug global nav
         $(document).on('keydown.dh.key', function(e){
           if (e.keyCode === 37 || e.keyCode === 39) { 
             $.each(nav, function(key, val){

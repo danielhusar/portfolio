@@ -30,7 +30,7 @@
 		//desktop inits
 		DH.isDevice('desktop', function () {
 			DH.log('desktop version');
-			DH.carousel.init();
+			DH.libraries.carousel.init();
 			//DH.events.lightbox.desktop();
 		});
 

@@ -1,3 +1,10 @@
+.carousel{
+	overflow: hidden;
+	min-height: 900px;
+	#main{
+		margin-top: 0;
+	}
+}
 #carousel{
 	position: absolute;
 	display: block;
@@ -25,12 +32,14 @@
 				display: inline-block;
 				position: relative;
 				background: #fafafa;
-				.box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset);
 				img{
 					width: 600px;
+					.box-shadow(0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset);
+					.border-radius(0, 170px 5px, 170px 5px, 0);
 					&[data-image-src]{
 						background-color: white;
 						height: 600px;
+						
 					}
 				}
 			}

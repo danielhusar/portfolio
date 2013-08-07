@@ -1,7 +1,7 @@
 module.exports = function(app, express){
 	
 	var cons    	 = require('consolidate'),
-  	  swig    	 = require('swig'),
+			swig    	 = require('swig'),
 			helpers 	 = require('../app/helpers/helpers'),
 			path 			 = require('path'),
 			config     = {};
@@ -10,7 +10,7 @@ module.exports = function(app, express){
 
 
 			
-  config.swig = {
+	config.swig = {
 		"root" 		 	: process.cwd() + "/app/views",
 		"encoding" 	: "utf-8"
 	};
@@ -42,7 +42,8 @@ module.exports = function(app, express){
 		config.swig.allowErrors = false;
 		//less settings
 		config.less.compress = true;
-		config.less.optimization = 2;
+		config.less.yuicompress = true;
+		config.less.optimization = 3;
 	});
 
 	//settings
