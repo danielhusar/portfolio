@@ -1,6 +1,6 @@
 (function (window, document, $, _, undefined) {
 	'use strict';
-	
+
 	var DH = window.namespace('DH');
 	var width = 700;
 	var $carousel = $('#carousel');
