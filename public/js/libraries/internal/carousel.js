@@ -34,7 +34,6 @@
 			//css
 			$('body').addClass('carousel');
 			$('#main').css(DH.prefix('transform'), 'translate(-66%, 0) translate3d(0, 0, 0)');
-
 			$carousel.find('ul').css({
 				marginLeft : (-id * width + width) + 'px'
 			});
@@ -42,7 +41,6 @@
 
 		keyNav : function(){
 			$(document).on('keydown.dh.carousel', function(e){
-				console.log(e.keyCode);
 				if (e.keyCode === 37 || e.keyCode === 39) {
 					var id = DH.settings.photos.currentPhoto,
 							navigateTo = (e.keyCode === 37) ? --id : ++id;
