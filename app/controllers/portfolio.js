@@ -19,7 +19,7 @@ module.exports = function(app, model, helpers){
 	});
 
 	/**
-	 * Ajax loader for the photos
+	 * Ajax loader for the photoss
 	 */
 	app.get('/ajax/photos/:page', function(req, res){
 		var page = req.params.page || 1;
