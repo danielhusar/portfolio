@@ -47,7 +47,7 @@
 		},
 
 		/**
-		 * Load the images in works section
+		 * Lazy load different page section
 		 * @return {object}
 		 */
 		lazyLoad : (function(){
@@ -69,6 +69,7 @@
 						DH.log('Photos lazy loaded.');
 						$('#photos-list').lazyLoad();
 						loaded.photos = true;
+						DH.libraries.twitter.init();
 					}
 				}
 			};
