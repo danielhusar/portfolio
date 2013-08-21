@@ -53,6 +53,12 @@ module.exports = function(grunt) {
           'reports': ['public/js/*.js', 'public/js/libraries/internal/*.js', '!**/*min.js']
         }
       }
+    },
+    //duplicated rules
+    csscss: {
+      dist: {
+        src: ['public/css/style.less']
+      }
     }
   });
 
@@ -63,12 +69,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-mocha');
   grunt.loadNpmTasks('grunt-plato');
+  grunt.loadNpmTasks('grunt-csscss');
 
   //Tasks  
   grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'mocha', 'plato']);
   grunt.registerTask('development', ['concat', 'uglify', 'watch']);
   grunt.registerTask('production', ['concat', 'uglify']);
   grunt.registerTask('hint', ['jshint']);
+  grunt.registerTask('css', ['csscss']);
   grunt.registerTask('tests', ['mocha']);
   grunt.registerTask('reports', ['plato']);
 
