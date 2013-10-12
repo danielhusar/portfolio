@@ -2,48 +2,55 @@ var expect = chai.expect,
 		should = chai.should();
 
 
-describe('Portfolio', function() {
+describe('TSB', function() {
 
 	describe('Globals', function() {
-		it('Prototypes exists.', function () {
-			DanielHusar.should.be.a('function');
-			DanielHusar.prototype.device.should.be.a('object');
-			DanielHusar.prototype.isDevice.should.be.a('function');
-			DanielHusar.prototype.log.should.be.a('function');
-			DanielHusar.prototype.prefix.should.be.a('function');
-			DanielHusar.prototype.hash.should.be.a('function');
-			DanielHusar.prototype.fmt.should.be.a('function');
+		it('Libraries tests.', function () {
+			$.should.be.a('function');
+			$.fn.jquery.should.be.above('2.0');
+			Modernizr.should.be.a('object');
 		});
 
-		it('DH instance exists.', function () {
-			DH.should.be.a('object');
+		it('Prototypes exists.', function () {
+			TSB.should.be.a('object');
+			TSB.device.should.be.a('object');
+			TSB.isDevice.should.be.a('function');
+			TSB.log.should.be.a('function');
+			TSB.prefix.should.be.a('function');
+			TSB.fmt.should.be.a('function');
 		});
 
 		it('FMT is working.', function () {
-			DH.fmt("test%@1%@2", 1, 2).should.equal('test12');
+			TSB.fmt("test%@1%@2", 1, 2).should.equal('test12');
 		});
 	});
 
 	describe('Settings', function() {
 		it('We should be on development environment.', function () {
-			DH.settings.environment.isProduction.should.equal(false);
+			TSB.settings.environment.isProduction.should.equal(false);
+		});
+		it('We should be using large version.', function () {
+			//we run it through browser
+			if(window.outerWidth > 1) { 
+				TSB.settings.environment.device.should.equal('large');
+			//we run it through grunt
+			} else { 
+				TSB.settings.environment.device.should.equal('small');
+			}
 		});
 	})
 
 
 	describe('Events', function() {
 		it('Events object exists.', function () {
-			DH.events.should.be.a('object');
+			TSB.events.should.be.a('object');
 		});
 	});
 
-	describe('Libraries', function() {
-		it('Libraries object exists.', function () {
-			DH.libraries.should.be.a('object');
+	describe('Modules', function() {
+		it('Modules object exists.', function () {
+			TSB.modules.should.be.a('object');
 		});
-	})
-
-
+	});
 
 });
-
