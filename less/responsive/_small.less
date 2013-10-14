@@ -1,7 +1,12 @@
+html{
+  min-height: 100%;
+}
 body{
   min-width: 320px;
-  padding: 0 $margin;
+  min-height: 100%;
+  .gradient(top, rgb(212, 238, 253) 0%, rgb(224, 223, 213) 27%, rgb(236, 188, 132) 55%, rgb(244, 192, 128) 81%, rgb(238, 178, 107) 100%);
 }
+
 //grid content
 .make-grid-columns-float(s);
 .make-grid(@grid-columns, s, width);
