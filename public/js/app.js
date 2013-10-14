@@ -244,28 +244,28 @@
 ;(function(window, document, $, Modernizr, undefined) {
   'use strict';
 
-  var APP = function() {
+  var Application = function() {
     this.modules = {};
     this.instances = {};
     this.promises = {};
     this.events = {};
   };
-  window.TSB = new APP();
+  var APP = window.APP = new Application();
 
   /**
-   * Defining named conditions to be used by APP.isDevice
+   * Defining named conditions to be used by Application.isDevice
    *
    * @namespace APP
    */
-  APP.prototype.device = {
+  Application.prototype.device = {
     'large': function() {
       return !Modernizr.mq('only all') || Modernizr.mq('only screen and (min-width: 1025px)');
     },
     'medium': function() {
-      return (!APP.prototype.device.large()) && Modernizr.mq('only screen and (min-width: 768px)');
+      return (!Application.prototype.device.large()) && Modernizr.mq('only screen and (min-width: 768px)');
     },
     'small': function() {
-      return !(APP.prototype.device.medium() || APP.prototype.device.large());
+      return !(Application.prototype.device.medium() || Application.prototype.device.large());
     }
   };
 
@@ -284,8 +284,8 @@
    * @param     {Function}  callback    Callback to be triggered when conditions return true
    * @return    {Object}                this
    */
-  APP.prototype.isDevice = function(condition, callback) {
-    if (APP.prototype.device[condition]()) {
+  Application.prototype.isDevice = function(condition, callback) {
+    if (Application.prototype.device[condition]()) {
       callback();
     }
     return this;
@@ -303,12 +303,12 @@
    * @param     {Function}  callback    Callback to be triggered when conditions return true
    * @return    {Object}                this
    */
-  APP.prototype.page = function(page, callback) {
+  Application.prototype.page = function(page, callback) {
 
     var pageId = $('body').attr('id').replace('page-', '');
 
     if ((typeof page === 'string' && pageId === page) || (typeof page === 'object' && page.indexOf(pageId) !== -1)) {
-      APP.prototype.log('%c Executing scripts for: ' + pageId, TSB.settings.console.css);
+      Application.prototype.log('%c Executing scripts for: ' + pageId, APP.settings.console.css);
       callback();
     }
     return this;
@@ -319,11 +319,10 @@
    * Console log function, it logs only on development enviroment
    * @return {void}
    */
-  APP.prototype.log = function() {
+  Application.prototype.log = function() {
     var args;
-    var currentDateAndTime;
 
-    if (window.TSB.settings && window.TSB.settings.environment && !window.TSB.settings.environment.isProduction) {
+    if (window.APP.settings && window.APP.settings.environment && !window.APP.settings.environment.isProduction) {
       if (window.console && window.console.log && window.console.log.apply) {
         args = Array.prototype.slice.call(arguments);
         window.console.log.apply(window.console, args);
@@ -336,7 +335,7 @@
    * @param  {string} method css method
    * @return {string} prefixed method if exist, or the same method of preixed not avaiable
    */
-  APP.prototype.prefix = function(method) {
+  Application.prototype.prefix = function(method) {
     var transEndEventNames = {
       'WebkitTransition': 'webkitTransitionEnd',
       'MozTransition': 'transitionend',
@@ -369,8 +368,8 @@
    *
    * Sample Usage:
    *
-   *   APP.fmt('Hello %@ %@',    'John', 'Doe') // => 'Hello John Doe'
-   *   APP.fmt('Hello %@2, %@1', 'John', 'Doe') // => 'Hello Doe, John'
+   *   Application.fmt('Hello %@ %@',    'John', 'Doe') // => 'Hello John Doe'
+   *   Application.fmt('Hello %@2, %@1', 'John', 'Doe') // => 'Hello Doe, John'
    *
    *
    * @namespace APP
@@ -379,7 +378,7 @@
    * @param  {String...}  *args   Strings to be passed into @string param
    * @return {String}             Formatted string
    */
-  APP.prototype.fmt = function(string) {
+  Application.prototype.fmt = function(string) {
     var formats;
     var index;
 
@@ -403,9 +402,9 @@
    * @return {Object}          Module DOM
    *
    * @sample usage:
-   * TSB.moduleWrap('account');
+   * APP.moduleWrap('account');
    */
-  APP.prototype.moduleWrap = function(module) {
+  Application.prototype.moduleWrap = function(module) {
     return $('[data-module="' + module + '"]');
   };
 
@@ -419,10 +418,10 @@
    * @return {Object}          this
    *
    * @sample usage:
-   * TSB.addModule('account', settings, events);
+   * APP.addModule('account', settings, events);
    */
-  APP.prototype.addModule = function(module, settings, events) {
-    TSB.modules[module] = $.extend({}, {
+  Application.prototype.addModule = function(module, settings, events) {
+    APP.modules[module] = $.extend({}, {
       settins: settings
     }, events);
     return this;
@@ -431,10 +430,10 @@
 
 })(this, this.document, this.jQuery, this.Modernizr);
 
-;(function(window, document, $, undefined) {
+;(function(window, document, APP, $, undefined) {
   'use strict';
 
-  TSB.settings = {
+  APP.settings = {
     environment: {
       isProduction: false,
       device: 'small' //device, can be: desktop, tablet, mobile. The version is set up on init, but mobile is default.
@@ -444,18 +443,18 @@
     }
   };
 
-})(this, this.document, this.jQuery);
+})(this, this.document, this.APP, this.jQuery);
 
-;(function(window, document, $, Modernizr, undefined) {
+;(function(window, document, APP, $, Modernizr, undefined) {
   'use strict';
 
-  TSB.promises = {
+  APP.promises = {
 
     /**
      * Device changed promise, will be executed when the device has changed
      * @return {void}
      * @sample usage:
-     * TSB.promises.deviceChanged.done(function(){});
+     * APP.promises.deviceChanged.done(function(){});
      */
     deviceChanged: (function() {
       var treshold = 500,
@@ -465,8 +464,8 @@
       $(window).on('resize.tsb', function() {
         window.clearTimeout(debounce);
         debounce = window.setTimeout(function() {
-          if (TSB.settings.environment.device !== TSB.events.getDevice()) {
-            TSB.settings.environment.device = TSB.events.getDevice();
+          if (APP.settings.environment.device !== APP.events.getDevice()) {
+            APP.settings.environment.device = APP.events.getDevice();
             devicePromise.resolve();
           }
         }, treshold);
@@ -477,12 +476,12 @@
 
   };
 
-})(this, this.document, this.jQuery, this.Modernizr);
+})(this, this.document, this.APP, this.jQuery, this.Modernizr);
 
-;(function(window, document, $, Modernizr, undefined) {
+;(function(window, document, APP, $, Modernizr, undefined) {
   'use strict';
 
-  TSB.events = {
+  APP.events = {
 
     /**
      * Get the current device which is viewing the page
@@ -490,13 +489,13 @@
      */
     getDevice: function() {
       var device = '';
-      TSB.isDevice('small', function() {
+      APP.isDevice('small', function() {
         device = 'small';
       });
-      TSB.isDevice('medium', function() {
+      APP.isDevice('medium', function() {
         device = 'medium';
       });
-      TSB.isDevice('large', function() {
+      APP.isDevice('large', function() {
         device = 'large';
       });
       return device;
@@ -507,9 +506,9 @@
      * @return {void}
      */
     lazyLoad: function() {
-      $("img[data-src]").lazyLoad(200, function() {
+      $('img[data-src]').lazyLoad(200, function() {
         $(this).css('opacity', 1);
-        TSB.log('%c ' + $(this).attr('alt') + ' image lazy loaded', TSB.settings.console.css);
+        APP.log('%c ' + $(this).attr('alt') + ' image lazy loaded', APP.settings.console.css);
       });
     },
 
@@ -519,56 +518,56 @@
      * @return {void}
      */
     versions: function() {
-      TSB.log('%c jQuery version used: ' + $.fn.jquery, TSB.settings.console.css);
-      TSB.log('%c Modernizr version used: ' + Modernizr._version, TSB.settings.console.css);
-      TSB.log('%c ----------------------------', TSB.settings.console.css);
+      APP.log('%c jQuery version used: ' + $.fn.jquery, APP.settings.console.css);
+      APP.log('%c Modernizr version used: ' + Modernizr._version, APP.settings.console.css);
+      APP.log('%c ----------------------------', APP.settings.console.css);
     }
 
   };
 
-})(this, this.document, this.jQuery, this.Modernizr);
+})(this, this.document, this.APP, this.jQuery, this.Modernizr);
 
-;(function(window, document, $, undefined) {
+;(function(window, document, APP, $, undefined) {
   'use strict';
 
   //all init triggers
-  TSB.init = function() {
+  APP.init = function() {
 
     //log the versions of libraries
-    TSB.events.versions();
+    APP.events.versions();
 
     //store device
-    TSB.settings.environment.device = TSB.events.getDevice();
+    APP.settings.environment.device = APP.events.getDevice();
 
     //mobile inits
-    TSB.isDevice('small', function() {
-      TSB.log('%c small version', TSB.settings.console.css);
+    APP.isDevice('small', function() {
+      APP.log('%c small version', APP.settings.console.css);
     });
 
     //tablet inits
-    TSB.isDevice('medium', function() {
-      TSB.log('%c medium version', TSB.settings.console.css);
+    APP.isDevice('medium', function() {
+      APP.log('%c medium version', APP.settings.console.css);
     });
 
     //desktop inits
-    TSB.isDevice('large', function() {
-      TSB.log('%c large version', TSB.settings.console.css);
+    APP.isDevice('large', function() {
+      APP.log('%c large version', APP.settings.console.css);
     });
 
 
     //global inits
-    TSB.events.lazyLoad();
+    APP.events.lazyLoad();
 
     //page custom inits
 
     //Homepage
-    TSB.page('home', function() {
-      //TSB.instances.myModule = new TSB.modules.myModule();
+    APP.page('home', function() {
+      //APP.instances.myModule = new APP.modules.myModule();
     });
 
   };
 
   //initial init
-  TSB.init();
+  APP.init();
 
-})(this, this.document, this.jQuery);
+})(this, this.document, this.APP, this.jQuery);

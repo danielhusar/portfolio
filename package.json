@@ -1,7 +1,7 @@
 {
-  "name": "daniel husar portfolio",
-  "subdomain": "",
-  "description": "My personal portfolio",
+  "name": "frontdev-workflow",
+  "subdomain": "efrafa-boilerplate",
+  "description": "My front development workflow",
   "keywords": [
     "frontend",
     "development"
@@ -24,6 +24,7 @@
     "grunt-contrib-watch": "*",
     "grunt-contrib-connect": "*",
     "grunt-contrib-less": "*",
+    "grunt-eslint": "*",
     "grunt-jsbeautifier": "*",
     "grunt-plato": "*",
     "grunt-mocha": "~0.3.0",
@@ -33,6 +34,7 @@
     "grunt-open": "*",
     "load-grunt-tasks": "*",
     "mocha": "*",
-    "chai": "*"
+    "chai": "*",
+    "sinon": "*"
   }
 }
