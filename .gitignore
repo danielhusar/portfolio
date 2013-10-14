@@ -40,3 +40,5 @@ public/js/packed
 config/twitter.js
 cache/*
 *.css
+portfolio.sublime-project
+portfolio.sublime-workspace
