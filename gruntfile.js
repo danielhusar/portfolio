@@ -148,8 +148,7 @@ module.exports = function(grunt) {
           replacements: [{
             pattern: 'isProduction: false',
             replacement: 'isProduction: true'
-          },
-          {
+          }, {
             pattern: 'isProduction = false',
             replacement: 'isProduction = true'
           }]
