@@ -148,7 +148,8 @@ module.exports = function(grunt) {
           replacements: [{
             pattern: 'isProduction: false',
             replacement: 'isProduction: true'
-          }, {
+          },
+          {
             pattern: 'isProduction = false',
             replacement: 'isProduction = true'
           }]
@@ -186,6 +187,35 @@ module.exports = function(grunt) {
         path: 'http://localhost:<%= connect.server.options.port %>/',
         app: 'Google Chrome Canary'
       }
+    },
+
+    //Generate sprites
+    sprite: {
+      all: {
+        src: ['public/img/icons/*.png', 
+              'public/img/icons/*.jpg', 
+              'public/img/icons/*.gif'],             // Sprite files to read in
+        destImg: 'public/img/sprite.png',            // Location to output spritesheet
+        destCSS: 'less/base/components/_icons.less', // Less with variables under sprite names
+        imgPath: 'img/sprite.png',                   // Manual override for imgPath specified in CSS
+        algorithm: 'binary-tree',                    // Specify algorithm (top-down, left-right, diagonal [\ format], alt-diagonal [/ format], binary-tree [best packing])
+        padding: 1,                                  // Specify padding between images
+        engine: 'auto',                            // Specify engine (auto, phantomjs, canvas, gm)
+        cssFormat: 'css',                            // (stylus, scss, sass, less, json, jsonArray, css)
+        engineOpts: {
+          imagemagick: true                          // Specify settings for engine
+        },
+        imgOpts: {                                   // Specify img options
+           format: 'png',
+           quality: 90
+        },
+        cssOpts: {                                   // Specify css options
+          functions: false,
+          cssClass: function (item) {
+            return '.icon-' + item.name;
+          }
+        }
+      }
     }
 
   });
@@ -194,7 +224,7 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   //Tasks  
-  grunt.registerTask('default', ['concat', 'uglify', 'swig', 'less']);
+  grunt.registerTask('default', ['concat', 'uglify', 'swig', 'sprites','less']);
 
   grunt.registerTask('packjs', ['concat', 'uglify']);
   grunt.registerTask('reports', ['plato']);
@@ -203,6 +233,7 @@ module.exports = function(grunt) {
   grunt.registerTask('tpl', ['swig']);
 
   grunt.registerTask('css', ['less']);
+  grunt.registerTask('sprites', ['sprite']);
   grunt.registerTask('test', ['mocha']);
   grunt.registerTask('hint', ['jshint', 'eslint']);
   grunt.registerTask('server', ['connect', 'open', 'watch']);

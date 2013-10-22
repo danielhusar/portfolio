@@ -39,6 +39,7 @@ reports
 public/js/packed
 config/twitter.js
 cache/*
+screenshots/
 *.css
 portfolio.sublime-project
 portfolio.sublime-workspace

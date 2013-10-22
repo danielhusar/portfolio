@@ -49,10 +49,18 @@ Switching between production and development environment
 
 ***
 
+Create sprites from all icons located inside icon folder.
+
+Readme: https://github.com/Ensighten/grunt-spritesmith
+
+You may need to install Cairo: https://github.com/LearnBoost/node-canvas/wiki/Installation---OSX
+
+	grunt sprites
+
 Compile all less files
-```javascript
-grunt css
-```
+
+	grunt css
+
 ***
 Compile all templates:
 
