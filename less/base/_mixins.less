@@ -55,6 +55,15 @@
           transition: @prop;
 }
 
+.animation(@prop,@prop2:X,...){ 
+  @prop: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+  -webkit-animation: @prop;
+     -moz-animation: @prop;
+      -ms-animation: @prop;
+       -o-animation: @prop;
+          animation: @prop;
+}
+
 /* Shadows */
 .drop-shadow(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1) {
   -webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);

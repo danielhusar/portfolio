@@ -26,6 +26,11 @@
     });
 
 
+    setTimeout(function(){
+      $('[data-me]').addClass('active')
+    }, 1000);
+
+
     //global inits
     APP.events.lazyLoad();
 
