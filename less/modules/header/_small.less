@@ -3,9 +3,13 @@
   .me{
     border-radius: 50%;
     .transformHW(translate(0,-100%));
-    &.active{
-      .transformHW(translate(0,0));
-      .animation(slideDown 1s ease);
+  }
+  .loaded &{
+    .me{
+      .animation(slideDown 1s 1s ease);
+      &.animation-end{
+        .transformHW(translate(0,0));
+      }
     }
   }
 }

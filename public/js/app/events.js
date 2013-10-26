@@ -32,6 +32,34 @@
       });
     },
 
+    /**
+     * Add custom events classes to some of the elemets
+     * @return {void}
+     */
+    eventsClass: function(){
+      var config = [
+        {
+          el: $('.animation'),
+          binding: 'animationEnd',
+          css: 'animation-end'
+        },
+        {
+          el: $('.transition'),
+          binding: 'transitionEnd',
+          css: 'transition-end'
+        }
+      ];
+
+      $.each(config, function(index, value){
+        value.el.on(APP.prefix(value.binding), function(){
+          $(this).addClass(value.css);
+        });
+        if(!Modernizr.cssanimations){
+          value.el.addClass(value.css);
+        }
+      });
+    },
+
 
     /**
      * Log the versions of the used plugins

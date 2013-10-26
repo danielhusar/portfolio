@@ -26,19 +26,13 @@
     });
 
 
-    setTimeout(function(){
-      $('[data-me]').addClass('active')
-    }, 1000);
-
 
     //global inits
     APP.events.lazyLoad();
+    APP.events.eventsClass();
 
-    //page custom inits
-
-    //Homepage
-    APP.page('home', function() {
-      //APP.instances.myModule = new APP.modules.myModule();
+    $( window ).load(function() {
+      $('body').addClass('loaded');
     });
 
   };

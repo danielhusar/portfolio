@@ -100,8 +100,18 @@
       'msTransition': 'MSTransitionEnd',
       'transition': 'transitionend'
     };
+
+    var animEndEventNames = {
+      'WebkitAnimation': 'webkitAnimationEnd',
+      'OAnimation': 'oAnimationEnd',
+      'msAnimation': 'MSAnimationEnd',
+      'animation': 'animationend'
+    };
+
     if (method === 'transitionEnd') {
       return transEndEventNames[Modernizr.prefixed('transition')];
+    } else if (method === 'animationEnd') {
+      return animEndEventNames[Modernizr.prefixed('animation')];
     } else {
       method = Modernizr.prefixed(method) ? Modernizr.prefixed(method) : method;
       return method.replace(/([A-Z])/g, function(str, m1) {
