@@ -34,12 +34,19 @@ results
 
 npm-debug.log
 node_modules
-components
 reports
-public/js/packed
-config/twitter.js
 cache/*
-screenshots/
-*.css
-portfolio.sublime-project
-portfolio.sublime-workspace
+.sass-cache
+
+# ignore all dynamic generated files #
+#####################################################
+app.js
+app.min.js
+plugins.js
+plugins.min.js
+public/*.html
+public/css/*.css
+public/css/*.map
+screenshots
+*.sublime-project
+*.sublime-workspace
